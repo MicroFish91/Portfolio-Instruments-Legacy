@@ -92,7 +92,7 @@
 
 								<div class="dropdown">
 									<a class="nav-link pr-0 leading-none d-flex" data-toggle="dropdown" href="#">
-										<span class="avatar avatar-md brround" style="background-image: url(assets/images/faces/female/25.jpg)"></span>
+										<span class="avatar avatar-md brround" ></span>
 										<span class="ml-2 d-none d-lg-block">
 											<span class="text-white">Matthew Fisher</span>
 										</span>
@@ -142,10 +142,44 @@
 							<a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fas fa-table"></i><span class="side-menu__label">Portfolio Wizard</span><i class="angle fas fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
-									<a href="#" class="slide-item">Default table</a>
+									<a href="#" class="slide-item">Asset Breakdown</a>
 								</li>
 								<li>
-									<a href="#" class="slide-item">Data Table</a>
+									<a href="#" class="slide-item">Portfolio Snapshots</a>
+								</li>
+							</ul>
+						</li>
+
+						<!-- Investment Guidance -->
+						<li class="slide">
+							<a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fas fa-table"></i><span class="side-menu__label">Lazy Portfolios</span><i class="angle fas fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li>
+									<a href="#" class="slide-item">General</a>
+								</li>
+								<li>
+									<a href="#" class="slide-item">Total Stock Market</a>
+								</li>
+								<li>
+									<a href="#" class="slide-item">Classic 60/40</a>
+								</li>
+								<li>
+									<a href="#" class="slide-item">Three-Fund Portfolio</a>
+								</li>
+								<li>
+									<a href="#" class="slide-item">No-Brainer Portfolio</a>
+								</li>
+								<li>
+									<a href="#" class="slide-item">Rick Ferri Core Four</a>
+								</li>
+								<li>
+									<a href="#" class="slide-item">Ivy Portfolio</a>
+								</li>
+								<li>
+									<a href="#" class="slide-item">Permanent Portfolio</a>
+								</li>
+								<li>
+									<a href="#" class="slide-item">Golden Butterfly</a>
 								</li>
 							</ul>
 						</li>
@@ -249,6 +283,43 @@
 								</div>
 							</div>
 						</div>
+
+						<!-- Line Chart -->
+						<div class="row">
+							<div class="col-lg-12 col-md-12">
+								<div class="card">
+									<div class="card-header">
+										<h3 class="card-title">Net Worth</h3>
+									</div>
+									<div class="card-body">
+										<canvas id="lineChart"></canvas>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+
+						<!-- <div class="col-sm-12 col-md-6 col-lg-3">
+							<div class="card overflow-hidden">
+								<div class="card-status bg-blue br-tr-3 br-tl-3"></div>
+								<div class="card-body">
+									<div class="row">
+										<div class="col">
+											<div class="text-muted">Today Income</div>
+											<div class="h3 m-0  text-blue counter font-30">5,67,00</div>
+										</div>
+										<div class="col-auto align-self-center">
+											<div class="icon icon-shape bg-gradient-blue rounded-circle text-white">
+												<i class="fas fa-dollar-sign text-white"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="chart-wrapper px-0">
+									<canvas id="widgetChart3"></canvas>
+								</div>
+							</div>
+						</div> -->
 						
 						<!-- Second Row Dashboard Body: Financial Institutions -->
 						<div class="row">
@@ -372,36 +443,34 @@
 													</div>
 												</div>
 											</div>
-											<div class="progress-content">
-												<div class="row">
-													<div class="col-lg-4 mt-2">
-														<div class="progress-text">Other</div>
-													</div>
-													<div class="col-lg-8">
-														<div class="current-progressbar">
-															<div class="progress progress-md">
-																<div class="progress-bar bg-gradient-red" style="width: 67%">67%</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>	
-					</div>
 
-					<!-- Row 3: Pie Chart -->
+					<!-- Row 3: Pie Charts -->
 					<div class="row">
+						<!-- Pie Chart One -->
 						<div class="col-lg-6 col-md-12">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">Pie Chart4</h3>
+									<h3 class="card-title">Pie Chart 4</h3>
 								</div>
 								<div class="card-body">
 									<div id="chart-pie4" class="chartsh"></div>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Pie Chart Two -->
+						<div class="col-lg-6 col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="card-title">Pie Chart 3</h3>
+								</div>
+								<div class="card-body">
+									<div id="chart-pie3" class="chartsh"></div>
 								</div>
 							</div>
 						</div>
@@ -428,20 +497,26 @@
 		<!-- Dashboard Core -->
 		<script src="assets/js/vendors/jquery-3.2.1.min.js"></script>
 		<script src="assets/js/vendors/bootstrap.bundle.min.js"></script>
+		<script src="assets/js/vendors/jquery.sparkline.min.js"></script>
+		<script src="assets/js/vendors/selectize.min.js"></script>
 
 		<!-- Side menu js -->
 		<script src="assets/plugins/toggle-sidebar/js/sidemenu.js"></script>
 
 		<!-- c3.js Charts Plugin -->
-		<script src="./assets/plugins/charts-c3/d3.v5.min.js"></script>
-		<script src="./assets/plugins/charts-c3/c3-chart.js"></script>
+		<script src="assets/plugins/charts-c3/d3.v5.min.js"></script>
+		<script src="assets/plugins/charts-c3/c3-chart.js"></script>
 
 		<!-- 3Dlines-animation  ** check invidual files ** -->
         <script src="assets/plugins/3Dlines-animation/three.min.js"></script>
         <script src="assets/plugins/3Dlines-animation/projector.js"></script>
         <script src="assets/plugins/3Dlines-animation/canvas-renderer.js"></script>
         <script src="assets/plugins/3Dlines-animation/3d-lines-animation.js"></script>
-        <script src="assets/plugins/3Dlines-animation/color.js"></script>
+		<script src="assets/plugins/3Dlines-animation/color.js"></script>
+
+		<!-- Animation -->
+        <script src="assets/plugins/particles/particles.js"></script>
+        <script src="assets/plugins/particles/particlesapp_default.js"></script>
 
         <!-- Index Scripts -->
 		<script src="assets/js/index.js"></script>
@@ -449,6 +524,7 @@
 		
 		<!--  Chart js -->
 		<script src="./assets/plugins/chart/Chart.bundle.js"></script>
+		<script src="assets/js/chart.js"></script>
 	
 		<!-- custom js -->
 		<script src="assets/js/custom.js"></script>

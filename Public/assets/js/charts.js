@@ -1,4 +1,3 @@
-// Chart Info Toggle 
  (function($) {
     "use strict";
 	
