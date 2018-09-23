@@ -1,15 +1,15 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Accounts = sequelize.define('Accounts', {
+  const accounts = sequelize.define('accounts', {
     holdingLocation: DataTypes.STRING,
     accountType: DataTypes.STRING(15),
-    moneyMarket: DataTypes.DECIMAL(2),
+    moneyMarket: DataTypes.JSON,
   }, {});
-  Accounts.associate = function(models) {
+  accounts.associate = function(models) {
     // Associations
-    Accounts.hasOne(models.stocks);
-    Accounts.hasOne(models.fixed_income);
-    Accounts.hasOne(models.real_assets);
+    accounts.hasOne(models.stocks);
+    accounts.hasOne(models.fixed_incomes);
+    accounts.hasOne(models.real_assets);
   };
-  return Accounts;
+  return accounts;
 };

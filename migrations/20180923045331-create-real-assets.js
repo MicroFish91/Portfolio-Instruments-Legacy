@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Real_Assets', {
+    return queryInterface.createTable('real_assets', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -9,13 +9,13 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       commodoties: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       gold: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       reits: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       createdAt: {
         allowNull: false,
@@ -28,6 +28,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Real_Assets');
+    return queryInterface.dropTable('real_assets');
   }
 };

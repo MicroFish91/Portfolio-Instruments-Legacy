@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Fixed_Incomes', {
+    return queryInterface.createTable('fixed_incomes', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -9,16 +9,16 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       ltb: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       itb: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       stb: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       bills: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       createdAt: {
         allowNull: false,
@@ -31,6 +31,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Fixed_Incomes');
+    return queryInterface.dropTable('fixed_incomes');
   }
 };

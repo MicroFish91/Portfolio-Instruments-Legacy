@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Stocks', {
+    return queryInterface.createTable('stocks', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -9,61 +9,61 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       tsm: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       d_lcb: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       d_lcv: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       d_lcg: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       d_mcb: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       d_mcv: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       d_mcg: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       d_scb: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       d_scv: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       d_scg: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       i_lcb: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       i_lcv: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       i_lcg: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       i_mcb: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       i_mcv: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       i_mcg: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       i_scb: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       i_scv: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       i_scg: {
-        type: Sequelize.DECIMAL(2)
+        type: Sequelize.JSON
       },
       createdAt: {
         allowNull: false,
@@ -76,6 +76,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Stocks');
+    return queryInterface.dropTable('stocks');
   }
 };

@@ -1,13 +1,13 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Real_Assets = sequelize.define('Real_Assets', {
-    commodoties: DataTypes.DECIMAL(2),
-    gold: DataTypes.DECIMAL(2),
-    reits: DataTypes.DECIMAL(2)
+  const real_assets = sequelize.define('real_assets', {
+    commodoties: DataTypes.JSON,
+    gold: DataTypes.JSON,
+    reits: DataTypes.JSON
   }, {});
-  Real_Assets.associate = function(models) {
+  real_assets.associate = function(models) {
     // Associations
-    Real_Assets.belongsTo(models.accounts);
+    real_assets.belongsTo(models.accounts);
   };
-  return Real_Assets;
+  return real_assets;
 };

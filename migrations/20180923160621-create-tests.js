@@ -1,21 +1,16 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('accounts', {
+    return queryInterface.createTable('Tests', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      holdingLocation: {
-        type: Sequelize.STRING
-      },
-      accountType: {
-        type: Sequelize.STRING(15)
-      },
-      moneyMarket: {
-        type: Sequelize.DECIMAL
+      test: {
+        allowNull: true,
+        type: Sequelize.JSON
       },
       createdAt: {
         allowNull: false,
@@ -28,6 +23,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('accounts');
+    return queryInterface.dropTable('Tests');
   }
 };

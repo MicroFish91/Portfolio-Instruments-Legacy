@@ -1,29 +1,29 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Stocks = sequelize.define('Stocks', {
-    tsm: DataTypes.DECIMAL(2),
-    d_lcb: DataTypes.DECIMAL(2),
-    d_lcv: DataTypes.DECIMAL(2),
-    d_lcg: DataTypes.DECIMAL(2),
-    d_mcb: DataTypes.DECIMAL(2),
-    d_mcv: DataTypes.DECIMAL(2),
-    d_mcg: DataTypes.DECIMAL(2),
-    d_scb: DataTypes.DECIMAL(2),
-    d_scv: DataTypes.DECIMAL(2),
-    d_scg: DataTypes.DECIMAL(2),
-    i_lcb: DataTypes.DECIMAL(2),
-    i_lcv: DataTypes.DECIMAL(2),
-    i_lcg: DataTypes.DECIMAL(2),
-    i_mcb: DataTypes.DECIMAL(2),
-    i_mcv: DataTypes.DECIMAL(2),
-    i_mcg: DataTypes.DECIMAL(2),
-    i_scb: DataTypes.DECIMAL(2),
-    i_scv: DataTypes.DECIMAL(2),
-    i_scg: DataTypes.DECIMAL(2)
+  const stocks = sequelize.define('stocks', {
+    tsm: DataTypes.JSON,
+    d_lcb: DataTypes.JSON,
+    d_lcv: DataTypes.JSON,
+    d_lcg: DataTypes.JSON,
+    d_mcb: DataTypes.JSON,
+    d_mcv: DataTypes.JSON,
+    d_mcg: DataTypes.JSON,
+    d_scb: DataTypes.JSON,
+    d_scv: DataTypes.JSON,
+    d_scg: DataTypes.JSON,
+    i_lcb: DataTypes.JSON,
+    i_lcv: DataTypes.JSON,
+    i_lcg: DataTypes.JSON,
+    i_mcb: DataTypes.JSON,
+    i_mcv: DataTypes.JSON,
+    i_mcg: DataTypes.JSON,
+    i_scb: DataTypes.JSON,
+    i_scv: DataTypes.JSON,
+    i_scg: DataTypes.JSON,
   }, {});
-  Stocks.associate = function(models) {
+  stocks.associate = function(models) {
     // Associations
-      Stocks.belongsTo(models.accounts);
+      stocks.belongsTo(models.accounts);
   };
-  return Stocks;
+  return stocks;
 };
