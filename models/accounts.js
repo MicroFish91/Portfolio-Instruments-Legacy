@@ -4,6 +4,9 @@ module.exports = (sequelize, DataTypes) => {
     holdingLocation: DataTypes.STRING,
     accountType: DataTypes.STRING(15),
     moneyMarket: DataTypes.JSON,
+    fixed_incomesId: DataTypes.INTEGER,
+    stocksId: DataTypes.INTEGER,
+    real_assetsId: DataTypes.INTEGER
   }, {});
   accounts.associate = function(models) {
     // Associations

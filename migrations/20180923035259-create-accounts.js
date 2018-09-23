@@ -15,7 +15,7 @@ module.exports = {
         type: Sequelize.STRING(15)
       },
       moneyMarket: {
-        type: Sequelize.DECIMAL
+        type: Sequelize.JSON
       },
       createdAt: {
         allowNull: false,
