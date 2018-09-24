@@ -16,8 +16,13 @@
 
 # sequelize migration:create --name realAssetsIdToAccounts
 
-sequelize migration:create --name accountsIdToStocks
+# sequelize migration:create --name accountsIdToStocks
 
-sequelize migration:create --name accountsIdToFixedIncome
+# sequelize migration:create --name accountsIdToFixedIncome
 
-sequelize migration:create --name accountsIdToRealAssets
+# sequelize migration:create --name accountsIdToRealAssets
+
+# sequelize model:generate --name Snapshots \
+# --attributes name:string,stockTotal:decimal,fixedIncomeTotal:decimal,cashTotal:decimal,commodotiesTotal:decimal,notes:string
+
+sequelize migration:create --name snapshotsIdToAccounts
