@@ -5,7 +5,7 @@ module.exports = {
     
     return queryInterface.addColumn(
       'fixed_incomes',
-      'accountsId',
+      'accountId',
       {
         type: Sequelize.INTEGER,
         references: {
@@ -20,7 +20,7 @@ module.exports = {
 
   down: (queryInterface, Sequelize) => {
     
-    return queryInterface.removeColumn('real_assets', 'accountsId');
+    return queryInterface.removeColumn('real_assets', 'accountId');
     
   }
 };

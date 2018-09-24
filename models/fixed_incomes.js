@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     itb: DataTypes.JSON,
     stb: DataTypes.JSON,
     bills: DataTypes.JSON,
-    accountsId: DataTypes.INTEGER
+    accountId: DataTypes.INTEGER
   }, {});
   fixed_incomes.associate = function(models) {
     // Associations

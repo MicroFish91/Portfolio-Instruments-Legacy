@@ -1,5 +1,14 @@
 var db = require('./models');
 
+// db.accounts.create({
+//   holdingLocation: "Vanguard",
+//   accountType: "Taxable",
+//   moneyMarket: JSON.stringify({ticker: "VTSOS", value: 300.00}),
+// })
+// .then(function(user){
+  
+// })
+
 // db.stocks.create({tsm: JSON.stringify({ticker: "VTSAX", value: 500.27, expense: 0.27}),
 //     d_lcb: null,
 //     d_lcv: null,
@@ -25,38 +34,45 @@ var db = require('./models');
     
 // })
 
-// db.accounts.create({
-//     holdingLocation: "Vanguard",
-//     accountType: "Taxable",
-//     moneyMarket: JSON.stringify({ticker: "VTSOS", value: 300.00}),
-//   })
+// db.fixed_incomes.create({
+//   ltb: {ticker: "ABC", value: 230.25, expense: 0.29},
+//   itb: null,
+//   stb: null,
+//   bills: null,
+//   accountId: 1
+// })
 // .then(function(user){
-    
+  
 // })
 
-
-// db.Tests.create({test: null})
-// .then(function(user){
-//     console.log(user);
-// });
-
-// db.Tests.findAll({})
-// .then(results => {
-//     var testing = JSON.parse(results[1].test);
-//     console.log(testing);
+// db.real_assets.create({
+//   commodoties: {ticker: "IAU", value: 102.53, expense: 0.19},
+//   gold: null,
+//   reits: null,
+//   accountId: 1
 // })
-
-// db.accounts.findById(3).then(results => {
-//   console.log(results.moneyMarket);
+// .then(function(user){
+  
 // })
 
 db.accounts.findAll({
   where: {id: 1},
   include: [{
-    model: db.stocks,
-    required: true
-   }]
+      model: db.fixed_incomes,
+      required: true
+    },
+    {
+      model: db.stocks,
+      required: true
+    },
+    {
+      model: db.real_assets,
+      required: true
+    }]
 }).then(results => {
-  console.log(results[0].dataValues);
+  // console.log(results[0].dataValues);
+  console.log("made it");
   console.log(results[0].dataValues.stock.dataValues.tsm);
+  console.log(results[0].dataValues.fixed_income.dataValues.ltb);
+  console.log(results[0].dataValues.real_asset.dataValues.commodoties)
 });

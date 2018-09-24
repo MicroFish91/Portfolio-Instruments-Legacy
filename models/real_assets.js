@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     commodoties: DataTypes.JSON,
     gold: DataTypes.JSON,
     reits: DataTypes.JSON,
-    accountsId: DataTypes.INTEGER
+    accountId: DataTypes.INTEGER
   }, {});
   real_assets.associate = function(models) {
     // Associations
