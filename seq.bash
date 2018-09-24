@@ -16,8 +16,8 @@
 
 # sequelize migration:create --name realAssetsIdToAccounts
 
-# sequelize migration:create --name accountsIdToStocks
+sequelize migration:create --name accountsIdToStocks
 
-# sequelize migration:create --name accountsIdToFixedIncome
+sequelize migration:create --name accountsIdToFixedIncome
 
-# sequelize migration:create --name accountsIdToRealAssets
+sequelize migration:create --name accountsIdToRealAssets

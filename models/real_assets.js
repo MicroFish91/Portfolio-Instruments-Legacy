@@ -3,7 +3,8 @@ module.exports = (sequelize, DataTypes) => {
   const real_assets = sequelize.define('real_assets', {
     commodoties: DataTypes.JSON,
     gold: DataTypes.JSON,
-    reits: DataTypes.JSON
+    reits: DataTypes.JSON,
+    accountsId: DataTypes.INTEGER
   }, {});
   real_assets.associate = function(models) {
     // Associations

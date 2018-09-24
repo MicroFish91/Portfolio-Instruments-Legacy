@@ -3,10 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const accounts = sequelize.define('accounts', {
     holdingLocation: DataTypes.STRING,
     accountType: DataTypes.STRING(15),
-    moneyMarket: DataTypes.JSON,
-    fixed_incomesId: DataTypes.INTEGER,
-    stocksId: DataTypes.INTEGER,
-    real_assetsId: DataTypes.INTEGER
+    moneyMarket: DataTypes.JSON
   }, {});
   accounts.associate = function(models) {
     // Associations

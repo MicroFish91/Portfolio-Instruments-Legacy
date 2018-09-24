@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     i_scb: DataTypes.JSON,
     i_scv: DataTypes.JSON,
     i_scg: DataTypes.JSON,
+    accountId: DataTypes.INTEGER
   }, {});
   stocks.associate = function(models) {
     // Associations

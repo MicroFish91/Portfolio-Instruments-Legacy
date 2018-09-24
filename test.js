@@ -19,22 +19,20 @@ var db = require('./models');
 //     i_scb: null,
 //     i_scv: null,
 //     i_scg: null,
+//     accountId: 1
 //   })
 // .then(function(user){
     
 // })
 
-db.accounts.create({
-    holdingLocation: "Vanguard",
-    accountType: "Taxable",
-    moneyMarket: JSON.stringify({ticker: "VTSOS", value: 300.00}),
-    fixed_incomesId: null,
-    stocksId: 1,
-    real_assetsId: null
-  })
-.then(function(user){
+// db.accounts.create({
+//     holdingLocation: "Vanguard",
+//     accountType: "Taxable",
+//     moneyMarket: JSON.stringify({ticker: "VTSOS", value: 300.00}),
+//   })
+// .then(function(user){
     
-})
+// })
 
 
 // db.Tests.create({test: null})
@@ -48,3 +46,17 @@ db.accounts.create({
 //     console.log(testing);
 // })
 
+// db.accounts.findById(3).then(results => {
+//   console.log(results.moneyMarket);
+// })
+
+db.accounts.findAll({
+  where: {id: 1},
+  include: [{
+    model: db.stocks,
+    required: true
+   }]
+}).then(results => {
+  console.log(results[0].dataValues);
+  console.log(results[0].dataValues.stock.dataValues.tsm);
+});
