@@ -1,5 +1,16 @@
 var db = require('./models');
 
+// db.users.create({
+
+//   userName: "Matt",
+//   userPassword: "mattPass",
+//   benchmark: "Permanent Portfolio"
+
+// })
+// .then(function(user){
+  
+// })
+
 // db.snapshots.create({
 
 //   title: "August 2018",
@@ -8,7 +19,8 @@ var db = require('./models');
 //   cashTotal: 125.23,
 //   commodotiesTotal: 1245.23,
 //   weightedER: 0.27,
-//   notes: "This is a note."
+//   notes: "This is a note.",
+//   userId: 1
 
 // })
 // .then(function(user){
@@ -107,3 +119,20 @@ var db = require('./models');
 //   console.log(results[0].dataValues.accounts[0].stock.dataValues.tsm);
 // })
 
+// db.users.findAll({
+//   where: {
+//     userName: "Matt"
+//   },
+//   include: { 
+//       association: 'snapshots', // <---- First Level
+//       include: {
+//           association: 'accounts',
+//           include: [{all: true}],
+//           required: true
+//       },
+//       required: true
+//   }
+// })
+// .then(results =>{
+//   console.log(results[0].dataValues.snapshots[0].dataValues.accounts[0].dataValues.stock.dataValues.tsm);
+// })

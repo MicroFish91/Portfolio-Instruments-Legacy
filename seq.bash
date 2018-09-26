@@ -25,4 +25,9 @@
 # sequelize model:generate --name Snapshots \
 # --attributes name:string,stockTotal:decimal,fixedIncomeTotal:decimal,cashTotal:decimal,commodotiesTotal:decimal,notes:string
 
-sequelize migration:create --name snapshotsIdToAccounts
+# sequelize migration:create --name snapshotsIdToAccounts
+
+# sequelize model:generate --name Users \
+# --attributes userName:string,userPassword:string,benchmark:string
+
+sequelize migration:create --name userIdToSnapshots

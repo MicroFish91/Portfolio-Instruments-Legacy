@@ -7,11 +7,13 @@ module.exports = (sequelize, DataTypes) => {
     cashTotal: DataTypes.DECIMAL,
     commodotiesTotal: DataTypes.DECIMAL,
     weightedER: DataTypes.DECIMAL,
-    notes: DataTypes.STRING
+    notes: DataTypes.STRING,
+    userId: DataTypes.INTEGER
   }, {});
   snapshots.associate = function(models) {
     // Associations
     snapshots.hasMany(models.accounts);
+    snapshots.belongsTo(models.users);
   };
   return snapshots;
 };
