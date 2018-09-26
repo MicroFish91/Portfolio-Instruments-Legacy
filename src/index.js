@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './App';
+import Dashboard from './components/Dashboard';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Dashboard />, document.getElementById('root'));
 registerServiceWorker();
