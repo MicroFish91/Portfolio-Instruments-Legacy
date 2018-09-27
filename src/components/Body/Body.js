@@ -4,6 +4,8 @@ import DashTitle from './DashTitle';
 import RowOne from './RowOne/RowOne';
 import LineChart from './LineChart'; 
 
+import Footer from './Footer';
+
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../../assets/css/dashboard.css';
 
@@ -23,6 +25,8 @@ class Body extends Component {
                         <RowOne />
 
                         <LineChart />
+
+                        <Footer />
 
                     </div>
                     
