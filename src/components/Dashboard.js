@@ -9,6 +9,15 @@ import '../assets/css/dashboard.css';
 
 class Dashboard extends Component {
 
+    // componentWillMount(){
+
+    //     fetch('/data')
+    //     .then(response => response.json())
+    //     .then(response => {
+    //         console.log(response);
+    //     })
+    // }
+
     render() {
 
         return (

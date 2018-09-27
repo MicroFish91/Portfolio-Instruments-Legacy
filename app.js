@@ -13,5 +13,12 @@ app.use(express.static('public'));
 // ** Routes Section **
 app.use(require('./routes/dashboard'));
 
+app.get('/data', function(req, res){
 
-app.listen(3000);
+    res.json({data: "here is my data"});
+
+})
+
+
+
+app.listen(3001);

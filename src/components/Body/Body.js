@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import DashTitle from './DashTitle';   
 import RowOne from './RowOne/RowOne';
 import LineChart from './LineChart'; 
+import RowThree from './RowThree/RowThree';
 
 import Footer from './Footer';
 
@@ -25,6 +26,8 @@ class Body extends Component {
                         <RowOne />
 
                         <LineChart />
+
+                        <RowThree />
 
                         <Footer />
 
