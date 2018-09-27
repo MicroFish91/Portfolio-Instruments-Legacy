@@ -24,14 +24,6 @@ class Navbar extends Component {
                             </a>
                             <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href=""></a>
                             <div class="d-flex order-lg-2 ml-auto">
-                                <div class="">
-                                    <form class="input-icon mt-1 mr-2">
-                                        <input class="form-control header-search" placeholder="Search&hellip;" tabindex="1" type="search"></input>
-                                        <div class="input-icon-addon">
-                                            <i class="fe fe-search"></i>
-                                        </div>
-                                    </form>
-                                </div>
 
                                 <div class="dropdown d-none d-md-flex">
                                     <a class="nav-link icon" data-toggle="dropdown">
