@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import {Route} from 'react-router-dom';
 
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import Body from './Body/Body';
+import AddSnapshot from './Snapshots/AddSnapshot';
 
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../assets/css/dashboard.css';
@@ -33,7 +35,10 @@ class Dashboard extends Component {
 
                                 <Sidebar />
 
-                                <Body />
+                                {/* Change body urls */}
+                                <Route exact path="/" component={Body} />
+
+                                <Route exact path="/addSnapshot" component={AddSnapshot} />
 
                         </div>
                     </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Institutions from './Institutions';
-import TaxShelter from './TaxShelter';
+// import TaxShelter from './TaxShelter';
 
 class RowThree extends Component {
 
@@ -9,15 +9,13 @@ class RowThree extends Component {
 
         return (
 
-            <div>
                 <div class="row">
 
-                    <Institutions />
+                    <Institutions institutionTitle={"Financial Institutions"}/>
 
-                    <TaxShelter />
+                    <Institutions institutionTitle={"Tax Shelter"} />
 
                 </div>
-            </div>
         )
     }
 }

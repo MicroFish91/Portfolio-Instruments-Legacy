@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 import '../assets/css/dashboard.css';
 import '../assets/plugins/toggle-sidebar/css/sidemenu.css'
@@ -35,7 +36,7 @@ class Sidebar extends Component {
                             <li class="slide">
                                 <a class="side-menu__item active" data-toggle="slide" href=""><i class="side-menu__icon fas fa-home"></i><span class="side-menu__label">Dashboard</span><i class="angle fas fa-angle-right"></i></a>
                                 <ul class="slide-menu">
-                                    <li><a class="slide-item" href="index.html">Home</a></li>
+                                    <li><Link to="/" class="slide-item">Home</Link></li>
                                 </ul>
                             </li>
                             
@@ -43,10 +44,10 @@ class Sidebar extends Component {
                                 <a class="side-menu__item" data-toggle="slide" href=""><i class="side-menu__icon fas fa-table"></i><span class="side-menu__label">Portfolio Wizard</span><i class="angle fas fa-angle-right"></i></a>
                                 <ul class="slide-menu">
                                     <li>
-                                        <a href="" class="slide-item">Asset Breakdown</a>
+                                        <Link to="/addSnapshot" class="slide-item">Add Snapshot</Link>
                                     </li>
                                     <li>
-                                        <a href="" class="slide-item">Portfolio Snapshots</a>
+                                        <a class="slide-item">Portfolio Snapshots</a>
                                     </li>
                                 </ul>
                             </li>

@@ -4,7 +4,7 @@ import DashTitle from './DashTitle';
 import RowOne from './RowOne/RowOne';
 import LineChart from './LineChart'; 
 import RowThree from './RowThree/RowThree';
-
+import RowFour from './RowFour/RowFour';
 import Footer from './Footer';
 
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -28,6 +28,8 @@ class Body extends Component {
                         <LineChart />
 
                         <RowThree />
+
+                        <RowFour />
 
                         <Footer />
 
