@@ -3,8 +3,10 @@ import {Route} from 'react-router-dom';
 
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
+
 import Body from './Body/Body';
 import AddSnapshot from './Snapshots/AddSnapshot';
+import LazyPortfolios from './LazyPortfolios/LazyPortfolios';
 
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../assets/css/dashboard.css';
@@ -39,6 +41,8 @@ class Dashboard extends Component {
                                 <Route exact path="/" component={Body} />
 
                                 <Route exact path="/addSnapshot" component={AddSnapshot} />
+
+                                <Route exact path="/lazyPortfolios" component={LazyPortfolios} />
 
                         </div>
                     </div>

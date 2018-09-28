@@ -57,7 +57,7 @@ class Sidebar extends Component {
                                 <a class="side-menu__item" data-toggle="slide" href=""><i class="side-menu__icon fas fa-table"></i><span class="side-menu__label">Lazy Portfolios</span><i class="angle fas fa-angle-right"></i></a>
                                 <ul class="slide-menu">
                                     <li>
-                                        <a href="portfolios.html" class="slide-item">General</a>
+                                        <Link to="/lazyPortfolios" class="slide-item">General</Link>
                                     </li>
                                     <li>
                                         <a href="" class="slide-item">Total Stock Market</a>
