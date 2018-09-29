@@ -40,6 +40,7 @@ class LazyPortfolios extends Component {
                 "Four-Asset Style Bogleheads Portfolio",
                 "Harvard & Yale Endowment Strategy",
                 "A Simple, Unconventional All-Weather Portfolio",
+                "A Stable & High-Return Portfolio."
             ],
             assetDescriptions: [
                 "An extremely simple passive investing portfolio.",
@@ -49,6 +50,7 @@ class LazyPortfolios extends Component {
                 "A Bogleheads style portfolio popularized by Rick Ferri.",
                 "A portfolio popularized by Mebane Faber detailing the investing strategies of Harvard & Yale Endowments.",
                 "An all-weather portfolio popularized by Harry Browne.",
+                "An unconventional, stable, & high return portfolio popularized by Portfolio Charts."
             ],
             assetCAGR: [
                 "6.4%", "5.9%", "5.9%", "6.6%", "6.9%", "6.6%", "5.0%", "6.5%"
@@ -61,13 +63,16 @@ class LazyPortfolios extends Component {
             ],
             assetLongestDraw: [
                 "13 years", "12 years", "10 years", "9 years", "10 years", "5 years", "5 years", "2 years"
+            ],
+            colors: [
+                ['#f66d9b'], ['#f66d9b', '#8ecf4d'], ['#f66d9b', '#8ecf4d', '#4ecc48'], ['#f66d9b', '#8ecf4d', '#4ecc48', '#f999b9'], ['#f66d9b', '#8ecf4d', '#4ecc48', '#f999b9'], ['#f66d9b', '#8ecf4d', '#4ecc48', '#f999b9', '#5797fc'], ['#f66d9b', '#8ecf4d', '#4ecc48', '#f999b9'], ['#f66d9b', '#8ecf4d', '#4ecc48', '#f999b9', '#5797fc']
             ]
         }
     }
 
     render() {
 
-        var portfolios = this.props.assetInfo.assetTitles((data, index) => {
+        var portfolios = this.props.assetInfo.assetTitles.map((data, index) => {
             return <PortfolioCard index={index} assetInfo={this.props.assetInfo} />;
         })
 

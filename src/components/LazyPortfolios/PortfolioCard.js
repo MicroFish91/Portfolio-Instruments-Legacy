@@ -6,24 +6,18 @@ import { Pie } from 'react-chartjs-2';
 
 class PortfolioCard extends Component {
 
-    static defaultProps = {
-		data: {
-            labels: this.props.assetInfo.assetTitles[this.props.index],
-            datasets: [{
-              data: this.props.assetInfo.assetRatios[this.props.index],
-              backgroundColor: [
-              '#FF6384',
-              '#36A2EB'
-              ],
-              hoverBackgroundColor: [
-              '#FF6384',
-              '#36A2EB'
-              ]
-            }]
-        }  
-    }
-
     render() {
+
+        var dataSet = {
+            data: {
+                labels: this.props.assetInfo.assetTitles[this.props.index],
+                datasets: [{
+                  data: this.props.assetInfo.assetRatios[this.props.index],
+                  backgroundColor: this.props.assetInfo.colors[this.props.index],
+                  hoverBackgroundColor: this.props.assetInfo.colors[this.props.index]
+                }]
+            }
+        }
 
         return (
 
@@ -32,7 +26,7 @@ class PortfolioCard extends Component {
                     <div class="col-md-12 col-lg-6 pr-0 d-none d-lg-block">
                         <div class="card">
                             <div class="card-body">
-                                <Pie data={this.props.data} />
+                                <Pie data={dataSet.data} />
                             </div>
                         </div>
                     </div>
