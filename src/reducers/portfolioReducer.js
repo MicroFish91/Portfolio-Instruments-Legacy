@@ -4,8 +4,10 @@ function portfolioReducer(state, action){
     if (state === undefined){
         
         return {
+            benchmarkName: "",
             benchmarkTitles: [],
-            benchmarkRatios: []
+            benchmarkRatios: [],
+            user: "Matt"
         }
 
     }
@@ -17,6 +19,7 @@ function portfolioReducer(state, action){
 
             return {
                 ...state,
+                benchmarkName: action.benchmarkName,
                 benchmarkTitles: action.benchmarkTitles,
                 benchmarkRatios: action.benchmarkRatios
             };

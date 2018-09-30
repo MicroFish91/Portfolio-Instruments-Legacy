@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
 
-class TableInput extends Component {
+
+
+class TableInputOption extends Component {
 
     render() {
 
         return (
-
+            
             <div class="row">
                 <div class="col-lg-12">
                     <form  method="post" class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Add Core Assets</h3>
+                            <h3 class="card-title">Miscellaneous Assets</h3>
                         </div>
                         <div class="card-body">
                             <div class="row">
 
+                                {/* Left Column */}
                                 <div class="col-md-6 col-lg-6">
 
                                     <div class="form-group">
@@ -24,13 +27,16 @@ class TableInput extends Component {
 
                                     <div class="form-group">
                                         <label class="form-label">Amount ($)</label>
-                                        <input type="text" class="form-control" name="example-text-input" placeholder="Ex. 320.15"></input>
+                                        <input type="text" class="form-control" name="example-text-input" placeholder="Ex. Vanguard"></input>
                                     </div>
 
-                                <button type="submit" class="btn btn-primary ml-auto">Add Account</button>
+                                <button type="submit" class="btn btn-primary ml-auto">Add Misc Asset</button>
+
+                                
 
                                 </div>
 
+                                {/* Right Column */}
                                 <div class="col-md-6 col-lg-6">
 
                                 <div class="form-group">
@@ -43,7 +49,7 @@ class TableInput extends Component {
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="form-label">Asset</label>
+                                    <label class="form-label">Asset Type</label>
                                     <select name="assets" class="form-control custom-select">
                                         <option value="mm">Cash/Money Market</option>
                                         <option value="bills">Fixed Income: Bills (1 YR or Less)</option>
@@ -87,4 +93,4 @@ class TableInput extends Component {
     }
 }
 
-export default TableInput;
+export default TableInputOption;

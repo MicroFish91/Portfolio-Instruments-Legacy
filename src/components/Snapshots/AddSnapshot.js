@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 
 import DashTitle from '../DashTitle';
-import TableInput from './TableInput';
+import TableInputCore from './TableInputCore';
+import TableInputOption from './TableInputOption';
 import Table from './Table';
 import Footer from '../Footer';
 
@@ -15,7 +16,9 @@ class AddSnapshot extends Component {
             
                     <DashTitle title={"Add Snapshot"} titleTwo={"Portfolio Wizard"} />
 
-                    <TableInput />
+                    <TableInputCore />
+
+                    <TableInputOption />
 
                     <Table />
 

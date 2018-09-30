@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 
+import {connect} from 'react-redux';
+import setBenchmark from '../../actions/setBenchmark';
+
 import { Pie } from 'react-chartjs-2';
 
 
-
 class PortfolioCard extends Component {
+
+    constructor(props){
+        super(props);
+    }
 
     render() {
 
@@ -41,7 +47,11 @@ class PortfolioCard extends Component {
                             <b><u>Worst Drawdown</u></b>: {this.props.assetInfo.assetWorstDraw[this.props.index]}<br></br>
                             <b><u>Longest Drawdown</u></b>: {this.props.assetInfo.assetLongestDraw[this.props.index]}<br></br> </p>
                             <a href="" class="btn btn-indigo btn-lg mt-2">View More</a>&nbsp;&nbsp; 
-                            <a href="" class="btn btn-indigo btn-lg mt-2">Set Benchmark</a>
+                            <a class="btn btn-indigo btn-lg mt-2" onClick={
+                                (e) => {
+                                    e.preventDefault();
+                                    this.props.onSetBenchmark(this.props.user, this.props.assetInfo.assetNames[this.props.index])}
+                                }>Set Benchmark</a>
                         </div>
                     </div>
                 </div> 
@@ -51,4 +61,29 @@ class PortfolioCard extends Component {
     }
 }
 
-export default PortfolioCard;
+
+// Map to Global State
+function mapStateToProps(state){
+    
+    return {
+        user: state.user,
+        benchmarkTitles: state.benchmarkTitles,
+        benchmarkRatios: state.benchmarkRatios
+    }
+}
+
+// Map Actions
+function mapDispatchToProps(dispatch){
+    
+    return {
+        onSetBenchmark: (user, benchmarkName) => dispatch(setBenchmark(user, benchmarkName))
+    }
+}
+
+
+var connectedComponent = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(PortfolioCard);
+
+export default connectedComponent;

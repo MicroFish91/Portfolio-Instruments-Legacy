@@ -42,7 +42,7 @@ class Dashboard extends Component {
 
                                 <Route exact path="/addSnapshot" component={AddSnapshot} />
 
-                                <Route exact path="/lazyPortfolios" component={LazyPortfolios} />
+                                <Route path="/lazyPortfolios" component={LazyPortfolios} />
 
                         </div>
                     </div>

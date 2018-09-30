@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux';
 
 import TableRow from './TableRow';
 
@@ -8,6 +9,10 @@ class Table extends Component {
 
     render() {
 
+        var headers = this.props.benchmarkTitles.map(title => {
+            return <th class="wd-10p">{title}</th>;
+        });
+
         return (
 
             <div class="row">
@@ -16,7 +21,7 @@ class Table extends Component {
 
                         <div class="card-status bg-yellow br-tr-3 br-tl-3"></div>
                         <div class="card-header">
-                            <div class="card-title">Data Tables</div>
+                                <input type="text" class="form-control" name="example-text-input" placeholder="Snapshot Title Goes Here"></input>
                         </div>
 
                         <div class="card-body">
@@ -27,11 +32,7 @@ class Table extends Component {
                                         <tr>
                                             <th class="wd-10p">Location</th>
                                             <th class="wd-10p">Type</th>
-                                            <th class="wd-10p">Stocks (SCV)</th>
-                                            <th class="wd-10p">Bonds (LT)</th>
-                                            <th class="wd-10p">Cash</th>
-                                            <th class="wd-10p">Gold</th>
-                                            <th class="wd-10p">Position5</th>
+                                            {headers}
                                             <th class="wd-10p">Other</th>
                                             <th class="wd-10p">Total</th>
                                             <th class="wd-10p"></th>
@@ -49,6 +50,8 @@ class Table extends Component {
 
                                 </table>
 
+                                <button type="submit" class="btn btn-primary ml-auto">Save Snapshot</button>
+
                             </div>
                         </div>
                         
@@ -59,4 +62,17 @@ class Table extends Component {
     }
 }
 
-export default Table;
+
+// Map to Global State
+function mapStateToProps(state){
+    
+    return {
+        benchmarkTitles: state.benchmarkTitles
+    }
+}
+
+
+export default connect(
+    mapStateToProps,
+    null
+)(Table);

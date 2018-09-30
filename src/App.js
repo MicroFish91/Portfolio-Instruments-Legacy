@@ -8,6 +8,7 @@ import Dashboard from './components/Dashboard';
 function mapStateToProps(state){
     
     return {
+        user: state.user,
         benchmarkTitles: state.benchmarkTitles,
         benchmarkRatios: state.benchmarkRatios
     }
@@ -17,7 +18,7 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch){
     
     return {
-        onSetBenchmark: (benchmarkName) => dispatch(setBenchmark(benchmarkName))
+        onSetBenchmark: (user, benchmarkName) => dispatch(setBenchmark(user, benchmarkName))
     }
 }
 

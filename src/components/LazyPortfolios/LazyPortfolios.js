@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Route} from 'react-router-dom';
 
 import DashTitle from '../DashTitle';
 import General from './General';
@@ -66,15 +67,19 @@ class LazyPortfolios extends Component {
             ],
             colors: [
                 ['#f66d9b'], ['#f66d9b', '#8ecf4d'], ['#f66d9b', '#8ecf4d', '#4ecc48'], ['#f66d9b', '#8ecf4d', '#4ecc48', '#f999b9'], ['#f66d9b', '#8ecf4d', '#4ecc48', '#f999b9'], ['#f66d9b', '#8ecf4d', '#4ecc48', '#f999b9', '#5797fc'], ['#f66d9b', '#8ecf4d', '#4ecc48', '#f999b9'], ['#f66d9b', '#8ecf4d', '#4ecc48', '#f999b9', '#5797fc']
+            ],
+            linkTo: [
+                "/lazyPortfolios/tsm", "/sixtyForty", "/threeFund", "/noBrainer", "/rickFerri", "/ivy", "/permanent", "/goldenButterfly"
             ]
         }
     }
 
     render() {
 
+        // Map Portfolio Components to portfolios
         var portfolios = this.props.assetInfo.assetTitles.map((data, index) => {
-            return <PortfolioCard index={index} assetInfo={this.props.assetInfo} />;
-        })
+            return <PortfolioCard assetInfo={this.props.assetInfo} index={index} />;
+        });
 
         return (
             <div class="app-content my-3 my-md-5">

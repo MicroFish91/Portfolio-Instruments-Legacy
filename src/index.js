@@ -10,7 +10,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 var store = createStore(
     portfolioReducer, 
-    {benchmarkTitles: [], benchmarkRatios: [], user: "Matt"},
+    {benchmarkName: "", benchmarkTitles: [], benchmarkRatios: [], user: "Matt", assetPositions: [0, 0, 0, 0, 0, 0]},
     window.__REDUX_DEVTOOLS_EXTENSION__ &&window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
