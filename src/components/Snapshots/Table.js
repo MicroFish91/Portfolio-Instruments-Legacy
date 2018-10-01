@@ -18,6 +18,7 @@ class Table extends Component {
         var rows = this.props.coreAssets.map(account => {
 
             let newArray = [];
+            
             // Object: {location, type, amountOne, amountTwo, amountThree, amountFour, amountFive, amountSix}
 
             newArray.push(account.location);
@@ -42,6 +43,18 @@ class Table extends Component {
 
             if (account.amountSix !== 0) {
                 newArray.push(account.amountSix);
+            }
+
+            if (account.hasOwnProperty("other")){
+            
+                let otherTotal = 0;
+
+                account["other"].forEach(other => {
+                    otherTotal += parseInt(other.amount);
+                });
+
+                newArray.push(otherTotal);
+
             }
 
             newArray.push(account.total);

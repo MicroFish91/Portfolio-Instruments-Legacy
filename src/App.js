@@ -2,6 +2,7 @@ import {connect} from 'react-redux';
 
 import setBenchmark from './actions/setBenchmark';
 import addCoreAsset from './actions/addCoreAssets';
+import addOtherAsset from './actions/addOtherAssets';
 
 import Dashboard from './components/Dashboard';
 
@@ -21,7 +22,8 @@ function mapDispatchToProps(dispatch){
     
     return {
         onSetBenchmark: (user, benchmarkName) => dispatch(setBenchmark(user, benchmarkName)),
-        onAddCoreAsset: (account) => dispatch(addCoreAsset(account))
+        onAddCoreAsset: (account) => dispatch(addCoreAsset(account)),
+        onAddOtherAsset: (other) => dispatch(addOtherAsset(other))
     }
 }
 
