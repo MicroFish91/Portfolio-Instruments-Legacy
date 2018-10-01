@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 
 import setBenchmark from './actions/setBenchmark';
+import addCoreAsset from './actions/addCoreAssets';
 
 import Dashboard from './components/Dashboard';
 
@@ -10,7 +11,8 @@ function mapStateToProps(state){
     return {
         user: state.user,
         benchmarkTitles: state.benchmarkTitles,
-        benchmarkRatios: state.benchmarkRatios
+        benchmarkRatios: state.benchmarkRatios,
+        coreAssets: state.coreAssets
     }
 }
 
@@ -18,7 +20,8 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch){
     
     return {
-        onSetBenchmark: (user, benchmarkName) => dispatch(setBenchmark(user, benchmarkName))
+        onSetBenchmark: (user, benchmarkName) => dispatch(setBenchmark(user, benchmarkName)),
+        onAddCoreAsset: (account) => dispatch(addCoreAsset(account))
     }
 }
 

@@ -9,8 +9,43 @@ class Table extends Component {
 
     render() {
 
+        // Map Table Headers
         var headers = this.props.benchmarkTitles.map(title => {
-            return <th class="wd-10p">{title}</th>;
+            return <th class="wd-10p">{title} ($)</th>;
+        });
+
+        // Map Table Rows
+        var rows = this.props.coreAssets.map(account => {
+
+            let newArray = [];
+            // Object: {location, type, amountOne, amountTwo, amountThree, amountFour, amountFive, amountSix}
+
+            newArray.push(account.location);
+            newArray.push(account.type);
+            newArray.push(account.amountOne);
+
+            if (account.amountTwo !== 0) {
+                newArray.push(account.amountTwo);
+            }
+
+            if (account.amountThree !== 0) {
+                newArray.push(account.amountThree);
+            }
+
+            if (account.amountFour !== 0) {
+                newArray.push(account.amountFour);
+            }
+
+            if (account.amountFive !== 0) {
+                newArray.push(account.amountFive);
+            }
+
+            if (account.amountSix !== 0) {
+                newArray.push(account.amountSix);
+            }
+
+            return <TableRow accountInfo={newArray} />;
+
         });
 
         return (
@@ -33,18 +68,15 @@ class Table extends Component {
                                             <th class="wd-10p">Location</th>
                                             <th class="wd-10p">Type</th>
                                             {headers}
-                                            <th class="wd-10p">Other</th>
-                                            <th class="wd-10p">Total</th>
+                                            <th class="wd-10p">Other ($)</th>
+                                            <th class="wd-10p">Total ($)</th>
                                             <th class="wd-10p"></th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
 
-                                        <TableRow />
-                                        <TableRow />
-                                        <TableRow />
-                                        <TableRow />
+                                        {rows}
 
                                     </tbody>
 
@@ -67,6 +99,8 @@ class Table extends Component {
 function mapStateToProps(state){
     
     return {
+        user: state.user,
+        coreAssets: state.coreAssets,
         benchmarkTitles: state.benchmarkTitles
     }
 }

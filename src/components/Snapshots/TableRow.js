@@ -2,20 +2,23 @@ import React, { Component } from 'react'
 
 class TableRow extends Component {
 
+    constructor(props) {
+        super(props);
+    }
+
     render() {
+
+        // Map Rows
+        var row = this.props.accountInfo.map(columnData => {
+
+            return <td>{columnData}</td>;
+
+        });
 
         return (
 
             <tr>
-                <td>Vanguard</td>
-                <td>Taxable</td>
-                <td>$350.23</td>
-                <td>$350.23</td>
-                <td>$654,765</td>
-                <td>$350.23</td>
-                <td>$350.23</td>
-                <td>$350.23</td>
-                <td>$2000.23</td>
+                {row}
                 <td>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <a class="icon"></a>

@@ -32,8 +32,6 @@ class TableInputOption extends Component {
 
                                 <button type="submit" class="btn btn-primary ml-auto">Add Misc Asset</button>
 
-                                
-
                                 </div>
 
                                 {/* Right Column */}
