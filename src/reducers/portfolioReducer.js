@@ -40,11 +40,28 @@ export default portfolioReducer;
  // Filter for Duplicate, Will Overwrite existing account/type
 function addAccount(myArray, myObject){
 
+    var total = 0;
+
+    // Filter out Duplicates
     myArray = myArray.filter(object => {
 
         return (!((object.location === myObject.location) && (object.type === myObject.type)));
 
     })
+
+    // Compute Total
+    for (var property in myObject) {
+
+        if ((property !== "location") && (property !== "type") && (myObject[property] !== "")){
+
+            console.log(myObject[property]);
+
+            total += parseInt(myObject[property]);
+        }
+
+    }
+
+    myObject.total = total;
 
     myArray.push(myObject);
 

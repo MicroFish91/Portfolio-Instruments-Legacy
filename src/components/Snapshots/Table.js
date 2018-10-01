@@ -44,6 +44,8 @@ class Table extends Component {
                 newArray.push(account.amountSix);
             }
 
+            newArray.push(account.total);
+
             return <TableRow accountInfo={newArray} />;
 
         });
