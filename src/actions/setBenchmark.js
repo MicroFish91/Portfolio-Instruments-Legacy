@@ -8,7 +8,7 @@ function setBenchmark(user, benchmarkName){
         method: "POST",
         body: JSON.stringify({user: user, benchmarkName: benchmarkName})
     })
-    .then(results => console.log("made it"))
+    .then(results => console.log(results))
 
     // e.g. ["TSM", "DSCV", "LTB", "Bills", "Gold", ....]
     // stretch goal: add a 'custom' case

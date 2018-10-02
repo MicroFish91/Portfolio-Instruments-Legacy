@@ -11,58 +11,58 @@ module.exports = {
       tsm: {
         type: Sequelize.JSON
       },
-      d_lcb: {
+      dlcb: {
         type: Sequelize.JSON
       },
-      d_lcv: {
+      dlcv: {
         type: Sequelize.JSON
       },
-      d_lcg: {
+      dlcg: {
         type: Sequelize.JSON
       },
-      d_mcb: {
+      dmcb: {
         type: Sequelize.JSON
       },
-      d_mcv: {
+      dmcv: {
         type: Sequelize.JSON
       },
-      d_mcg: {
+      dmcg: {
         type: Sequelize.JSON
       },
-      d_scb: {
+      dscb: {
         type: Sequelize.JSON
       },
-      d_scv: {
+      dscv: {
         type: Sequelize.JSON
       },
-      d_scg: {
+      dscg: {
         type: Sequelize.JSON
       },
-      i_lcb: {
+      ilcb: {
         type: Sequelize.JSON
       },
-      i_lcv: {
+      ilcv: {
         type: Sequelize.JSON
       },
-      i_lcg: {
+      ilcg: {
         type: Sequelize.JSON
       },
-      i_mcb: {
+      imcb: {
         type: Sequelize.JSON
       },
-      i_mcv: {
+      imcv: {
         type: Sequelize.JSON
       },
-      i_mcg: {
+      imcg: {
         type: Sequelize.JSON
       },
-      i_scb: {
+      iscb: {
         type: Sequelize.JSON
       },
-      i_scv: {
+      iscv: {
         type: Sequelize.JSON
       },
-      i_scg: {
+      iscg: {
         type: Sequelize.JSON
       },
       createdAt: {

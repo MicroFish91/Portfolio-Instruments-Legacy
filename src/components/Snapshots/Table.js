@@ -7,6 +7,35 @@ import '../../assets/css/dashboard.css';
 
 class Table extends Component {
 
+    constructor(props){
+        super(props);
+        this.state = {
+            snapshotTitle: ""
+        }
+    }
+
+    updateTitle(event){
+
+        this.setState({snapshotTitle: event.target.value});
+
+    }
+
+    saveSnapshot(event){
+
+        event.preventDefault();
+        
+        // Post to database
+        fetch("/saveSnapshot", {
+            headers: {
+                'content-type': "application/json"
+            },
+            method: "POST",
+            body: JSON.stringify({user: this.props.user, snapshotName: this.state.snapshotTitle, coreAssets: this.props.coreAssets, benchmarkTitles: this.props.benchmarkTitles})
+        })
+        .then(results => console.log(results))
+
+    }
+
     render() {
 
         // Map Table Headers
@@ -71,7 +100,7 @@ class Table extends Component {
 
                         <div class="card-status bg-yellow br-tr-3 br-tl-3"></div>
                         <div class="card-header">
-                                <input type="text" class="form-control" name="example-text-input" placeholder="Snapshot Title Goes Here"></input>
+                                <input type="text" class="form-control" name="example-text-input" placeholder="Snapshot Title Goes Here" value={this.state.snapshotTitle} onChange={this.updateTitle.bind(this)}></input>
                         </div>
 
                         <div class="card-body">
@@ -97,7 +126,7 @@ class Table extends Component {
 
                                 </table>
 
-                                <button type="submit" class="btn btn-primary ml-auto">Save Snapshot</button>
+                                <button type="submit" class="btn btn-primary ml-auto" onClick={this.saveSnapshot.bind(this)}>Save Snapshot</button>
 
                             </div>
                         </div>

@@ -45,7 +45,7 @@ function portfolioReducer(state, action){
 
 export default portfolioReducer;
 
-
+// Updates stateArray with new account info when triggered from "addCore" action
 function addCore(stateArray, newObject){
     
     // Initialize Variables

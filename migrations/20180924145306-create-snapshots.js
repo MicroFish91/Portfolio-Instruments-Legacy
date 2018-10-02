@@ -11,21 +11,6 @@ module.exports = {
       title: {
         type: Sequelize.STRING(30)
       },
-      stockTotal: {
-        type: Sequelize.DECIMAL
-      },
-      fixedIncomeTotal: {
-        type: Sequelize.DECIMAL
-      },
-      cashTotal: {
-        type: Sequelize.DECIMAL
-      },
-      commodotiesTotal: {
-        type: Sequelize.DECIMAL
-      },
-      weightedER: {
-        type: Sequelize.DECIMAL
-      },
       notes: {
         type: Sequelize.STRING
       },

@@ -58,6 +58,32 @@ class TableInputOption extends Component {
 
     }
 
+    // Account Holding State Update in Real Time
+    holdingType(event){
+
+        // Copy by value to work around immuntability
+        let newPositions = this.state.assetPositions.slice();
+
+        newPositions[1] = event.target.value;
+
+        // Set State
+        this.setState({assetPositions: newPositions})
+
+    }
+
+    // Account Asset Choice State Update in Real Time
+    assetType(event){
+
+        // Copy by value to work around immuntability
+        let newPositions = this.state.assetPositions.slice();
+
+        newPositions[3] = event.target.value;
+
+        // Set State
+        this.setState({assetPositions: newPositions})
+
+    }
+
     render() {
 
         // Filter out benchmark core assets
@@ -145,16 +171,16 @@ class TableInputOption extends Component {
 
                                 <div class="form-group">
                                     <label class="form-label">Holding Type</label>
-                                    <select name="type" class="form-control custom-select" id="1" onChange={this.trackAmount.bind(this)} value={this.state.assetPositions[1]}>
-                                        <option value="taxable">Taxable</option>
-                                        <option value="taxable">Traditional</option>
-                                        <option value="taxable">Roth</option>
+                                    <select name="type" class="form-control custom-select" id="1" onChange={this.holdingType.bind(this)} value={this.state.assetPositions[1]}>
+                                        <option value="Taxable">Taxable</option>
+                                        <option value="Traditional">Traditional</option>
+                                        <option value="Roth">Roth</option>
                                     </select>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="form-label">Asset Type</label>
-                                    <select name="assets" class="form-control custom-select" onChange={this.trackAmount.bind(this)} value={this.state.assetPositions[3]}>
+                                    <select name="assets" class="form-control custom-select" onChange={this.assetType.bind(this)} value={this.state.assetPositions[3]}>
                                         
                                         {assetMap}
                                                     
