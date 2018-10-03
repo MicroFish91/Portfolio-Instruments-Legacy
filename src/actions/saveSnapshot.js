@@ -1,6 +1,4 @@
-function saveSnapshot(user, coreAssets, snapshotId){
-
-    // Post Accounts to Database
+function saveSnapshot(){
 
     return {
         type: "saveSnapshot"

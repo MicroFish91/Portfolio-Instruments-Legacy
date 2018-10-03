@@ -3,6 +3,13 @@ function portfolioReducer(state, action){
     // Determine State Changes Based on Action Received
     switch (action.type){
 
+        case 'initializeUser':
+
+            return {
+                ...state,
+                user: action.user
+            }
+
         case 'setBenchmark':
 
             return {
@@ -36,6 +43,13 @@ function portfolioReducer(state, action){
             return {
                 ...state,
                 coreAssets: otherCore
+            }
+
+        case "saveSnapshot":
+
+            return {
+                ...state,
+                coreAssets: []
             }
 
         default:

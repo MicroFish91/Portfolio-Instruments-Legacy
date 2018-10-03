@@ -3,8 +3,6 @@ function addCoreAsset(account){
 
     // Object: {location, type, amountOne, amountTwo, amountThree, amountFour, amountFive, amountSix}
 
-    console.log(account.type);
-
     return {
         type: "addCoreAsset",
         account: account

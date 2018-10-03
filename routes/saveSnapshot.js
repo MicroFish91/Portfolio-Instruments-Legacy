@@ -41,8 +41,6 @@ router.post('/saveSnapshot', (req, res) => {
                 // Creative way to handle finding async promise index (FIFO)
                 indexArray.push(index);
 
-                console.log(categorizedAssets[index]);
-
                 // Create new account
                 db.accounts.create({
                     holdingLocation: account.location,
@@ -270,6 +268,7 @@ function sortAsset(objectArray){
 
     // Instantiate Variables
     var stocks, fixedIncome, realAssets;
+    var stockTotal, fixedTotal, realTotal;
     var tsm = null,
         dlcb = null,
         dlcv = null,
@@ -415,12 +414,36 @@ function sortAsset(objectArray){
 
     })
 
+    // Categorize asset values
     stocks = [tsm, dlcb, dlcv, dlcg, dmcb, dmcv, dmcg, dscb, dscv, dscg, ilcb, ilcv, ilcg, imcb, imcv, imcg, iscb, iscv, iscg];
-
     fixedIncome = [ltb, itb, stb, bills];
-
     realAssets = [commodoties, gold, reits];
 
+    // Find Totals
+    stockTotal = sumTotal(stocks);
+    fixedTotal = sumTotal(fixedIncome);
+    realTotal = sumTotal(realAssets);
+
+    // Push the sums into the end of each asset array
+    stocks.push(stockTotal);
+    fixedIncome.push(fixedTotal);
+    realAssets.push(realTotal);
+
     return [stocks, fixedIncome, realAssets, moneyMarket];
+
+}
+
+// Return the sum of the asset arrays
+function sumTotal(assetArray){
+
+    var sum = 0;
+
+    assetArray.forEach(amount => {
+        if (amount !== null){
+            sum += amount;
+        }
+    })
+
+    return sum;
 
 }

@@ -2,8 +2,12 @@
 module.exports = (sequelize, DataTypes) => {
   const snapshots = sequelize.define('snapshots', {
     title: DataTypes.STRING(30),
+    stockTotal: DataTypes.DECIMAL,
+    fixedTotal: DataTypes.DECIMAL,
+    realTotal: DataTypes.DECIMAL,
     notes: DataTypes.STRING,
-    userId: DataTypes.INTEGER
+    userId: DataTypes.INTEGER,
+
   }, {});
   snapshots.associate = function(models) {
     // Associations

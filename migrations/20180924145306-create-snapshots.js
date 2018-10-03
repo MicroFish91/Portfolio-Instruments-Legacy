@@ -11,6 +11,15 @@ module.exports = {
       title: {
         type: Sequelize.STRING(30)
       },
+      stockTotal: {
+        type: Sequelize.DECIMAL
+      },
+      fixedTotal: {
+        type: Sequelize.DECIMAL
+      },
+      realTotal: {
+        type: Sequelize.DECIMAL
+      },
       notes: {
         type: Sequelize.STRING
       },

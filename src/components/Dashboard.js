@@ -13,14 +13,20 @@ import '../assets/css/dashboard.css';
 
 class Dashboard extends Component {
 
-    // componentWillMount(){
+    constructor(props){
+        super(props);
+    }
 
-    //     fetch('/data')
-    //     .then(response => response.json())
-    //     .then(response => {
-    //         console.log(response);
-    //     })
-    // }
+    componentWillMount(){
+
+        // Get Dashboard Row One Info
+
+        // console.log(this.props.user);
+
+        fetch(`/dashboardRowOneMatt`)
+        .then(response => console.log('made it'))
+
+    }
 
     render() {
 
@@ -38,11 +44,11 @@ class Dashboard extends Component {
                                 <Sidebar />
 
                                 {/* Change body urls */}
-                                <Route exact path="/" component={Body} />
+                                <Route exact path="/dashboard" component={Body} />
 
-                                <Route exact path="/addSnapshot" component={AddSnapshot} />
+                                <Route exact path="/dashboard/addSnapshot" component={AddSnapshot} />
 
-                                <Route path="/lazyPortfolios" component={LazyPortfolios} />
+                                <Route path="/dashboard/lazyPortfolios" component={LazyPortfolios} />
 
                         </div>
                     </div>

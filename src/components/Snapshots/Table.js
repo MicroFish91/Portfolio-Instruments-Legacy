@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
 
+import saveSnapshot from '../../actions/saveSnapshot';
+
 import TableRow from './TableRow';
 
 import '../../assets/css/dashboard.css';
@@ -20,7 +22,7 @@ class Table extends Component {
 
     }
 
-    saveSnapshot(event){
+    createSnapshot(event){
 
         event.preventDefault();
         
@@ -32,7 +34,8 @@ class Table extends Component {
             method: "POST",
             body: JSON.stringify({user: this.props.user, snapshotName: this.state.snapshotTitle, coreAssets: this.props.coreAssets, benchmarkTitles: this.props.benchmarkTitles})
         })
-        .then(results => console.log(results))
+
+        this.props.onSaveSnapshot();
 
     }
 
@@ -126,7 +129,7 @@ class Table extends Component {
 
                                 </table>
 
-                                <button type="submit" class="btn btn-primary ml-auto" onClick={this.saveSnapshot.bind(this)}>Save Snapshot</button>
+                                <button type="submit" class="btn btn-primary ml-auto" onClick={this.createSnapshot.bind(this)}>Save Snapshot</button>
 
                             </div>
                         </div>
@@ -150,7 +153,16 @@ function mapStateToProps(state){
 }
 
 
+// Map Actions
+function mapDispatchToProps(dispatch){
+    
+    return {
+        onSaveSnapshot: () => dispatch(saveSnapshot())
+    }
+}
+
+
 export default connect(
     mapStateToProps,
-    null
+    mapDispatchToProps
 )(Table);

@@ -36,7 +36,7 @@ class Sidebar extends Component {
                             <li class="slide">
                                 <a class="side-menu__item active" data-toggle="slide" href=""><i class="side-menu__icon fas fa-home"></i><span class="side-menu__label">Dashboard</span><i class="angle fas fa-angle-right"></i></a>
                                 <ul class="slide-menu">
-                                    <li><Link to="/" class="slide-item">Home</Link></li>
+                                    <li><Link to="/dashboard" class="slide-item">Home</Link></li>
                                 </ul>
                             </li>
                             
@@ -44,7 +44,7 @@ class Sidebar extends Component {
                                 <a class="side-menu__item" data-toggle="slide" href=""><i class="side-menu__icon fas fa-table"></i><span class="side-menu__label">Portfolio Wizard</span><i class="angle fas fa-angle-right"></i></a>
                                 <ul class="slide-menu">
                                     <li>
-                                        <Link to="/addSnapshot" class="slide-item">Add Snapshot</Link>
+                                        <Link to="/dashboard/addSnapshot" class="slide-item">Add Snapshot</Link>
                                     </li>
                                     <li>
                                         <a class="slide-item">Portfolio Snapshots</a>
@@ -57,7 +57,7 @@ class Sidebar extends Component {
                                 <a class="side-menu__item" data-toggle="slide" href=""><i class="side-menu__icon fas fa-table"></i><span class="side-menu__label">Lazy Portfolios</span><i class="angle fas fa-angle-right"></i></a>
                                 <ul class="slide-menu">
                                     <li>
-                                        <Link to="/lazyPortfolios" class="slide-item">General</Link>
+                                        <Link to="/dashboard/lazyPortfolios" class="slide-item">General</Link>
                                     </li>
                                     <li>
                                         <a href="" class="slide-item">Total Stock Market</a>
