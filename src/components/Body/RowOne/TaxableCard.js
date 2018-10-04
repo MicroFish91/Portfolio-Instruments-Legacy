@@ -6,6 +6,10 @@ import '../../../assets/css/dashboard.css';
 
 class TaxableCard extends Component {
 
+    constructor(props){
+        super(props);
+    }
+
     render() {
 
         return (
@@ -16,7 +20,7 @@ class TaxableCard extends Component {
                         <div class="card-body row">
                             <div class="col">
                                 <div class="text-muted">Taxable</div>
-                                <div class="h3 m-0 text-primary counter font-30"><b>897.00</b></div>
+                                <div class="h3 m-0 text-primary counter font-30"><b>{this.props.totals}</b></div>
                             </div>
                             <div class="col-auto align-self-center ">
                                 <div class="card-value float-right text-purple">

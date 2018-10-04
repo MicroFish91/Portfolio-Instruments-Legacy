@@ -17,6 +17,9 @@ module.exports = {
       moneyMarket: {
         type: Sequelize.JSON
       },
+      total: {
+        type: Sequelize.DECIMAL
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

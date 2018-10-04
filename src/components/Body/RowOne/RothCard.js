@@ -16,7 +16,7 @@ class RothCard extends Component {
                         <div class="row">
                             <div class="col">
                                 <div class="text-muted">Roth</div>
-                                <div class="h3 m-0  text-teal counter font-30"><b>925.00</b></div>
+                                <div class="h3 m-0  text-teal counter font-30"><b>{this.props.totals}</b></div>
                             </div>
                             <div class="col-auto align-self-center">
                                 <div class="card-value float-right text-purple">

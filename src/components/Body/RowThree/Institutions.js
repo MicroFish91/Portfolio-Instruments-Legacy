@@ -7,6 +7,10 @@ import '../../../assets/css/dashboard.css';
 
 class Institutions extends Component {
 
+    constructor(props){
+        super(props);
+    }
+
     render() {
 
         return (

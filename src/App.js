@@ -13,6 +13,7 @@ function mapStateToProps(state){
     
     return {
         user: state.user,
+        benchmarkName: state.benchmarkName,
         benchmarkTitles: state.benchmarkTitles,
         benchmarkRatios: state.benchmarkRatios,
         coreAssets: state.coreAssets

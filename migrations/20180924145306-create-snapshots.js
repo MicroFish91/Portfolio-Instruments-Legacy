@@ -20,6 +20,9 @@ module.exports = {
       realTotal: {
         type: Sequelize.DECIMAL
       },
+      cashTotal: {
+        type: Sequelize.DECIMAL
+      },
       notes: {
         type: Sequelize.STRING
       },

@@ -13,7 +13,7 @@ class NetWorthCard extends Component {
                         <div class="row">
                             <div class="col">
                                 <div class="text-muted">Net Worth</div>
-                                <div class="h3 m-0  text-blue counter font-30">5067.00</div>
+                                <div class="h3 m-0  text-blue counter font-30">{this.props.totals}</div>
                             </div>
                             <div class="col-auto align-self-center">
                                 <div class="icon icon-shape bg-gradient-blue rounded-circle text-white">

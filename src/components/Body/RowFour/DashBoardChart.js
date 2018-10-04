@@ -4,6 +4,10 @@ import { Pie } from 'react-chartjs-2';
 
 class DashBoardChart extends Component {
 
+    constructor(props){
+        super(props);
+    }
+
     static defaultProps = {
 		data: {
             labels: [
@@ -25,6 +29,26 @@ class DashBoardChart extends Component {
     }
 
     render() {
+
+        // if (this.props.titles !== undefined){
+
+        //     var color = ["#d3ffce", "#ffe4e1", "#c6e2ff", "#faebd7", "#fff68f", "#6dc066"];
+
+        //     color = color.slice(0, this.props.titles.length);
+
+        //     var data = {
+        //         data: {
+        //             labels: this.props.titles,
+        //             datasets: [{
+        //             data: this.props.ratios,
+        //             backgroundColor: color,
+        //             hoverBackgroundColor: color
+        //             }]
+        //         }  
+        //     };
+        // }
+
+        // console.log(data);
 
         return (
 

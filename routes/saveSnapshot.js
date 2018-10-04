@@ -15,6 +15,7 @@ router.post('/saveSnapshot', (req, res) => {
     var userId = null;
     var indexArray = [];
     var categorizedAssets = categorizeForDatabase(req.body.coreAssets, req.body.benchmarkTitles);
+    var summedValues = majorAssetTotal(categorizedAssets);
 
     // Query database to find userId
     db.users.find({
@@ -30,6 +31,10 @@ router.post('/saveSnapshot', (req, res) => {
         db.snapshots.create({
             title: req.body.snapshotName,
             notes: "this is a note",
+            stockTotal: summedValues[0],
+            fixedTotal: summedValues[1],
+            realTotal: summedValues[2],
+            cashTotal: summedValues[3],
             userId: userId
         })
         // Use returned snapshotId to create and link new Accounts found in categorizedAssets
@@ -45,7 +50,8 @@ router.post('/saveSnapshot', (req, res) => {
                 db.accounts.create({
                     holdingLocation: account.location,
                     accountType: account.type,
-                    moneyMarket: categorizedAssets[index].assets[3],
+                    moneyMarket: parseInt(categorizedAssets[index].assets[3]),
+                    total: (parseInt(categorizedAssets[index].assets[0][19]) + parseInt(categorizedAssets[index].assets[1][4]) + parseInt(categorizedAssets[index].assets[2][3]) + parseInt(categorizedAssets[index].assets[3])),
                     snapshotId: result.dataValues.id
                 })
                 // Create new assets and link to the made account
@@ -101,6 +107,29 @@ router.post('/saveSnapshot', (req, res) => {
 })
 
 module.exports = router;
+
+
+// Computes major asset totals
+function majorAssetTotal(objectArray){
+
+    var stockTotal = 0;
+    var fixedTotal = 0;
+    var realTotal = 0;
+    var cashTotal = 0;
+    
+    // Cycle through each account and add up sums
+    objectArray.forEach(account => {
+
+        stockTotal += parseInt(account.assets[0][19]);
+        fixedTotal += parseInt(account.assets[1][4]);
+        realTotal += parseInt(account.assets[2][3]);
+        cashTotal += parseInt(account.assets[3]);
+
+    })
+
+    return [stockTotal, fixedTotal, realTotal, cashTotal];
+
+}
 
 
 // Categorize assets
@@ -429,6 +458,11 @@ function sortAsset(objectArray){
     fixedIncome.push(fixedTotal);
     realAssets.push(realTotal);
 
+    // If money market null, set to 0 as total
+    if (moneyMarket === null) {
+        moneyMarket = 0;
+    }
+
     return [stocks, fixedIncome, realAssets, moneyMarket];
 
 }
@@ -440,7 +474,7 @@ function sumTotal(assetArray){
 
     assetArray.forEach(amount => {
         if (amount !== null){
-            sum += amount;
+            sum += parseInt(amount);
         }
     })
 

@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     holdingLocation: DataTypes.STRING,
     accountType: DataTypes.STRING(15),
     moneyMarket: DataTypes.JSON,
+    total: DataTypes.DECIMAL,
     snapshotId: DataTypes.INTEGER
   }, {});
   

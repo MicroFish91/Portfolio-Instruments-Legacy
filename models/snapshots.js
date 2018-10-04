@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     stockTotal: DataTypes.DECIMAL,
     fixedTotal: DataTypes.DECIMAL,
     realTotal: DataTypes.DECIMAL,
+    cashTotal: DataTypes.DECIMAL,
     notes: DataTypes.STRING,
     userId: DataTypes.INTEGER,
 

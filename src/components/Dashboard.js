@@ -13,21 +13,6 @@ import '../assets/css/dashboard.css';
 
 class Dashboard extends Component {
 
-    constructor(props){
-        super(props);
-    }
-
-    componentWillMount(){
-
-        // Get Dashboard Row One Info
-
-        // console.log(this.props.user);
-
-        fetch(`/dashboardRowOneMatt`)
-        .then(response => console.log('made it'))
-
-    }
-
     render() {
 
         return (

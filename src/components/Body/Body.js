@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux';
 
 import DashTitle from '../DashTitle';   
 import RowOne from './RowOne/RowOne';
@@ -14,6 +15,18 @@ class Body extends Component {
 
     constructor(props){
         super(props);
+        this.state = {
+            rowOneTotals: {}
+        }
+    }
+
+    componentWillMount(){
+
+        // Update Row One State Values
+        fetch(`/dashboardRowOne${this.props.user}`)
+        .then(response => response.json())
+        .then(response => this.setState({rowOneTotals: response}))
+
     }
 
     render() {
@@ -27,7 +40,7 @@ class Body extends Component {
 
                         <DashTitle title={"Dashboard View"} titleTwo={"Home"} />
                     
-                        <RowOne />
+                        <RowOne rowOneTotals={this.state.rowOneTotals} />
 
                         <LineChart />
 
@@ -46,4 +59,18 @@ class Body extends Component {
     }
 }
 
-export default Body;
+
+// Map to Global State
+function mapStateToProps(state){
+    
+    return {
+        user: state.user
+    }
+}
+
+
+export default connect(
+    mapStateToProps,
+    null
+)(Body);
+

@@ -10,28 +10,26 @@ import '../../../assets/css/dashboard.css';
 
 class RowOne extends Component {
 
+    constructor(props){
+        super(props);
+    }
+
     render() {
 
         return (
 
             <div class="row row-cards">
                 
-                <TaxableCard />
+                <TaxableCard totals={this.props.rowOneTotals.taxable} />
 
-                <RothCard />
+                <RothCard totals={this.props.rowOneTotals.roth} />
 
-                <TraditionalCard />
+                <TraditionalCard totals={this.props.rowOneTotals.traditional} />
 
-                <NetWorthCard />
+                <NetWorthCard totals={this.props.rowOneTotals.netWorth} />
         
             </div>
         )
-    }
-
-    componentDidMount(){
-
-
-
     }
 
 }
