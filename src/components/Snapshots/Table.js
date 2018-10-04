@@ -5,7 +5,8 @@ import saveSnapshot from '../../actions/saveSnapshot';
 
 import TableRow from './TableRow';
 
-import '../../assets/css/dashboard.css';
+// import {DateTimePicker} from 'react-bootstrap-datetimepicker';
+
 
 class Table extends Component {
 
@@ -102,8 +103,29 @@ class Table extends Component {
                     <div class="card">
 
                         <div class="card-status bg-yellow br-tr-3 br-tl-3"></div>
-                        <div class="card-header">
+
+                        <div class="row">
+                            {/* Title */}
+                            <div class="col-md-7 col-lg-7">
+                                <div class="card-header">
                                 <input type="text" class="form-control" name="example-text-input" placeholder="Snapshot Title Goes Here" value={this.state.snapshotTitle} onChange={this.updateTitle.bind(this)}></input>
+                                </div>
+                            </div>
+
+                            {/* Date */}
+                            <div class="col-md-5 col-lg-5">
+
+                                {/* <DateTimePicker /> */}
+
+                                {/* <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fas fa-calendar tx-16 lh-0 op-6"></i>
+                                        </div>
+                                    </div><input class="form-control fc-datepicker" placeholder="Snapshot date: MM/DD/YYYY" type="text"></input>
+                                </div> */}
+                            </div>
+
                         </div>
 
                         <div class="card-body">
@@ -128,6 +150,15 @@ class Table extends Component {
                                     </tbody>
 
                                 </table>
+
+                                <br></br>
+
+                                <div class="form-group">
+                                    <label class="form-label">Notes</label>
+                                    <textarea class="form-control" name="example-textarea-input" rows="2" placeholder="Enter notes here"></textarea>
+                                </div>
+
+                                <br></br>
 
                                 <button type="submit" class="btn btn-primary ml-auto" onClick={this.createSnapshot.bind(this)}>Save Snapshot</button>
 
