@@ -11,9 +11,8 @@ class TableRow extends Component {
         // Map Rows
         var row = this.props.accountInfo.map((columnData, index) => {
 
-            if ((columnData !== "") ||(index === (this.props.accountInfo.length - 2))) {
-                return <td>{columnData}</td>;
-            } 
+            return <td>{columnData}</td>;
+
         });
 
         return (

@@ -4,6 +4,7 @@ let db = require('../models');
 const jwt = require('jwt-simple');
 let config = require('../config')
 let bcrypt = require('bcryptjs');
+let passport = require('passport');
 
 const requireAuth = passport.authenticate('jwt', {session: false});
 const requireSignIn = passport.authenticate('local', {session: false});

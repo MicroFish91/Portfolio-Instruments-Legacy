@@ -8,7 +8,7 @@ class TableInputCore extends Component {
     constructor(props){
         super(props);
         this.state = {
-            assetPositions: ["", "", "", "", "", "", "", "Taxable"],
+            assetPositions: ["0.00", "0.00", "0.00", "0.00", "0.00", "0.00", "", "Taxable"],
         }
     }
 
@@ -76,7 +76,9 @@ class TableInputCore extends Component {
 
                                     <div class="form-group">
                                         <label class="form-label">Holding Location</label>
-                                        <input type="text" class="form-control" name="example-text-input" placeholder="Ex. Vanguard" id="6" onChange={this.trackAmount.bind(this)}></input>
+                                        <input type="text" class="form-control" name="example-text-input" placeholder="Ex. Vanguard"
+                                        value = {this.state.assetPositions[6]}
+                                        id="6" onChange={this.trackAmount.bind(this)}></input>
                                     </div>
 
                                     {leftSide}   
@@ -87,12 +89,12 @@ class TableInputCore extends Component {
 
                                         var newAssets = this.state.assetPositions.slice();
 
-                                        newAssets[0] = "";
-                                        newAssets[1] = "";
-                                        newAssets[2] = "";
-                                        newAssets[3] = "";
-                                        newAssets[4] = "";
-                                        newAssets[5] = "";
+                                        newAssets[0] = "0.00";
+                                        newAssets[1] = "0.00";
+                                        newAssets[2] = "0.00";
+                                        newAssets[3] = "0.00";
+                                        newAssets[4] = "0.00";
+                                        newAssets[5] = "0.00";
 
                                         this.props.onAddCoreAsset({
                                         location: this.state.assetPositions[6],

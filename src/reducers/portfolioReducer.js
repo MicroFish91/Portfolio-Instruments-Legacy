@@ -79,12 +79,12 @@ function addCore(stateArray, newObject){
     // If Account Exists
     if (accountIndex !== null){
 
-        newStateArray[accountIndex].amountOne = newObject.amountOne;
-        newStateArray[accountIndex].amountTwo = newObject.amountTwo;
-        newStateArray[accountIndex].amountThree = newObject.amountThree;
-        newStateArray[accountIndex].amountFour = newObject.amountFour;
-        newStateArray[accountIndex].amountFive = newObject.amountFive;
-        newStateArray[accountIndex].amountSix = newObject.amountSix;
+        newStateArray[accountIndex].amountOne = parseFloat(newObject.amountOne).toFixed(2);
+        newStateArray[accountIndex].amountTwo = parseFloat(newObject.amountTwo).toFixed(2);
+        newStateArray[accountIndex].amountThree = parseFloat(newObject.amountThree).toFixed(2);
+        newStateArray[accountIndex].amountFour = parseFloat(newObject.amountFour).toFixed(2);
+        newStateArray[accountIndex].amountFive = parseFloat(newObject.amountFive).toFixed(2);
+        newStateArray[accountIndex].amountSix = parseFloat(newObject.amountSix).toFixed(2);
 
         newStateArray[accountIndex].total = objectTotal(newStateArray[accountIndex]);
         
@@ -94,12 +94,12 @@ function addCore(stateArray, newObject){
 
         newAccount.location = newObject.location;
         newAccount.type = newObject.type;
-        newAccount.amountOne = newObject.amountOne;
-        newAccount.amountTwo = newObject.amountTwo;
-        newAccount.amountThree = newObject.amountThree;
-        newAccount.amountFour = newObject.amountFour;
-        newAccount.amountFive = newObject.amountFive;
-        newAccount.amountSix = newObject.amountSix;
+        newAccount.amountOne = parseFloat(newObject.amountOne).toFixed(2);
+        newAccount.amountTwo = parseFloat(newObject.amountTwo).toFixed(2);
+        newAccount.amountThree = parseFloat(newObject.amountThree).toFixed(2);
+        newAccount.amountFour = parseFloat(newObject.amountFour).toFixed(2);
+        newAccount.amountFive = parseFloat(newObject.amountFive).toFixed(2);
+        newAccount.amountSix = parseFloat(newObject.amountSix).toFixed(2);
 
         newAccount.total = objectTotal(newObject);
 
@@ -140,7 +140,7 @@ function addOther(stateArray, otherObject){
 
     // Filter what we want to push into "other" array
     otherPush.assetType = otherObject.assetType;
-    otherPush.amount = otherObject.amount;
+    otherPush.amount = parseFloat(otherObject.amount).toFixed(2);
 
     // Find if stateArray position exists and check if "object" attribute exists
     stateArray.forEach((object, index) => {
@@ -182,7 +182,7 @@ function addOther(stateArray, otherObject){
         newAccount.type = otherObject.type;
         newAccount.other = [];
         newAccount.other.push(otherPush);
-        newAccount.total = otherObject.amount;
+        newAccount.total = parseFloat(otherObject.amount).toFixed(2);
         newStateArray.push(newAccount);
     }
 
@@ -193,7 +193,7 @@ function addOther(stateArray, otherObject){
 // Find Account Total ($)
 function objectTotal(myObject){
 
-    var total = 0;
+    var total = 0.00;
 
     // Compute Total
     for (var property in myObject) {
@@ -201,7 +201,7 @@ function objectTotal(myObject){
         // Add all attributes that have number values minus "other"
         if ((property !== "location") && (property !== "other") && (property !== "type") && (property !== "total") && (myObject[property] !== "")){
 
-            total += parseInt(myObject[property]);
+            total += parseFloat(myObject[property]);
 
         }
 
@@ -209,12 +209,14 @@ function objectTotal(myObject){
         if(property === "other"){
 
             myObject[property].forEach(other => {
-                total += parseInt(other.amount);
+                total += parseFloat(other.amount);
             });
 
         }
 
     }
+
+    total = total.toFixed(2);
 
     return total;
 

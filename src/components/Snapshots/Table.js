@@ -2,10 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux';
 
 import saveSnapshot from '../../actions/saveSnapshot';
-
 import TableRow from './TableRow';
-
-// import {DateTimePicker} from 'react-bootstrap-datetimepicker';
 
 
 class Table extends Component {
@@ -56,41 +53,83 @@ class Table extends Component {
 
             newArray.push(account.location);
             newArray.push(account.type);
-            newArray.push(account.amountOne);
 
-            if (account.amountTwo !== 0) {
-                newArray.push(account.amountTwo);
+            // amountOne
+            if(account.amountOne){
+
+                newArray.push(parseFloat(account.amountOne).toFixed(2));
+
+            } else {
+
+                newArray.push("");
             }
 
-            if (account.amountThree !== 0) {
-                newArray.push(account.amountThree);
-            }
+            // amountTwo
+            if (this.props.benchmarkTitles.length > 1) {
 
-            if (account.amountFour !== 0) {
-                newArray.push(account.amountFour);
-            }
+                if(account.amountTwo){
+                    newArray.push(parseFloat(account.amountTwo).toFixed(2));
+                } else {
+                    newArray.push("");
+                }
+            } 
 
-            if (account.amountFive !== 0) {
-                newArray.push(account.amountFive);
-            }
+            // amountThree
+            if (this.props.benchmarkTitles.length > 2) {
 
-            if (account.amountSix !== 0) {
-                newArray.push(account.amountSix);
-            }
+                if(account.amountThree){
+                    newArray.push(parseFloat(account.amountThree).toFixed(2));
+                } else {
+                    newArray.push("");
+                }
+            } 
 
+            // amountFour
+            if (this.props.benchmarkTitles.length > 3) {
+
+                if(account.amountFour){
+                    newArray.push(parseFloat(account.amountFour).toFixed(2));
+                } else {
+                    newArray.push("");
+                }
+            } 
+
+            // amountFive
+            if (this.props.benchmarkTitles.length > 4) {
+
+                if(account.amountFive){
+                    newArray.push(parseFloat(account.amountFive).toFixed(2));
+                } else {
+                    newArray.push("");
+                }
+            } 
+
+            // amountSix
+            if (this.props.benchmarkTitles.length > 5) {
+
+                if(account.amountSix){
+                    newArray.push(parseFloat(account.amountSix).toFixed(2));
+                } else {
+                    newArray.push("");
+                }
+            } 
+
+            // Other
             if (account.hasOwnProperty("other")){
             
-                let otherTotal = 0;
+                let otherTotal = 0.00;
 
                 account["other"].forEach(other => {
-                    otherTotal += parseInt(other.amount);
+                    otherTotal += (parseFloat(other.amount).toFixed(2));
                 });
 
                 newArray.push(otherTotal);
 
+            } else {
+                newArray.push("");
             }
 
-            newArray.push(account.total);
+            newArray.push(parseFloat(account.total).toFixed(2));
 
             return <TableRow accountInfo={newArray} />;
 
@@ -114,16 +153,9 @@ class Table extends Component {
 
                             {/* Date */}
                             <div class="col-md-5 col-lg-5">
-
-                                {/* <DateTimePicker /> */}
-
-                                {/* <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <i class="fas fa-calendar tx-16 lh-0 op-6"></i>
-                                        </div>
-                                    </div><input class="form-control fc-datepicker" placeholder="Snapshot date: MM/DD/YYYY" type="text"></input>
-                                </div> */}
+                                <div class="card-header">
+                                    <input type="date" class="form-control" placeholder="Snapshot Date"></input>
+                                </div>
                             </div>
 
                         </div>

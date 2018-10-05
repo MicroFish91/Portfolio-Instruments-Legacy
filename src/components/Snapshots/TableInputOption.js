@@ -9,7 +9,7 @@ class TableInputOption extends Component {
     constructor(props){
         super(props);
         this.state = {
-            assetPositions: ["", "Taxable", "", ""]
+            assetPositions: ["", "Taxable", "0.00", ""]
         }
     }
 
@@ -67,7 +67,7 @@ class TableInputOption extends Component {
         newPositions[1] = event.target.value;
 
         // Set State
-        this.setState({assetPositions: newPositions})
+        this.setState({assetPositions: newPositions});
 
     }
 
@@ -80,7 +80,7 @@ class TableInputOption extends Component {
         newPositions[3] = event.target.value;
 
         // Set State
-        this.setState({assetPositions: newPositions})
+        this.setState({assetPositions: newPositions});
 
     }
 
@@ -152,7 +152,7 @@ class TableInputOption extends Component {
 
                                         var newAssets = this.state.assetPositions.slice();
 
-                                        newAssets[2] = "";
+                                        newAssets[2] = "0.00";
 
                                         this.props.onAddOtherAsset({
                                             location: this.state.assetPositions[0],
