@@ -34,26 +34,26 @@ router.get('/dashboardRowOne:user', (req, res) => {
 
                         // Categorize account totals
                         if (data.dataValues.accountType === "Taxable") {
-                            taxable += parseInt(data.dataValues.total);
+                            taxable += parseFloat(data.dataValues.total);
                         } 
                         else if (data.dataValues.accountType === "Roth") {
-                            roth += parseInt(data.dataValues.total);
+                            roth += parseFloat(data.dataValues.total);
                         }
                         else if (data.dataValues.accountType === "Traditional") {
-                            traditional += parseInt(data.dataValues.total);
+                            traditional += parseFloat(data.dataValues.total);
                         }
 
                     })
 
                     netWorth = taxable + roth + traditional;
 
-                    res.json({taxable: taxable, roth: roth, traditional: traditional, netWorth: netWorth});
+                    res.json({taxable: parseFloat(taxable).toFixed(2), roth: parseFloat(roth).toFixed(2), traditional: parseFloat(traditional).toFixed(2), netWorth: parseFloat(netWorth).toFixed(2)});
 
                 })
             
         } else {
 
-            res.json({taxable: 0, roth: 0, traditional: 0, netWorth: 0});
+            res.json({taxable: 0.00, roth: 0.00, traditional: 0.00, netWorth: 0.00});
 
         }
             

@@ -136,11 +136,10 @@ class Table extends Component {
                 let otherTotal = 0;
 
                 account["other"].forEach(other => {
-                    otherTotal += (parseFloat(other.amount).toFixed(2));
+                    otherTotal += parseFloat(other.amount);
                 });
 
-                otherTotal = parseFloat(otherTotal).toFixed(2);
-                newArray.push(otherTotal);
+                newArray.push(parseFloat(otherTotal).toFixed(2));
 
             } else {
                 newArray.push("");

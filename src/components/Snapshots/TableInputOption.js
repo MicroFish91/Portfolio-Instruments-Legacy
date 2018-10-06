@@ -15,7 +15,7 @@ class TableInputOption extends Component {
 
     static defaultProps = {
         assetTypes: [
-            "mm Cash/Money Market",
+            "cash Cash/Money Market",
             "bills Fixed Income: Bills (1 YR or Less)",
             "stb Fixed Income: Short Term Bonds (1 - 3 YRS)",
             "itb Fixed Income: Intermediate Term Bonds (3 - 15 YRS)",
@@ -154,11 +154,21 @@ class TableInputOption extends Component {
 
                                         newAssets[2] = "0.00";
 
+                                        // index
+                                        var ticker = findIndex(this.props.assetTypes, this.state.assetPositions[3]);
+
+                                        // extract ticker
+                                        ticker = this.props.assetTypes[ticker].split(" ");
+
+                                        ticker = ticker[0];
+
+                                        console.log(ticker);
+
                                         this.props.onAddOtherAsset({
                                             location: this.state.assetPositions[0],
                                             type: this.state.assetPositions[1],
                                             amount: this.state.assetPositions[2],
-                                            assetType: this.state.assetPositions[3]
+                                            assetType: ticker
                                         });
 
                                         this.setState({assetPositions: newAssets});
@@ -196,6 +206,35 @@ class TableInputOption extends Component {
 
         )
     }
+}
+
+// Find Index of query that matches the searched array
+function findIndex(searchArray, searchQuery){
+
+    var indexResult = 0;
+    var searchHold;
+
+    searchArray.forEach((string, index) => {
+
+        searchHold = string.split(" ");
+        searchHold.shift();
+        searchHold = searchHold.join(" ");
+
+        if(searchHold.trim() === searchQuery.trim()){
+            indexResult = index;
+        }
+
+        searchHold = string.split(" ");
+        searchHold = searchHold.shift();
+
+        if(searchHold.trim() === searchQuery.trim()){
+            indexResult = index;
+        }
+
+    });
+
+    return indexResult;
+
 }
 
 // Map to Global State

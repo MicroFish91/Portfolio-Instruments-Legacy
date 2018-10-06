@@ -10,9 +10,7 @@ class TableRow extends Component {
 
         // Map Rows
         var row = this.props.accountInfo.map((columnData, index) => {
-
             return <td>{columnData}</td>;
-
         });
 
         return (

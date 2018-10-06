@@ -30,11 +30,10 @@ router.post('/saveSnapshot', (req, res) => {
         
         db.snapshots.create({
             title: req.body.snapshotName,
-            notes: "this is a note",
-            stockTotal: summedValues[0],
-            fixedTotal: summedValues[1],
-            realTotal: summedValues[2],
-            cashTotal: summedValues[3],
+            stockTotal: parseFloat(summedValues[0]).toFixed(2),
+            fixedTotal: parseFloat(summedValues[1]).toFixed(2),
+            realTotal: parseFloat(summedValues[2]).toFixed(2),
+            cashTotal: parseFloat(summedValues[3]).toFixed(2),
             date: req.body.date,
             notes: req.body.notes,
             userId: userId
@@ -52,8 +51,8 @@ router.post('/saveSnapshot', (req, res) => {
                 db.accounts.create({
                     holdingLocation: account.location,
                     accountType: account.type,
-                    moneyMarket: parseInt(categorizedAssets[index].assets[3]),
-                    total: (parseInt(categorizedAssets[index].assets[0][19]) + parseInt(categorizedAssets[index].assets[1][4]) + parseInt(categorizedAssets[index].assets[2][3]) + parseInt(categorizedAssets[index].assets[3])),
+                    moneyMarket: parseFloat(categorizedAssets[index].assets[3]).toFixed(2),
+                    total: parseFloat((parseFloat(categorizedAssets[index].assets[0][19]) + parseFloat(categorizedAssets[index].assets[1][4]) + parseFloat(categorizedAssets[index].assets[2][3]) + parseFloat(categorizedAssets[index].assets[3]))).toFixed(2),
                     snapshotId: result.dataValues.id
                 })
                 // Create new assets and link to the made account
@@ -64,42 +63,42 @@ router.post('/saveSnapshot', (req, res) => {
 
                     // Add Row to "stocks" database
                     db.stocks.create({
-                        tsm: categorizedAssets[myIndex].assets[0][0],
-                        dlcb: categorizedAssets[myIndex].assets[0][1],
-                        dlcv: categorizedAssets[myIndex].assets[0][2],
-                        dlcg: categorizedAssets[myIndex].assets[0][3],
-                        dmcb: categorizedAssets[myIndex].assets[0][4],
-                        dmcv: categorizedAssets[myIndex].assets[0][5],
-                        dmcg: categorizedAssets[myIndex].assets[0][6],
-                        dscb: categorizedAssets[myIndex].assets[0][7],
-                        dscv: categorizedAssets[myIndex].assets[0][8],
-                        dscg: categorizedAssets[myIndex].assets[0][9],
-                        ilcb: categorizedAssets[myIndex].assets[0][10],
-                        ilcv: categorizedAssets[myIndex].assets[0][11],
-                        ilcg: categorizedAssets[myIndex].assets[0][12],
-                        imcb: categorizedAssets[myIndex].assets[0][13],
-                        imcv: categorizedAssets[myIndex].assets[0][14], 
-                        imcg: categorizedAssets[myIndex].assets[0][15], 
-                        iscb: categorizedAssets[myIndex].assets[0][16], 
-                        iscv: categorizedAssets[myIndex].assets[0][17], 
-                        iscg: categorizedAssets[myIndex].assets[0][18],
+                        tsm: parseFloat(categorizedAssets[myIndex].assets[0][0]).toFixed(2),
+                        dlcb: parseFloat(categorizedAssets[myIndex].assets[0][1]).toFixed(2),
+                        dlcv: parseFloat(categorizedAssets[myIndex].assets[0][2]).toFixed(2),
+                        dlcg: parseFloat(categorizedAssets[myIndex].assets[0][3]).toFixed(2),
+                        dmcb: parseFloat(categorizedAssets[myIndex].assets[0][4]).toFixed(2),
+                        dmcv: parseFloat(categorizedAssets[myIndex].assets[0][5]).toFixed(2),
+                        dmcg: parseFloat(categorizedAssets[myIndex].assets[0][6]).toFixed(2),
+                        dscb: parseFloat(categorizedAssets[myIndex].assets[0][7]).toFixed(2),
+                        dscv: parseFloat(categorizedAssets[myIndex].assets[0][8]).toFixed(2),
+                        dscg: parseFloat(categorizedAssets[myIndex].assets[0][9]).toFixed(2),
+                        ilcb: parseFloat(categorizedAssets[myIndex].assets[0][10]).toFixed(2),
+                        ilcv: parseFloat(categorizedAssets[myIndex].assets[0][11]).toFixed(2),
+                        ilcg: parseFloat(categorizedAssets[myIndex].assets[0][12]).toFixed(2),
+                        imcb: parseFloat(categorizedAssets[myIndex].assets[0][13]).toFixed(2),
+                        imcv: parseFloat(categorizedAssets[myIndex].assets[0][14]).toFixed(2), 
+                        imcg: parseFloat(categorizedAssets[myIndex].assets[0][15]).toFixed(2), 
+                        iscb: parseFloat(categorizedAssets[myIndex].assets[0][16]).toFixed(2), 
+                        iscv: parseFloat(categorizedAssets[myIndex].assets[0][17]).toFixed(2), 
+                        iscg: parseFloat(categorizedAssets[myIndex].assets[0][18]).toFixed(2),
                         accountId: result.dataValues.id
                     })
 
                     // Add Row to "fixed_incomes" database
                     db.fixed_incomes.create({
-                        ltb: categorizedAssets[myIndex].assets[1][0],
-                        itb: categorizedAssets[myIndex].assets[1][1],
-                        stb: categorizedAssets[myIndex].assets[1][2],
-                        bills: categorizedAssets[myIndex].assets[1][3],
+                        ltb: parseFloat(categorizedAssets[myIndex].assets[1][0]).toFixed(2),
+                        itb: parseFloat(categorizedAssets[myIndex].assets[1][1]).toFixed(2),
+                        stb: parseFloat(categorizedAssets[myIndex].assets[1][2]).toFixed(2),
+                        bills: parseFloat(categorizedAssets[myIndex].assets[1][3]).toFixed(2),
                         accountId: result.dataValues.id
                     })
                         
                     // Add Row to "real_assets" database
                     db.real_assets.create({
-                        commodoties: categorizedAssets[myIndex].assets[2][0], 
-                        gold: categorizedAssets[myIndex].assets[2][1], 
-                        reits: categorizedAssets[myIndex].assets[2][2],
+                        commodoties: parseFloat(categorizedAssets[myIndex].assets[2][0]).toFixed(2), 
+                        gold: parseFloat(categorizedAssets[myIndex].assets[2][1]).toFixed(2), 
+                        reits: parseFloat(categorizedAssets[myIndex].assets[2][2]).toFixed(2),
                         accountId: result.dataValues.id
                     })
                 })
@@ -122,10 +121,21 @@ function majorAssetTotal(objectArray){
     // Cycle through each account and add up sums
     objectArray.forEach(account => {
 
-        stockTotal += parseInt(account.assets[0][19]);
-        fixedTotal += parseInt(account.assets[1][4]);
-        realTotal += parseInt(account.assets[2][3]);
-        cashTotal += parseInt(account.assets[3]);
+        if (account.assets[0][19]){
+            stockTotal += parseFloat(account.assets[0][19]);
+        }
+
+        if (account.assets[1][4]) {
+            fixedTotal += parseFloat(account.assets[1][4]);
+        }
+
+        if (account.assets[2][3]) {
+            realTotal += parseFloat(account.assets[2][3]);
+        }
+
+        if(account.assets[3]) {
+            cashTotal += parseFloat(account.assets[3]);
+        }
 
     })
 
@@ -166,7 +176,7 @@ function categorizeForDatabase(accountsArray, benchmarkAssets){
 
                         newAsset.table = categorizeAsset(benchmarkAssets[0]);
                         newAsset.ticker = benchmarkAssets[0];
-                        newAsset.amount = accounts.amountOne;
+                        newAsset.amount = parseFloat(accounts.amountOne).toFixed(2);
 
                     }
                     break;
@@ -177,9 +187,7 @@ function categorizeForDatabase(accountsArray, benchmarkAssets){
 
                         newAsset.table = categorizeAsset(benchmarkAssets[1]);
                         newAsset.ticker = benchmarkAssets[1];
-                        newAsset.amount = accounts.amountTwo;
-
-                        console.log
+                        newAsset.amount = parseFloat(accounts.amountTwo).toFixed(2);
                     }
                     break;
 
@@ -189,7 +197,7 @@ function categorizeForDatabase(accountsArray, benchmarkAssets){
 
                         newAsset.table = categorizeAsset(benchmarkAssets[2]);
                         newAsset.ticker = benchmarkAssets[2];
-                        newAsset.amount = accounts.amountThree;
+                        newAsset.amount = parseFloat(accounts.amountThree).toFixed(2);
                     }
                     break;
 
@@ -199,7 +207,7 @@ function categorizeForDatabase(accountsArray, benchmarkAssets){
 
                         newAsset.table = categorizeAsset(benchmarkAssets[3]);
                         newAsset.ticker = benchmarkAssets[3];
-                        newAsset.amount = accounts.amountFour;
+                        newAsset.amount = parseFloat(accounts.amountFour).toFixed(2);
                     }
                     break;
 
@@ -209,7 +217,7 @@ function categorizeForDatabase(accountsArray, benchmarkAssets){
 
                         newAsset.table = categorizeAsset(benchmarkAssets[4]);
                         newAsset.ticker = benchmarkAssets[4];
-                        newAsset.amount = accounts.amountFive;
+                        newAsset.amount = parseFloat(accounts.amountFive).toFixed(2);
                     }
                     break;
 
@@ -219,7 +227,7 @@ function categorizeForDatabase(accountsArray, benchmarkAssets){
 
                         newAsset.table = categorizeAsset(benchmarkAssets[5]);
                         newAsset.ticker = benchmarkAssets[5];
-                        newAsset.amount = accounts.amountSix;
+                        newAsset.amount = parseFloat(accounts.amountSix).toFixed(2);
                     }
                     break;
                 }
@@ -241,9 +249,11 @@ function categorizeForDatabase(accountsArray, benchmarkAssets){
 
                         otherAsset.table = categorizeAsset(asset.assetType);
                         otherAsset.ticker = asset.assetType;
-                        otherAsset.amount = asset.amount;
+                        otherAsset.amount = parseFloat(asset.amount).toFixed(2);
 
                         newAssets.push(otherAsset);
+
+                        console.log(otherAsset);
 
                     })
                 
@@ -300,33 +310,33 @@ function sortAsset(objectArray){
     // Instantiate Variables
     var stocks, fixedIncome, realAssets;
     var stockTotal, fixedTotal, realTotal;
-    var tsm = null,
-        dlcb = null,
-        dlcv = null,
-        dlcg = null, 
-        dmcb = null,
-        dmcv = null, 
-        dmcg = null, 
-        dscb = null, 
-        dscv = null, 
-        dscg = null, 
-        ilcb = null, 
-        ilcv = null, 
-        ilcg = null, 
-        imcb = null, 
-        imcv = null, 
-        imcg = null, 
-        iscb = null, 
-        iscv = null, 
-        iscg = null;
-    var ltb = null, 
-        itb = null, 
-        stb = null, 
-        bills = null;
-    var commodoties = null, 
-        gold = null, 
-        reits = null;
-    var moneyMarket = null;
+    var tsm = 0,
+        dlcb = 0,
+        dlcv = 0,
+        dlcg = 0, 
+        dmcb = 0,
+        dmcv = 0, 
+        dmcg = 0, 
+        dscb = 0, 
+        dscv = 0, 
+        dscg = 0, 
+        ilcb = 0, 
+        ilcv = 0, 
+        ilcg = 0, 
+        imcb = 0, 
+        imcv = 0, 
+        imcg = 0, 
+        iscb = 0, 
+        iscv = 0, 
+        iscg = 0;
+    var ltb = 0, 
+        itb = 0, 
+        stb = 0, 
+        bills = 0;
+    var commodoties = 0, 
+        gold = 0, 
+        reits = 0;
+    var moneyMarket = 0;
 
     // Cycle through assets and assign values in order
     objectArray.forEach(asset => {
@@ -334,111 +344,111 @@ function sortAsset(objectArray){
         switch(asset.ticker){
 
             case "tsm":
-                tsm = asset.amount;
+                tsm = parseFloat(asset.amount).toFixed(2);
                 break;
 
             case "dlcb":
-                dlcb = asset.amount;
+                dlcb = parseFloat(asset.amount).toFixed(2);
                 break;
 
             case "dlcv":
-                dlcv = asset.amount;
+                dlcv = parseFloat(asset.amount).toFixed(2);
                 break;
 
             case "dlcg":
-                dlcg = asset.amount;
+                dlcg = parseFloat(asset.amount).toFixed(2);
                 break;
 
             case "dmcb":
-                dmcb = asset.amount;
+                dmcb = parseFloat(asset.amount).toFixed(2);
                 break;
 
             case "dmcv":
-                dmcv = asset.amount;
+                dmcv = parseFloat(asset.amount).toFixed(2);
                 break;
 
             case "dmcg":
-                dmcg = asset.amount;
+                dmcg = parseFloat(asset.amount).toFixed(2);
                 break;
 
             case "dscb":
-                dscb = asset.amount;
+                dscb = parseFloat(asset.amount).toFixed(2);
                 break;
 
             case "dscv":
-                dscv = asset.amount;
+                dscv = parseFloat(asset.amount).toFixed(2);
                 break;
 
             case "dscg":
-                dscg = asset.amount;
+                dscg = parseFloat(asset.amount).toFixed(2);
                 break;
 
             case "ilcb":
-                ilcb = asset.amount;
+                ilcb = parseFloat(asset.amount).toFixed(2);
                 break;
 
             case "ilcv":
-                ilcv = asset.amount;
+                ilcv = parseFloat(asset.amount).toFixed(2);
                 break;
 
             case "ilcg":
-                ilcg = asset.amount;
+                ilcg = parseFloat(asset.amount).toFixed(2);
                 break;
 
             case "imcb":
-                imcb = asset.amount;
+                imcb = parseFloat(asset.amount).toFixed(2);
                 break;
 
             case "imcv":
-                imcv = asset.amount;
+                imcv = parseFloat(asset.amount).toFixed(2);
                 break;
 
             case "imcg":
-                imcg = asset.amount;
+                imcg = parseFloat(asset.amount).toFixed(2);
                 break;
 
             case "iscb":
-                iscb = asset.amount;
+                iscb = parseFloat(asset.amount).toFixed(2);
                 break;
 
             case "iscv":
-                iscv = asset.amount;
+                iscv = parseFloat(asset.amount).toFixed(2);
                 break;
 
             case "iscg":
-                iscg = asset.amount;
+                iscg = parseFloat(asset.amount).toFixed(2);
                 break;
             
             case "ltb":
-                ltb = asset.amount;
+                ltb = parseFloat(asset.amount).toFixed(2);
                 break;
 
             case "itb":
-                itb = asset.amount;
+                itb = parseFloat(asset.amount).toFixed(2);
                 break;
 
             case "stb":
-                stb = asset.amount;
+                stb = parseFloat(asset.amount).toFixed(2);
                 break;
             
             case "bills":
-                bills = asset.amount;
+                bills = parseFloat(asset.amount).toFixed(2);
                 break;
 
             case "commodoties":
-                commodoties = asset.amount;
+                commodoties = parseFloat(asset.amount).toFixed(2);
                 break;
 
             case "gold":
-                gold = asset.amount;
+                gold = parseFloat(asset.amount).toFixed(2);
                 break;
 
             case "reits":
-                reits = asset.amount;
+                reits = parseFloat(asset.amount).toFixed(2);
                 break;
 
-            case "mm":
-                moneyMarket = asset.amount;
+            case "cash":
+                moneyMarket = parseFloat(asset.amount).toFixed(2);
                 break;
 
         }
@@ -460,11 +470,6 @@ function sortAsset(objectArray){
     fixedIncome.push(fixedTotal);
     realAssets.push(realTotal);
 
-    // If money market null, set to 0 as total
-    if (moneyMarket === null) {
-        moneyMarket = 0;
-    }
-
     return [stocks, fixedIncome, realAssets, moneyMarket];
 
 }
@@ -475,8 +480,8 @@ function sumTotal(assetArray){
     var sum = 0;
 
     assetArray.forEach(amount => {
-        if (amount !== null){
-            sum += parseInt(amount);
+        if (amount !== 0){
+            sum += parseFloat(amount);
         }
     })
 
