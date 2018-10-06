@@ -57,31 +57,31 @@ class Sidebar extends Component {
                                 <a class="side-menu__item" data-toggle="slide" href=""><i class="side-menu__icon fas fa-table"></i><span class="side-menu__label">Lazy Portfolios</span><i class="angle fas fa-angle-right"></i></a>
                                 <ul class="slide-menu">
                                     <li>
-                                        <Link to="/dashboard/lazyPortfolios" class="slide-item">General</Link>
+                                        <Link to="/dashboard/general" class="slide-item">General</Link>
                                     </li>
                                     <li>
-                                        <a href="" class="slide-item">Total Stock Market</a>
+                                    <Link to="/dashboard/lazyPortfolios/tsm" class="slide-item">Total Stock Market</Link>
                                     </li>
                                     <li>
-                                        <a href="" class="slide-item">Classic 60/40</a>
+                                    <Link to="/dashboard/lazyPortfolios/sixtyForty" class="slide-item">Classic 60/40</Link>
                                     </li>
                                     <li>
-                                        <a href="" class="slide-item">Three-Fund Portfolio</a>
+                                    <Link to="/dashboard/lazyPortfolios/threeFund" class="slide-item">Three Fund Portfolio</Link>
                                     </li>
                                     <li>
-                                        <a href="" class="slide-item">No-Brainer Portfolio</a>
+                                    <Link to="/dashboard/lazyPortfolios/noBrainer" class="slide-item">No-Brainer Portfolio</Link>
                                     </li>
                                     <li>
-                                        <a href="" class="slide-item">Rick Ferri Core Four</a>
+                                    <Link to="/dashboard/lazyPortfolios/rickFerri" class="slide-item">Rick Ferri Core Four</Link>
                                     </li>
                                     <li>
-                                        <a href="" class="slide-item">Ivy Portfolio</a>
+                                    <Link to="/dashboard/lazyPortfolios/ivy" class="slide-item">Ivy Portfolio</Link>
                                     </li>
                                     <li>
-                                        <a href="" class="slide-item">Permanent Portfolio</a>
+                                    <Link to="/dashboard/lazyPortfolios/permanent" class="slide-item">Permanent Portfolio</Link>
                                     </li>
                                     <li>
-                                        <a href="" class="slide-item">Golden Butterfly</a>
+                                    <Link to="/dashboard/lazyPortfolios/goldenButterfly" class="slide-item">Golden Butterfly</Link>
                                     </li>
                                 </ul>
                             </li>

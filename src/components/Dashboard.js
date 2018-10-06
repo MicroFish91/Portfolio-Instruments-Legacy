@@ -35,6 +35,8 @@ class Dashboard extends Component {
 
                                 <Route path="/dashboard/lazyPortfolios" component={LazyPortfolios} />
 
+                                <Route path="/dashboard/general" component={LazyPortfolios} />
+
                         </div>
                     </div>
                 </div>

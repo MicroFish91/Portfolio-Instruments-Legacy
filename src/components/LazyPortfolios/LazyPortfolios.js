@@ -69,16 +69,25 @@ class LazyPortfolios extends Component {
                 ['#f66d9b'], ['#f66d9b', '#8ecf4d'], ['#f66d9b', '#8ecf4d', '#4ecc48'], ['#f66d9b', '#8ecf4d', '#4ecc48', '#f999b9'], ['#f66d9b', '#8ecf4d', '#4ecc48', '#f999b9'], ['#f66d9b', '#8ecf4d', '#4ecc48', '#f999b9', '#5797fc'], ['#f66d9b', '#8ecf4d', '#4ecc48', '#f999b9'], ['#f66d9b', '#8ecf4d', '#4ecc48', '#f999b9', '#5797fc']
             ],
             linkTo: [
-                "/lazyPortfolios/tsm", "/sixtyForty", "/threeFund", "/noBrainer", "/rickFerri", "/ivy", "/permanent", "/goldenButterfly"
+                "/dashboard/lazyPortfolios/tsm", "/dashboard/lazyPortfolios/sixtyForty", "/dashboard/lazyPortfolios/threeFund", "/dashboard/lazyPortfolios/noBrainer", "/dashboard/lazyPortfolios/rickFerri", "/dashboard/lazyPortfolios/ivy", "/dashboard/lazyPortfolios/permanent", "/dashboard/lazyPortfolios/goldenButterfly"
             ]
         }
     }
 
     render() {
 
-        // Map Portfolio Components to portfolios
-        var portfolios = this.props.assetInfo.assetTitles.map((data, index) => {
-            return <PortfolioCard assetInfo={this.props.assetInfo} index={index} />;
+        // Map "Individual" Portfolio Components to portfolios
+        var individualPortfolios = this.props.assetInfo.assetTitles.map((data, index) => {
+
+            return <Route key={this.props.assetInfo.assetNames[index]} exact path={this.props.assetInfo.linkTo[index]} render={() => <PortfolioCard assetInfo={this.props.assetInfo} index={index} />} />;
+
+        });
+
+        // Map "General" Portfolio Components to portfolios
+        var generalPortfolios = this.props.assetInfo.assetTitles.map((data, index) => {
+
+            return <Route key={index} exact path='/dashboard/general' render={() => <PortfolioCard assetInfo={this.props.assetInfo} index={index} />} />;
+
         });
 
         return (
@@ -87,9 +96,11 @@ class LazyPortfolios extends Component {
 
                 <DashTitle title={"Lazy Portfolios"} titleTwo={"General"} />
 
-                <General />
+                <Route exact path='/dashboard/general' component={General} />
 
-                {portfolios}
+                {generalPortfolios}
+
+                {individualPortfolios}
 
                 </div>
             </div>

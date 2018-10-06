@@ -23,6 +23,9 @@ module.exports = {
       cashTotal: {
         type: Sequelize.DECIMAL
       },
+      date: {
+        type: Sequelize.STRING(10)
+      },
       notes: {
         type: Sequelize.STRING
       },

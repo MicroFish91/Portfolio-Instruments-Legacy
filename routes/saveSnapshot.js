@@ -35,6 +35,8 @@ router.post('/saveSnapshot', (req, res) => {
             fixedTotal: summedValues[1],
             realTotal: summedValues[2],
             cashTotal: summedValues[3],
+            date: req.body.date,
+            notes: req.body.notes,
             userId: userId
         })
         // Use returned snapshotId to create and link new Accounts found in categorizedAssets

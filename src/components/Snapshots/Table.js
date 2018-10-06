@@ -10,13 +10,27 @@ class Table extends Component {
     constructor(props){
         super(props);
         this.state = {
-            snapshotTitle: ""
+            snapshotTitle: "",
+            date: "",
+            notes: ""
         }
     }
 
     updateTitle(event){
 
         this.setState({snapshotTitle: event.target.value});
+
+    }
+
+    updateDate(event){
+
+        this.setState({date: event.target.value});
+
+    }
+
+    updateNotes(event){
+
+        this.setState({notes: event.target.value});
 
     }
 
@@ -30,8 +44,10 @@ class Table extends Component {
                 'content-type': "application/json"
             },
             method: "POST",
-            body: JSON.stringify({user: this.props.user, snapshotName: this.state.snapshotTitle, coreAssets: this.props.coreAssets, benchmarkTitles: this.props.benchmarkTitles})
+            body: JSON.stringify({user: this.props.user, snapshotName: this.state.snapshotTitle, coreAssets: this.props.coreAssets, benchmarkTitles: this.props.benchmarkTitles, date: this.state.date, notes: this.state.notes})
         })
+
+        this.setState({snapshotTitle: "", date: "", notes: ""});
 
         this.props.onSaveSnapshot();
 
@@ -117,12 +133,13 @@ class Table extends Component {
             // Other
             if (account.hasOwnProperty("other")){
             
-                let otherTotal = 0.00;
+                let otherTotal = 0;
 
                 account["other"].forEach(other => {
                     otherTotal += (parseFloat(other.amount).toFixed(2));
                 });
 
+                otherTotal = parseFloat(otherTotal).toFixed(2);
                 newArray.push(otherTotal);
 
             } else {
@@ -154,7 +171,10 @@ class Table extends Component {
                             {/* Date */}
                             <div class="col-md-5 col-lg-5">
                                 <div class="card-header">
-                                    <input type="date" class="form-control" placeholder="Snapshot Date"></input>
+                                    <input type="date" class="form-control" 
+                                    value={this.state.date}
+                                    onChange={this.updateDate.bind(this)}
+                                    placeholder="Snapshot Date"></input>
                                 </div>
                             </div>
 
@@ -187,7 +207,9 @@ class Table extends Component {
 
                                 <div class="form-group">
                                     <label class="form-label">Notes</label>
-                                    <textarea class="form-control" name="example-textarea-input" rows="2" placeholder="Enter notes here"></textarea>
+                                    <textarea class="form-control" name="example-textarea-input" rows="2" placeholder="Enter notes here"
+                                    value={this.state.notes}
+                                    onChange={this.updateNotes.bind(this)}></textarea>
                                 </div>
 
                                 <br></br>
