@@ -51,7 +51,7 @@ class Body extends Component {
 
                         <RowThree />
 
-                        <RowFour />
+                        <RowFour rowFourTotals={this.state.rowFourTotals} />
 
                         <Footer />
 
