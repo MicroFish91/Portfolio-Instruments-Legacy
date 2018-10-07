@@ -16,7 +16,8 @@ class Body extends Component {
     constructor(props){
         super(props);
         this.state = {
-            rowOneTotals: {}
+            rowOneTotals: {},
+            rowFourTotals: {}
         }
     }
 
@@ -26,6 +27,10 @@ class Body extends Component {
         fetch(`/dashboardRowOne${this.props.user}`)
         .then(response => response.json())
         .then(response => this.setState({rowOneTotals: response}))
+
+        fetch(`/dashBoardRowFour${this.props.user}`)
+        .then(response => response.json())
+        .then(response => this.setState({rowFourTotals: response}))
 
     }
 

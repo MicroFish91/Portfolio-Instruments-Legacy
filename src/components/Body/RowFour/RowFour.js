@@ -16,7 +16,7 @@ class RowFour extends Component {
             
             <div class="row">
 
-                <DashBoardChart />
+                <DashBoardChart placeHolder={"Current Portfolio"} />
 
                 <DashBoardChart name={this.props.benchmarkName} ratios={this.props.benchmarkRatios} titles={this.props.benchmarkTitles} placeHolder={"Current Benchmark: "} />
             

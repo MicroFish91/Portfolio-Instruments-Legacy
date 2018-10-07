@@ -21,8 +21,6 @@ router.get('/dashboardRowOne:user', (req, res) => {
     {model: db.users})
     .then(results => {
 
-        // console.log(results[0].dataValues['snapshots.id']);
-
         // If a snapshot exists, return sums, otherwise, return 0's
         if ((results[0].dataValues['snapshots.id']) !== null){
             

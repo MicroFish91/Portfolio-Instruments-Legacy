@@ -45,8 +45,6 @@ class DashBoardChart extends Component {
             var data = this.props.data;
         }
 
-        console.log(data);
-
         return (
 
             <div class="col-lg-6 col-md-12">
