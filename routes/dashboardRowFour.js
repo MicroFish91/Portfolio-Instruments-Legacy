@@ -42,8 +42,6 @@ router.get('/dashboardRowFour:user', (req, res) => {
                 // Obtain benchmarkList using benchmarkTitle
                 benchmarkList = assetMapper(benchmarkList.shift());
 
-                console.log(benchmarkList);
-
                 // Loop through every snapshot account
                 results[0].dataValues.accounts.forEach((account, accountIndex) => {
 

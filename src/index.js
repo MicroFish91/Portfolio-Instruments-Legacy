@@ -16,7 +16,6 @@ import registerServiceWorker from './registerServiceWorker';
 // coreAssets: Array of Account Objects used to Display Table Rows when Adding a New Snapshot
 
 
-
 var store = createStore(
     portfolioReducer, 
     {benchmarkName: "Permanent Portfolio", benchmarkTitles: ["dlcb", "ltb", "gold", "cash"], benchmarkRatios: [25, 25, 25, 25], user: "Matt", coreAssets: []},
