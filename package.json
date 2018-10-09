@@ -35,7 +35,7 @@
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
-    "pg": "^7.4.3",
+    "pg": "^7.5.0",
     "pg-hstore": "^2.3.2",
     "popper.js": "^1.14.4",
     "react": "^16.5.2",
@@ -46,6 +46,6 @@
     "react-scripts": "1.1.5",
     "react-with-styles": "^3.2.1",
     "redux": "^4.0.0",
-    "sequelize": "^4.38.1"
+    "sequelize": "^4.39.0"
   }
 }

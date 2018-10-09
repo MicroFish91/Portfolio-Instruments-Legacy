@@ -2,32 +2,38 @@ let express = require('express');
 let router = express.Router();
 let db = require('../models');
 const jwt = require('jwt-simple');
-let config = require('../config')
-let bcrypt = require('bcryptjs');
-let passport = require('passport');
+const config = require('../config');
+const bcrypt = require('bcryptjs');
+const passport = require('passport');
+const passportService = require('../config/passAuth');
+
+let bodyParser = require('body-parser');
+
+router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({ extended: false }));
 
 const requireAuth = passport.authenticate('jwt', {session: false});
 const requireSignIn = passport.authenticate('local', {session: false});
 
-var user = {
-    id: '1999',
-    userName: 'Matt@gmail.com'
-}
+// var user = {
+//     id: '1999',
+//     userName: 'Matt@gmail.com'
+// }
 
-router.get('/', requireAuth, (req, res) => {
+router.get('/protected', requireAuth, (req, res) => {
 
     res.send('hello');
 
 });
 
-
+// Sign-in 
 router.post('/signin', requireSignIn, (req, res) => {
 
     res.json({token: tokenForUser(req.body.userName)});
 
 });
 
-
+// Register Account
 router.post('/signup', (req, res) => {
 
     let userName = req.body.userName;
@@ -44,20 +50,19 @@ router.post('/signup', (req, res) => {
         // This userName (email address) does not exist
         if (results.length === 0){
 
-            db.users.create({userName: userName, userPassword: userPassword, benchmark: null})
-            .then(result => {
-                return res.json({token: tokenForUser(userName)});
+            db.users.create({userName: userName, userPassword: userPassword, benchmark: ""})
+            .then(user => {
+                return res.json({token: tokenForUser(user)});
             })
         } else {
 
             return res.status(422).send({error: "Email already exists."});
 
         }
-
     })
-
 })
 
+// Create web token: https://jwt.io/
 function tokenForUser(user){
 
     let timestamp = new Date().getTime();

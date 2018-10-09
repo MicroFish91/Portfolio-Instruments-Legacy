@@ -1,22 +1,29 @@
 var passport = require('passport');
 var config = require('../config');
 var db = require('../models');
-var jwtStrategy = require('passport-jwt').Strategy;
+var JwtStrategy = require('passport-jwt').Strategy;
 var extractJwt = require('passport-jwt').ExtractJwt;
 var bcrypt = require('bcryptjs');
-var localStrategy = require('passport-local');
+var LocalStrategy = require('passport-local');
 
-// Setup options for local strategy
+const passportService = require('../config/passAuth');
+
+
+
+
+
+// Points to database userName and userPassword columns
 const localOptions = {
-    usernameField: 'email'
+    usernameField: 'userName',
+    passwordField: 'userPassword'
 };
 
 // Create local strategy
-const localLogin = new LocalStrategy(localOptions, (email, password, done) => {
+const localLogin = new LocalStrategy(localOptions, (username, password, done) => {
 
     db.users.findAll({
         where: {
-            userName: email
+            userName: username
         }
     })
     .then(results => {
@@ -25,27 +32,21 @@ const localLogin = new LocalStrategy(localOptions, (email, password, done) => {
 
             const user = results[0];
 
-            bcrypt.compare((password, user.password, (err, isMatch)) => {
+            bcrypt.compare(password, user.userPassword, (err, isMatch) => {
 
                 // If error
                 if (err){
                     return done(err);
                 } 
-                
                 // If no match
                 if(!isMatch){
                     return done(null, false);
                 }
-
                 // Match
                 return done(null, user);
-
             }); 
-
-        }
-
+        } 
     })
-
 });
 
 
@@ -56,9 +57,9 @@ const jwtOptions = {
 };
 
 // Create JWT strategy
-const jwtLogin = new jwtStrategy(jwtOptions, (payload, done) => {
+const jwtLogin = new JwtStrategy(jwtOptions, (payload, done) => {
 
-    db.user.findById(payload.id)
+    db.users.findById(payload.sub)
     .then(foundUser => {
         
         if(foundUser) {
