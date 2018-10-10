@@ -241,9 +241,9 @@ function findIndex(searchArray, searchQuery){
 function mapStateToProps(state){
     
     return {
-        user: state.user,
-        benchmarkTitles: state.benchmarkTitles,
-        coreAssets: state.coreAssets
+        user: state.portfolioReducer.user,
+        benchmarkTitles: state.portfolioReducer.benchmarkTitles,
+        coreAssets: state.portfolioReducer.coreAssets
     }
 }
 

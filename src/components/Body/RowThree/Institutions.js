@@ -68,10 +68,10 @@ class Institutions extends Component {
 function mapStateToProps(state){
     
     return {
-        user: state.user,
-        benchmarkName: state.benchmarkName,
-        benchmarkTitles: state.benchmarkTitles,
-        benchmarkRatios: state.benchmarkRatios
+        user: state.portfolioReducer.user,
+        benchmarkName: state.portfolioReducer.benchmarkName,
+        benchmarkTitles: state.portfolioReducer.benchmarkTitles,
+        benchmarkRatios: state.portfolioReducer.benchmarkRatios
     }
 }
 

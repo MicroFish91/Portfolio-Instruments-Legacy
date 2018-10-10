@@ -66,9 +66,9 @@ class PortfolioCard extends Component {
 function mapStateToProps(state){
     
     return {
-        user: state.user,
-        benchmarkTitles: state.benchmarkTitles,
-        benchmarkRatios: state.benchmarkRatios
+        user: state.portfolioReducer.user,
+        benchmarkTitles: state.portfolioReducer.benchmarkTitles,
+        benchmarkRatios: state.portfolioReducer.benchmarkRatios
     }
 }
 

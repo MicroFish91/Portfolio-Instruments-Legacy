@@ -29,9 +29,9 @@ class RowFour extends Component {
 function mapStateToProps(state){
     
     return {
-        benchmarkName: state.benchmarkName,
-        benchmarkTitles: state.benchmarkTitles,
-        benchmarkRatios: state.benchmarkRatios
+        benchmarkName: state.portfolioReducer.benchmarkName,
+        benchmarkTitles: state.portfolioReducer.benchmarkTitles,
+        benchmarkRatios: state.portfolioReducer.benchmarkRatios
     }
 }
 

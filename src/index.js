@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
 import {BrowserRouter} from 'react-router-dom';
+import { createStore, applyMiddleware } from 'redux';
+import reduxThunk from 'redux-thunk';
 
-import portfolioReducer from './reducers/portfolioReducer';
+import reducers from './reducers';
 import Main from './components/Main';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -17,8 +18,9 @@ import registerServiceWorker from './registerServiceWorker';
 
 
 var store = createStore(
-    portfolioReducer, 
-    {benchmarkName: "Permanent Portfolio", benchmarkTitles: ["dlcb", "ltb", "gold", "cash"], benchmarkRatios: [25, 25, 25, 25], user: "Matt", coreAssets: []},
+    reducers, 
+    {},
+    applyMiddleware(reduxThunk),
     window.__REDUX_DEVTOOLS_EXTENSION__ &&window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 

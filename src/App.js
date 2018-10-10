@@ -12,11 +12,11 @@ import Dashboard from './components/Dashboard';
 function mapStateToProps(state){
     
     return {
-        user: state.user,
-        benchmarkName: state.benchmarkName,
-        benchmarkTitles: state.benchmarkTitles,
-        benchmarkRatios: state.benchmarkRatios,
-        coreAssets: state.coreAssets
+        user: state.portfolioReducer.user,
+        benchmarkName: state.portfolioReducer.benchmarkName,
+        benchmarkTitles: state.portfolioReducer.benchmarkTitles,
+        benchmarkRatios: state.portfolioReducer.benchmarkRatios,
+        coreAssets: state.portfolioReducer.coreAssets
     }
 }
 

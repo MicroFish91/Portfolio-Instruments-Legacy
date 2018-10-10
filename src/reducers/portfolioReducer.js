@@ -1,4 +1,11 @@
 function portfolioReducer(state, action){
+    
+    // Initialize States
+    if (state === undefined){
+
+        return {benchmarkName: "Permanent Portfolio", benchmarkTitles: ["dlcb", "ltb", "gold", "cash"], benchmarkRatios: [25, 25, 25, 25], user: "Matt", coreAssets: []};
+
+    }
 
     // Determine State Changes Based on Action Received
     switch (action.type){
@@ -21,7 +28,7 @@ function portfolioReducer(state, action){
 
         case 'addCoreAsset':
 
-            let newCore = state.coreAssets.slice();
+            let newCore = state.portfolioReducer.coreAssets.slice();
 
             // Add or replace object into current array
             newCore = addCore(newCore, action.account);
@@ -36,7 +43,7 @@ function portfolioReducer(state, action){
 
         case "addOtherAsset":
 
-            let otherCore = addOther(state.coreAssets, action.other);
+            let otherCore = addOther(state.portfolioReducer.coreAssets, action.other);
 
             otherCore = sortAccounts(otherCore);
 

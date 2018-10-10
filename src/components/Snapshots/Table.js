@@ -230,9 +230,9 @@ class Table extends Component {
 function mapStateToProps(state){
     
     return {
-        user: state.user,
-        coreAssets: state.coreAssets,
-        benchmarkTitles: state.benchmarkTitles
+        user: state.portfolioReducer.user,
+        coreAssets: state.portfolioReducer.coreAssets,
+        benchmarkTitles: state.portfolioReducer.benchmarkTitles
     }
 }
 

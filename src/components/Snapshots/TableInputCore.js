@@ -142,7 +142,7 @@ class TableInputCore extends Component {
 function mapStateToProps(state){
     
     return {
-        benchmarkTitles: state.benchmarkTitles
+        benchmarkTitles: state.portfolioReducer.benchmarkTitles
     }
 }
 
