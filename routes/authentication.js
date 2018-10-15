@@ -15,11 +15,6 @@ router.use(bodyParser.urlencoded({ extended: false }));
 const requireAuth = passport.authenticate('jwt', {session: false});
 const requireSignIn = passport.authenticate('local', {session: false});
 
-// var user = {
-//     id: '1999',
-//     userName: 'Matt@gmail.com'
-// }
-
 router.get('/protected', requireAuth, (req, res) => {
 
     res.send('hello');
@@ -47,11 +42,14 @@ router.post('/signup', (req, res) => {
     })
     .then(results => {
 
+        console.log(results);
+
         // This userName (email address) does not exist
         if (results.length === 0){
 
             db.users.create({userName: userName, userPassword: userPassword, benchmark: ""})
             .then(user => {
+
                 return res.json({token: tokenForUser(user)});
             })
         } else {
