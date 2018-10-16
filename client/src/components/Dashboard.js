@@ -10,7 +10,6 @@ import LazyPortfolios from './LazyPortfolios/LazyPortfolios';
 
 import requireAuth from './requireAuth';
 
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../assets/css/dashboard.css';
 
 class Dashboard extends Component {
@@ -22,7 +21,7 @@ class Dashboard extends Component {
             <div>
 
 		        <div class="app sidebar-mini rtl">
-                    {/* <div id="global-loader" ><div class="showbox"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div></div> */}
+                    {/* <div id="global-loader"><div class="showbox"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div></div> */}
                         <div class="page">
                             <div class="page-main">
 
@@ -47,6 +46,7 @@ class Dashboard extends Component {
                 
         )
     }
+
 }
 
 // export default requireAuth(Dashboard);
