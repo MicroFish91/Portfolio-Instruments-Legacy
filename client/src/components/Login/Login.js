@@ -20,39 +20,39 @@ class Login extends Component {
         
         <div>
 
-        <div id="particles-js" class=""></div>
+        <div id="particles-js" className=""></div>
 
-        <div id="global-loader"><div class="showbox"><div  class="lds-ring"><div></div><div></div><div></div><div></div></div></div></div>
+        {/* <div id="global-loader"><div className="showbox"><div  className="lds-ring"><div></div><div></div><div></div><div></div></div></div></div> */}
 
-		<div class="page">
-			<div class="page-single">
-				<div class="container">
-					<div class="row">
-						<div class="col col-login mx-auto">
-							<div class="text-center mb-6 ">
-								<img src="" class="h-6" alt=""></img>
+		<div className="page">
+			<div className="page-single">
+				<div className="container">
+					<div className="row">
+						<div className="col col-login mx-auto">
+							<div className="text-center mb-6 ">
+								<img src="" className="h-6" alt=""></img>
 							</div>
-							<form class="card" method="post">
-								<div class="card-body p-6">
-									<div class="card-title text-center">Login to your Account</div>
-									<div class="form-group">
-										<label class="form-label">Email address</label>
-										<input type="email" class="form-control" id="exampleInputEmail1"  placeholder="Enter email"></input>
+							<form className="card" method="post">
+								<div className="card-body p-6">
+									<div className="card-title text-center">Login to your Account</div>
+									<div className="form-group">
+										<label className="form-label">Email address</label>
+										<input type="email" className="form-control" id="exampleInputEmail1"  placeholder="Enter email"></input>
 									</div>
-									<div class="form-group">
-										<label class="form-label">Enter Password
+									<div className="form-group">
+										<label className="form-label">Enter Password
 										</label>
-										<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"></input>
+										<input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"></input>
 									</div>
-									<div class="form-footer">
-                                    <button class="btn btn-primary btn-block" onClick={
+									<div className="form-footer">
+                                    <button className="btn btn-primary btn-block" onClick={
                                         (e) => {
 											e.preventDefault();
 											this.props.onInitializeUser("Matt");
                                         }
                                     }><Link to="/dashboard">Sign in</Link></button>
 									</div>
-									<div class="text-center text-muted mt-3">
+									<div className="text-center text-muted mt-3">
 										Don't have account yet? <Link to="/createAccount">Create Account </Link>
 									</div>
 								</div>

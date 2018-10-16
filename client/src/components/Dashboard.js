@@ -22,7 +22,7 @@ class Dashboard extends Component {
             <div>
 
 		        <div class="app sidebar-mini rtl">
-                    <div id="global-loader" ><div class="showbox"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div></div>
+                    {/* <div id="global-loader" ><div class="showbox"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div></div> */}
                         <div class="page">
                             <div class="page-main">
 
