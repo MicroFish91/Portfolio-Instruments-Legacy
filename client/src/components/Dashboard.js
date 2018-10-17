@@ -13,7 +13,7 @@ import requireAuth from './requireAuth';
 import setBenchmark from '../actions/setBenchmark';
 import initializeUser from '../actions/initializeUser';
 
-import '../assets/css/dashboard.css';
+// import '../assets/css/dashboard.css';
 
 class Dashboard extends Component {
 

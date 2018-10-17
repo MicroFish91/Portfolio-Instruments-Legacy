@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 //import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import '../assets/css/dashboard.css';
+// import '../assets/css/dashboard.css';
 
 class DashTitle extends Component {
 
