@@ -24,20 +24,25 @@ class Body extends Component {
 
     componentWillMount(){
 
+        console.log(this.props.user);
+
         // Update Row One State Values
         fetch(`/dashboardRowOne${this.props.user}`)
         .then(response => response.json())
         .then(response => this.setState({rowOneTotals: response}))
+        .catch(error => console.log(error))
 
         // Update Row Three State Values
         fetch(`/dashBoardRowThree${this.props.user}`)
         .then(response => response.json())
         .then(response => this.setState({rowThreeTotals: response}))
+        .catch(error => console.log(error))
 
         // Update Row Four State Values
         fetch(`/dashBoardRowFour${this.props.user}`)
         .then(response => response.json())
         .then(response => this.setState({rowFourTotals: response}))
+        .catch(error => console.log(error))
 
     }
 

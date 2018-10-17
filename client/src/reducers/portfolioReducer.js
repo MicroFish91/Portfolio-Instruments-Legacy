@@ -3,7 +3,7 @@ function portfolioReducer(state, action){
     // Initialize States
     if (state === undefined){
 
-        return {benchmarkName: "Permanent Portfolio", benchmarkTitles: ["dlcb", "ltb", "gold", "cash"], benchmarkRatios: [25, 25, 25, 25], user: "Matt", coreAssets: []};
+        return {benchmarkName: "", benchmarkTitles: [], benchmarkRatios: [], user: "", coreAssets: []};
 
     }
 

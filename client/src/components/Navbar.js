@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-// call this.props.signout() for signout button
-
 
 class Navbar extends Component {
+
+    onSignout(event){
+
+        event.preventDefault();
+
+        this.props.signout();
+    }
 
     render() {
 
@@ -66,7 +73,7 @@ class Navbar extends Component {
                                         <a class="dropdown-item" href=""><i class="dropdown-icon mdi mdi-settings"></i> Settings</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href=""><i class="dropdown-icon mdi mdi-compass-outline"></i>Getting Started</a>
-                                        <a class="dropdown-item" href="login.html"><i class="dropdown-icon mdi mdi-logout-variant"></i> Sign out</a>
+                                        <a class="dropdown-item" href="login.html" onClick={this.onSignout.bind(this)}><i class="dropdown-icon mdi mdi-logout-variant"></i> Sign out</a>
                                     </div>
                                 </div>
                             </div>
@@ -78,4 +85,8 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar;
+function mapStateToProps(state){
+    return {errorMessage: state.auth.errorMessage};
+}
+
+export default connect(mapStateToProps, actions)(Navbar)

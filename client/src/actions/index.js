@@ -8,18 +8,9 @@ export const signup = (formProps, callback) => async dispatch => {
         const response = await axios.post(
             '/signup',
             formProps
-        );
-
-        // const response = await fetch("/signup", {
-        //     headers: {
-        //         'content-type': "application/json"
-        //     },
-        //     method: "POST",
-        //     body: JSON.stringify(formProps)
-        // })
+        )
 
         dispatch({ type: AUTH_USER, payload: response.data.token });
-        console.log(response.data.token);
 
         localStorage.setItem('token', response.data.token);
 

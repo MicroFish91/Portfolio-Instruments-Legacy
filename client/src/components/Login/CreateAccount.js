@@ -15,6 +15,7 @@ class CreateAccount extends Component {
         this.props.signup(formProps, () => {
             this.props.history.push('/');
         });
+        
     }
 
     render() {
@@ -32,7 +33,7 @@ class CreateAccount extends Component {
                     <fieldset>
                         <label>Email</label>
                         <Field
-                            name="email"
+                            name="userName"
                             type="text"
                             component="input"
                             autoComplete="none"
@@ -42,7 +43,7 @@ class CreateAccount extends Component {
                     <fieldset>
                         <label>Password</label>
                         <Field
-                            name="password"
+                            name="userPassword"
                             type="password"
                             component="input"
                             autoComplete="none"
