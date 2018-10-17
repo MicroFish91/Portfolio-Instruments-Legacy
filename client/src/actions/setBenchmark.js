@@ -18,6 +18,7 @@ function setBenchmark(user, benchmarkName){
         case "Total Stock Market":
 
             return {
+                user: user,
                 type: "setBenchmark",
                 benchmarkName: benchmarkName,
                 benchmarkTitles: ["tsm"],
@@ -27,6 +28,7 @@ function setBenchmark(user, benchmarkName){
         case "Classic 60/40":
 
             return {
+                user: user,
                 type: "setBenchmark",
                 benchmarkName: benchmarkName,
                 benchmarkTitles: ["tsm", "itb"],
@@ -36,6 +38,7 @@ function setBenchmark(user, benchmarkName){
         case "Three-Fund Portfolio":
 
             return {
+                user: user,
                 type: "setBenchmark",
                 benchmarkName: benchmarkName,
                 benchmarkTitles: ["dlcb", "ilcb", "itb"],
@@ -45,6 +48,7 @@ function setBenchmark(user, benchmarkName){
         case "No-Brainer Portfolio":
 
             return {
+                user: user,
                 type: "setBenchmark",
                 benchmarkName: benchmarkName,
                 benchmarkTitles: ["dlcb", "dscb", "ilcb", "stb"],
@@ -54,6 +58,7 @@ function setBenchmark(user, benchmarkName){
         case "Rick Ferri Core Four":
 
             return {
+                user: user,
                 type: "setBenchmark",
                 benchmarkName: benchmarkName,
                 benchmarkTitles: ["dlcb", "ilcb", "itb", "reits"],
@@ -63,6 +68,7 @@ function setBenchmark(user, benchmarkName){
         case "Ivy Portfolio":
 
             return {
+                user: user,
                 type: "setBenchmark",
                 benchmarkName: benchmarkName,
                 benchmarkTitles: ["dlcb", "ilcb", "itb", "commodoties", "reits"],
@@ -72,6 +78,7 @@ function setBenchmark(user, benchmarkName){
         case "Permanent Portfolio":
 
             return {
+                user: user,
                 type: "setBenchmark",
                 benchmarkName: benchmarkName,
                 benchmarkTitles: ["dlcb", "ltb", "gold", "cash"],
@@ -81,6 +88,7 @@ function setBenchmark(user, benchmarkName){
         case "Golden Butterfly":
 
             return {
+                user: user,
                 type: "setBenchmark",
                 benchmarkName: benchmarkName,
                 benchmarkTitles: ["dlcb", "dscv", "ltb", "stb", "gold"],

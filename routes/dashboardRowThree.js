@@ -37,7 +37,7 @@ router.get('/dashboardRowThree:user', (req, res) => {
             
         } else {
 
-            res.json({data: "no go"});
+            res.json({data: ""});
 
         }
             

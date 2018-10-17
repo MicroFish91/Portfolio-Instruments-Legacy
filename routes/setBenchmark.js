@@ -7,6 +7,25 @@ let bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
+
+// Dashboard /GET
+router.get('/getBenchmark:user', (req, res) => {
+
+    db.users.find({
+        where: {
+            userName: req.params.user
+        }
+    })
+    .then(result => {
+        
+        res.json({benchmark: result.dataValues.benchmark});
+
+    })
+    .catch(error => console.log(error))
+    
+});
+
+
 // Dashboard /POST
 router.post('/setBenchmark', (req, res) => {
 

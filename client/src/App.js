@@ -5,6 +5,7 @@ import setBenchmark from './actions/setBenchmark';
 import addCoreAsset from './actions/addCoreAssets';
 import addOtherAsset from './actions/addOtherAssets';
 import saveSnapshot from './actions/saveSnapshot';
+import removeUser from './actions/removeUser';
 
 import Dashboard from './components/Dashboard';
 
@@ -28,7 +29,8 @@ function mapDispatchToProps(dispatch){
         onSetBenchmark: (user, benchmarkName) => dispatch(setBenchmark(user, benchmarkName)),
         onAddCoreAsset: (account) => dispatch(addCoreAsset(account)),
         onAddOtherAsset: (other) => dispatch(addOtherAsset(other)),
-        onSaveSnapshot: () => dispatch(saveSnapshot())
+        onSaveSnapshot: () => dispatch(saveSnapshot()),
+        onRemoveUser: () => dispatch(removeUser())
     }
 }
 

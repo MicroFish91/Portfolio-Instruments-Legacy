@@ -3,7 +3,7 @@ function portfolioReducer(state, action){
     // Initialize States
     if (state === undefined){
 
-        return {benchmarkName: "", benchmarkTitles: [], benchmarkRatios: [], user: "", coreAssets: []};
+        return {user: "", benchmarkName: "", benchmarkTitles: [], benchmarkRatios: [], user: "", coreAssets: []};
 
     }
 
@@ -17,10 +17,22 @@ function portfolioReducer(state, action){
                 user: action.user
             }
 
+        case 'removeUser':
+
+            return {
+                ...state,
+                user: "", 
+                benchmarkName: "", 
+                benchmarkTitles: [], 
+                benchmarkRatios: [], 
+                coreAssets: []
+            }
+
         case 'setBenchmark':
 
             return {
                 ...state,
+                user: action.user,
                 benchmarkName: action.benchmarkName,
                 benchmarkTitles: action.benchmarkTitles,
                 benchmarkRatios: action.benchmarkRatios
@@ -28,7 +40,7 @@ function portfolioReducer(state, action){
 
         case 'addCoreAsset':
 
-            let newCore = state.portfolioReducer.coreAssets.slice();
+            let newCore = state.coreAssets.slice();
 
             // Add or replace object into current array
             newCore = addCore(newCore, action.account);
@@ -43,7 +55,7 @@ function portfolioReducer(state, action){
 
         case "addOtherAsset":
 
-            let otherCore = addOther(state.portfolioReducer.coreAssets, action.other);
+            let otherCore = addOther(state.coreAssets, action.other);
 
             otherCore = sortAccounts(otherCore);
 

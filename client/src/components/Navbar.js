@@ -12,6 +12,7 @@ class Navbar extends Component {
         event.preventDefault();
 
         this.props.signout();
+
     }
 
     render() {
