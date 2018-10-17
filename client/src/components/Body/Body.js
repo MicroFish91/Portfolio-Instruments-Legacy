@@ -8,7 +8,7 @@ import RowThree from './RowThree/RowThree';
 import RowFour from './RowFour/RowFour';
 import Footer from '../Footer';
 
-import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+//import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../../assets/css/dashboard.css';
 
 class Body extends Component {

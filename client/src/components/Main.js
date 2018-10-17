@@ -7,7 +7,7 @@ import Login from './Login/Login';
 import CreateAccount from './Login/CreateAccount';
 
 
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../assets/css/dashboard.css';
 
 class Main extends Component {

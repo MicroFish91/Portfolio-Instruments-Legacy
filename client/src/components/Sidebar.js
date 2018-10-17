@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 
 import '../assets/css/dashboard.css';
-import '../assets/plugins/toggle-sidebar/css/sidemenu.css'
+// import '../assets/plugins/toggle-sidebar/css/sidemenu.css'
 import $ from 'jquery';
 
 class Sidebar extends Component {

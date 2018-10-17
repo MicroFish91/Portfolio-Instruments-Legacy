@@ -5,7 +5,7 @@ import RothCard from './RothCard';
 import TraditionalCard from './TraditionalCard';
 import NetWorthCard from './NetWorthCard';
 
-import '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+//import '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../../../assets/css/dashboard.css';
 
 class RowOne extends Component {

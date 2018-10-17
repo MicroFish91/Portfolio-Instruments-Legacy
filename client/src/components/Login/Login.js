@@ -7,7 +7,7 @@ import { reduxForm, Field } from 'redux-form';
 
 import * as actions from '../../actions';
 
-import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+//import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../../assets/css/dashboard.css'
 
 class Login extends Component {

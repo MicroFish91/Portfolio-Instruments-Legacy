@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import Institution from './Institution';
 
-import '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+//import '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../../../assets/css/dashboard.css';
 
 class Institutions extends Component {

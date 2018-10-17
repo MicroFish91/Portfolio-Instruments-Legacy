@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+//import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 
 class Navbar extends Component {
