@@ -1,4 +1,4 @@
-# Portfolio Instruments  ![Portfolio Instruments](/images/logo1.png)
+# Portfolio Instruments
 
 Portfolio Instruments is a full-stack website built with all the tools needed to manage your passive investment portfolio.  
 
@@ -22,26 +22,43 @@ Many newcomers are usually unsure of how to begin investing.  This website also 
 
 *  Dashboard - Features graphs and charts breaking down the most recent snapshot of your portfolio.  Shows a graph of your net worth, charts with information on your asset breakdown by percentages, and analysis of your holdings by tax space and financial institution.
 
+<br />
+
 ![Dashboard](/images/Dashboard.png)
+
+<br /><br />
 
 *  Portfolio Benchmarks - Provides a list of strong portfolio references with which to model your own portfolio.  Provides information on historical risk and return to help equip the user with the information needed to choose a personal portfolio.
 
+<br />
+
 ![Set Portfolio Benchmark](/images/setBenchmark.png)
 
-*  Snapshots - Add a current snapshot of your portfolio for tracking and analysis.  This snapshot will combine with your user preferences to figure out if any rebalancing is necessary and suggest next actions as applicable.
+<br /><br />
 
-Core Assets - The table inputs allowed are dynamic and change with your benchmark portfolio.  These are the assets that are primarily tracked by the software
+*  Snapshots - Add a current snapshot of your portfolio for tracking and analysis.  This snapshot will combine with your user preferences to figure out if any rebalancing is necessary and suggest next actions as applicable.  The overall table that is built when configuring your snapshot is show below.  The entire table constitutes a "snapshot" and each row constitutes an "account" in the database.
 
-![Core Assets](/images/Core Assets.png)
-
-Miscellaneous Assets - Goes into the "other" category and allows the user to track money that is not part of the standard core assets.
-
-![Miscellaneous Assets](/images/Misc Assets.png)
-
-The overall table that is built when configuring your snapshot.  The entire table constitutes a "snapshot" and each row constitutes an "account" in the database.
+<br />
 
 ![Add a Portfolio Snapshot](/images/Add Snapshot.png)
 
+<br /><br />
+
+*  Core Assets - The table inputs allowed are dynamic and change with your benchmark portfolio.  These are the assets that are primarily tracked by the software
+
+<br />
+
+![Core Assets](/images/Core Assets.png)
+
+<br /><br />
+
+Miscellaneous Assets - Goes into the "other" category and allows the user to track money that is not part of the standard core assets.
+
+<br />
+
+![Miscellaneous Assets](/images/Misc Assets.png)
+
+<br /><br />
 
 
 *  Rebalance Wizard - Takes your latest snapshot and sees if a rebalance event is required to bring your portfolio into proper risk/reward balance as configured in the user's settings.
