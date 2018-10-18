@@ -40,7 +40,7 @@ Many newcomers are usually unsure of how to begin investing.  This website also 
 
 <br />
 
-![Add a Portfolio Snapshot](/images/Add Snapshot.png)
+![Add a Portfolio Snapshot](/images/Add_Snapshot.png)
 
 <br /><br />
 
@@ -48,7 +48,7 @@ Many newcomers are usually unsure of how to begin investing.  This website also 
 
 <br />
 
-![Core Assets](/images/Core Assets.png)
+![Core Assets](/images/Core_Assets.png)
 
 <br /><br />
 
@@ -56,7 +56,7 @@ Miscellaneous Assets - Goes into the "other" category and allows the user to tra
 
 <br />
 
-![Miscellaneous Assets](/images/Misc Assets.png)
+![Miscellaneous Assets](/images/Misc_Assets.png)
 
 <br /><br />
 
