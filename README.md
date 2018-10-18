@@ -60,8 +60,9 @@ Miscellaneous Assets - Goes into the "other" category and allows the user to tra
 
 <br /><br />
 
-
 *  Rebalance Wizard - Takes your latest snapshot and sees if a rebalance event is required to bring your portfolio into proper risk/reward balance as configured in the user's settings.
+
+<br />
 
 ### Secondary Features
 
@@ -70,6 +71,8 @@ Miscellaneous Assets - Goes into the "other" category and allows the user to tra
 * User Preferences - User preferences will be set upon login and will help the website decide how to suggest certain actions such as rebalancing.
 
 * Snapshot History - Provides the user with net worth tracking and a history of submitted snapshots of the user's portfolio at any given time.
+
+* Define a Custom Benchmark - Stretch goal that will allow a user to define his or her own benchmark with which to model the user's current portfolio.
 
 
 ## Code Structure
@@ -95,9 +98,28 @@ If pulling from GitHub, make sure to run an npm install at both the highest leve
 ![Database Breakdown](/images/PI_Database.png)
 
 
-## React States, Actions, & Reducers
+## React/Redux: States, Actions, & Reducers
 
+On the React front-end we make use of the following Redux States.
 
+<br />
+
+![Redux States](/images/Redux_states.png)
+
+<br /><br />
+
+authReducer: Used to authenticate user login rights.
+
+portfolioReducer:  Used to manage portfolio "snapshot" data.  Of particular note is the "coreAssets" state which keeps track of all the account information for each snapshot.  It has the following structure.
+
+coreAssets = [{} = account, {}, {}] 
+// An array of account objects
+
+account = {coreAssetAttribute1, coreAssetAttribute2, coreAssetAttribute3....., {} = otherObject} 
+// An account object with core asset properties
+// If miscellaneous assets were added, gets stored in a separate property object called "other"
+
+other = {asset1, asset2, asset3...... etc.}  // Stores all assets separately that are not "core" assets
 
 
 ## How to Use
@@ -113,8 +135,6 @@ This section will be updated when all major features have been successfully adde
 ## YouTube Demo
 
 A video of the current features are shown [here](https://www.youtube.com/watch?v=A9sfTssVGz8).
-
-
 
 
 
@@ -138,11 +158,11 @@ All features are based on a full-stack, meaning all requirements were fulfilled 
 
 ## Challenges
 
-I want to open by saying that this is a major coding project for just one person.  This project features the use of many nested tables that are difficult to query.  It features a complicated React front-end which has 25+ components.  It features a complicated segregation and format of assets that must dynamically display on both the front-end and secure itself into our back-end database.
+I want to open by saying that this is a major coding project for just one person.  This project features the use of many nested tables that are difficult to query.  It features a complicated React front-end which has 25+ components.  It features a complicated segregation and format of assets that must dynamically display on both the front-end and secure itself into the back-end database.
 
 Due to the above, time is a huge constraint, and debugging in the context of such a large codebase can become very difficult. Juggling this project along with other class projects was extremely time consuming and challenging. 
 
-Managing states with React is also difficult if not properly architected and mapped out ahead of time due to the increasing scale of the project.
+Managing states with React is also difficult if not properly architected and mapped out ahead of time due to the increasing scale of the project.  Databases and states were built with scalability in mind, which meant additional code to allow for future additions to the project.
 
 Proper data formatting on both the front and back-end proved especially challenging.
 
