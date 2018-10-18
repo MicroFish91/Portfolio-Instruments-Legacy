@@ -1,4 +1,4 @@
-# Portfolio Instruments
+# Portfolio Instruments  ![Portfolio Instruments](/images/logo1.png)
 
 Portfolio Instruments is a full-stack website built with all the tools needed to manage your passive investment portfolio.  
 
