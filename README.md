@@ -48,12 +48,14 @@ If pulling from GitHub, make sure to run an npm install at both the highest leve
 
 ## Database Structure
 
-* Users Table
-* Snapshots Table
-* Accounts Table
-* Stocks Table
-* Fixed Income Table
-* Real Assets Table
+1.  Users Table
+2.  Snapshots Table
+3.  Accounts Table
+4.  Stocks Table
+5.  Fixed Income Table
+6.  Real Assets Table
+
+![Database Breakdown](/images/PI_Database.png)
 
 
 ## React States, Actions, & Reducers
