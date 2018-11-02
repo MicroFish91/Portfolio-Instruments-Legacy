@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 
@@ -97,4 +96,4 @@ function mapStateToProps(state){
     return {errorMessage: state.auth.errorMessage};
 }
 
-export default connect(mapStateToProps, actions)(Login)
+export default connect(mapStateToProps, actions)(Login);

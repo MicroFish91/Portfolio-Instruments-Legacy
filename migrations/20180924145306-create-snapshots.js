@@ -24,7 +24,7 @@ module.exports = {
         type: Sequelize.DECIMAL
       },
       date: {
-        type: Sequelize.STRING(10)
+        type: Sequelize.DATE
       },
       notes: {
         type: Sequelize.STRING

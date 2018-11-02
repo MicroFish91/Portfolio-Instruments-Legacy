@@ -136,3 +136,21 @@ var db = require('./models');
 // .then(results =>{
 //   console.log(results[0].dataValues.snapshots[0].dataValues.accounts[0].dataValues.stock.dataValues.tsm);
 // })
+
+function findDateRanges(){
+
+    var endDate = new Date();
+    var middleDate = new Date();
+    var startDate = new Date();
+
+    // Set Middle Date 2.5 Years from Today
+    middleDate.setMonth(middleDate.getMonth() - 30);
+
+    // Set Start Date 5 Years from Today
+    startDate.setMonth(startDate.getMonth() - 60);
+
+    return {endDate: endDate, middleDate: middleDate, startDate: startDate};
+    
+}
+
+console.log(findDateRanges());
