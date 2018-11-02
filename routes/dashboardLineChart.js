@@ -7,7 +7,6 @@ let db = require('../models');
 router.get('/dashboardLineChart:user', (req, res) => {
 
     // Variable to Hold Return Parameters
-    var returnObject = {};
     var queryDates = findDateRanges();
 
     // Find User Id
@@ -17,19 +16,38 @@ router.get('/dashboardLineChart:user', (req, res) => {
     // Get List of Snapshots
     .then(result => {
 
-        temp.id = result.dataValues.id;
-
-        db.snapshots.findAll({
+        // Query List of Snapshots within the last 2.5 years
+        var queryOne = db.snapshots.findAll({
             where: {
                 userId: result.dataValues.id,
-                date: { lte: Date.UTC(today.getFullYear(), today.getMonth(), today.getDate(), 00, 00) }
+                date: { lte: queryDates.endDate,
+                        gte: queryDates.middleDate }
             }
+        })
+
+        // Query List of Snapshots from 5 years to 2.5 years ago
+        var queryTwo = db.snapshots.findAll({
+            where: {
+                userId: result.dataValues.id,
+                date: { lte: queryDates.middleDate,
+                        gte: queryDates.startDate }
+            }
+        })
+
+        // Wait for Both Database Queries to Return Before Proceeding
+        Promise.all([queryOne, queryTwo])
+        .then(values => {
+
+            // console.log(result[0].dataValues)
+
+            var listOne = categorizeData(values[0], queryDates.middleDate, queryDates.endDate);
+            var listTwo = categorizeData(values[1], queryDates.startDate, queryDates.middleDate);
+
+            res.json({data: [listOne, listTwo]});
+
         })
             
     })
-
-
-    
 
 });
 
@@ -51,4 +69,13 @@ function findDateRanges(){
 
     return {endDate: endDate, middleDate: middleDate, startDate: startDate};
     
+}
+
+// Categorize List by Monthly Data
+function categorizeData(myList, start, end){
+
+    
+
+    return null;
+
 }
