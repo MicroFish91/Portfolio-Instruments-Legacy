@@ -37,10 +37,6 @@ class Dashboard extends Component {
 
     render() {
 
-        console.log("user: " + this.props.user);
-        console.log("coreAssets: " + this.props.coreAssets);
-        console.log("benchmarkTitles: " + this.props.benchmarkTitles);
-
         return (
 
             <div>

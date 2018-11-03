@@ -17,6 +17,7 @@ class Body extends Component {
         super(props);
         this.state = {
             rowOneTotals: {},
+            rowTwoTotals: {},
             rowThreeTotals: {},
             rowFourTotals: {}
         }
@@ -24,12 +25,16 @@ class Body extends Component {
 
     componentWillMount(){
 
-        console.log(this.props.user);
-
         // Update Row One State Values
         fetch(`/dashboardRowOne${this.props.user}`)
         .then(response => response.json())
         .then(response => this.setState({rowOneTotals: response}))
+        .catch(error => console.log(error))
+
+        // Update Row Two State Values
+        fetch(`/dashboardLineChart${this.props.user}`)
+        .then(response => response.json())
+        .then(response => this.setState({rowTwoTotals: response}))
         .catch(error => console.log(error))
 
         // Update Row Three State Values
@@ -59,7 +64,7 @@ class Body extends Component {
                     
                         <RowOne rowOneTotals={this.state.rowOneTotals} />
 
-                        <LineChart />
+                        <LineChart rowTwoTotals={this.state.rowTwoTotals} />
 
                         <RowThree rowOneTotals={this.state.rowOneTotals} rowThreeTotals={this.state.rowThreeTotals} />
 

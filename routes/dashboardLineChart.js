@@ -16,7 +16,7 @@ router.get('/dashboardLineChart:user', (req, res) => {
     // Get List of Snapshots
     .then(result => {
 
-        // Query List of Snapshots within the last 2.5 years
+        // Query List of Snapshots within the last 2 years
         var queryOne = db.snapshots.findAll({
             where: {
                 userId: result.dataValues.id,
@@ -25,7 +25,7 @@ router.get('/dashboardLineChart:user', (req, res) => {
             }
         })
 
-        // Query List of Snapshots from 5 years to 2.5 years ago
+        // Query List of Snapshots from 5 years to 2 years ago
         var queryTwo = db.snapshots.findAll({
             where: {
                 userId: result.dataValues.id,
@@ -40,11 +40,12 @@ router.get('/dashboardLineChart:user', (req, res) => {
 
             var listOne = categorizeData(values[0], queryDates.middleDate);
             var listTwo = categorizeData(values[1], queryDates.startDate);
+            var labels = getLabels(queryDates.startDate, queryDates.middleDate, queryDates.endDate);
 
             listOne = clusterTotals(listOne);
             listTwo = clusterTotals(listTwo);
 
-            res.json({data: [listOne, listTwo]});
+            res.json({data: [listOne, listTwo], labels: labels.month, labelOne: `${labels.startYear} - ${labels.middleYear}`, labelTwo: `${labels.middleYear} - ${labels.endYear}`});
 
         })
         .catch(error => console.log(error))
@@ -63,17 +64,17 @@ function findDateRanges(){
     var middleDate = new Date();
     var startDate = new Date();
 
-    // Set Middle Date 2.5 Years from Today
-    middleDate.setMonth(middleDate.getMonth() - 30);
+    // Set Middle Date 2 Years from Today
+    middleDate.setMonth(middleDate.getMonth() - 24);
 
-    // Set Start Date 5 Years from Today
-    startDate.setMonth(startDate.getMonth() - 60);
+    // Set Start Date 4 Years from Today
+    startDate.setMonth(startDate.getMonth() - 48);
 
     return {endDate: endDate, middleDate: middleDate, startDate: startDate};
     
 }
 
-// Categorize List by Monthly Data (2.5 Year Range)
+// Categorize List by Monthly Data (2 Year Range)
 function categorizeData(myList, start){
 
     // Initialize Variables
@@ -82,8 +83,8 @@ function categorizeData(myList, start){
     var tempList = [];
     var total = 0;
 
-    // Cycle through each month in the 2.5 year interval (30 month divisions)
-    for(let month = 0; month <= 30; month++){
+    // Cycle through each month in the 2 year interval (24 month divisions)
+    for(let month = 0; month <= 24; month++){
 
         // Set cycled interval
         startTime.setMonth(startTime.getMonth() + month);
@@ -184,5 +185,84 @@ function clusterTotals(myList){
     }
 
     return newList;
+
+}
+
+
+// Get Chart Labels for Front End
+function getLabels(startDate, middleDate, endDate){
+
+    var months = [];
+    var returnObject = {};
+    var startTime = new Date(startDate);
+
+    // Cycle through each month in the 2 year interval (24 month divisions)
+    for(let month = 0; month <= 24; month++){
+
+        // Set cycled interval
+        startTime.setMonth(startTime.getMonth() + month);
+
+        // Find Month
+        switch (startTime.getMonth()){
+
+            case 0:
+                months.push("January");
+                break;
+
+            case 1:
+                months.push("February");
+                break;
+
+            case 2: 
+                months.push("March");
+                break;
+
+            case 3:
+                months.push("April");
+                break;
+
+            case 4:
+                months.push("May");
+                break;
+
+            case 5:
+                months.push("June");
+                break;
+
+            case 6:
+                months.push("July");
+                break;
+
+            case 7:
+                months.push("August");
+                break;
+
+            case 8:
+                months.push("September");
+                break;
+
+            case 9:
+                months.push("October");
+                break;
+
+            case 10:
+                months.push("November");
+                break;
+
+            case 11:
+                months.push("December");
+                break;
+        }
+
+        var startTime = new Date(startDate);
+
+    }
+
+    returnObject.month = months;
+    returnObject.startYear = startDate.getFullYear();
+    returnObject.middleYear = middleDate.getFullYear();
+    returnObject.endYear = endDate.getFullYear();
+
+    return returnObject;
 
 }
