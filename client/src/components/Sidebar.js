@@ -47,7 +47,7 @@ class Sidebar extends Component {
                                         <Link to="/dashboard/addSnapshot" class="slide-item">Add Snapshot</Link>
                                     </li>
                                     <li>
-                                        <a class="slide-item">Portfolio Snapshots</a>
+                                        <Link to="/dashboard/portfolioSnapshots" class="slide-item">Portfolio Snapshots</Link>
                                     </li>
                                 </ul>
                             </li>

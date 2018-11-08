@@ -11,6 +11,7 @@ class AddSnapshot extends Component {
     render() {
 
         return (
+
             <div class="app-content my-3 my-md-5">
                 <div class="side-app"> 
             
@@ -26,6 +27,8 @@ class AddSnapshot extends Component {
             
                 </div>
             </div>
+
+
         )
     }
 }

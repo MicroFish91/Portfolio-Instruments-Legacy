@@ -223,6 +223,7 @@ class Table extends Component {
             </div>
         )
     }
+
 }
 
 

@@ -8,6 +8,7 @@ import Sidebar from './Sidebar';
 import Body from './Body/Body';
 import AddSnapshot from './Snapshots/AddSnapshot';
 import LazyPortfolios from './LazyPortfolios/LazyPortfolios';
+import PortfolioSnapshots from './Snapshots/PortfolioSnapshots';
 
 import requireAuth from './requireAuth';
 import setBenchmark from '../actions/setBenchmark';
@@ -73,9 +74,9 @@ class Dashboard extends Component {
                                 <Route path="/dashboard/lazyPortfolios" component={LazyPortfolios} />
 
                                 <Route path="/dashboard/general" component={LazyPortfolios} />
-                            
-                            
 
+                                <Route exact path="/dashboard/portfolioSnapshots" component={PortfolioSnapshots} />
+                            
                         </div>
                     </div>
                 </div>
