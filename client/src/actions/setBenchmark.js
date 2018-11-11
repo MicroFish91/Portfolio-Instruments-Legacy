@@ -1,5 +1,5 @@
 function setBenchmark(user, benchmarkName){
-
+    
     // Post to database
     fetch("/setBenchmark", {
         headers: {

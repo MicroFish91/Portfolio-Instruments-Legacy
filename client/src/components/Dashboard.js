@@ -24,12 +24,27 @@ class Dashboard extends Component {
 
     componentWillMount(){
 
-        // Initialize User and Benchmark
-        fetch(`/getBenchmark${localStorage.getItem('user')}`)
+        // Check if Any Snapshots Have Been Entered Previously
+        fetch(`/portfolioSnapshots${localStorage.getItem('user')}`)
         .then(result => result.json())
-        .then(data => {
+        .then(dataOne => {
 
-            this.props.onSetBenchmark(localStorage.getItem('user'), data.benchmark);
+            // If a snapshot has already been entered before
+            if (dataOne.data){
+
+                console.log('MADE IT11111!!!');
+
+                // Initialize User and Benchmark
+                fetch(`/getBenchmark${localStorage.getItem('user')}`)
+                .then(result => result.json())
+                .then(data => {
+
+                    this.props.onInitializeUser(localStorage.getItem('user'));
+
+                })
+                .catch(error => console.log(error))
+
+            }
 
         })
         .catch(error => console.log(error))
@@ -42,7 +57,8 @@ class Dashboard extends Component {
 
             <div>
 
-                {(this.props.user === "" || this.props.coreAssets === [] )? <div class="app sidebar-mini rtl">
+                {   (!this.props.hasSnapshots)
+                    ? <div class="app sidebar-mini rtl">
                     {/* <div id="global-loader"><div class="showbox"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div></div> */}
                         <div class="page">
                             <div class="page-main">
@@ -50,6 +66,12 @@ class Dashboard extends Component {
                                 <Navbar />
 
                                 <Sidebar />
+
+                                <Route path="/dashboard/lazyPortfolios" component={LazyPortfolios} />
+
+                                <Route exact path="/dashboard/addSnapshot" component={AddSnapshot} />
+
+                                <Route path="/dashboard/general" component={LazyPortfolios} />
 
                         </div>
                     </div>
@@ -96,7 +118,8 @@ function mapStateToProps(state){
     return {
         user: state.portfolioReducer.user,
         coreAssets: state.portfolioReducer.coreAssets,
-        benchmarkTitles: state.portfolioReducer.benchmarkTitles
+        benchmarkTitles: state.portfolioReducer.benchmarkTitles,
+        hasSnapshots: state.portfolioReducer.hasSnapshots
     }
 }
 
@@ -104,7 +127,8 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch){
     
     return {
-        onSetBenchmark: (user, benchmark) => dispatch(setBenchmark(user, benchmark))
+        onSetBenchmark: (user, benchmark) => dispatch(setBenchmark(user, benchmark)),
+        onInitializeUser: (user) => dispatch(initializeUser(user))
     }
 }
 

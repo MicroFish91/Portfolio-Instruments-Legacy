@@ -8,6 +8,9 @@ class PortfolioSnapshots extends Component {
 
     constructor(props){
         super(props);
+        this.state = {
+            row: 0
+        }
     }
     
     render() {
@@ -146,13 +149,6 @@ class PortfolioSnapshots extends Component {
         </div>
 
         )
-    }
-
-    // Put JQuery Here
-    componentDidMount(){
-
-        
-
     }
 
 }

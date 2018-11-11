@@ -50,7 +50,7 @@ class PortfolioCard extends Component {
                             <a class="btn btn-indigo btn-lg mt-2" onClick={
                                 (e) => {
                                     e.preventDefault();
-                                    this.props.onSetBenchmark(this.props.user, this.props.assetInfo.assetNames[this.props.index])}
+                                    this.props.onSetBenchmark(localStorage.getItem('user'), this.props.assetInfo.assetNames[this.props.index])}
                                 }>Set Benchmark</a>
                         </div>
                     </div>

@@ -3,7 +3,7 @@ function portfolioReducer(state, action){
     // Initialize States
     if (state === undefined){
 
-        return {user: "", benchmarkName: "", benchmarkTitles: [], benchmarkRatios: [], user: "", coreAssets: []};
+        return {user: "", benchmarkName: "", benchmarkTitles: [], benchmarkRatios: [], user: "", coreAssets: [], hasSnapshots: false};
 
     }
 
