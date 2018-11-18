@@ -33,7 +33,6 @@ export const signin = (formProps, callback) => async dispatch => {
         );
 
         dispatch({ type: AUTH_USER, payload: response.data.token });
-        console.log(response.data.token);
 
         localStorage.setItem('token', response.data.token);
 
@@ -46,12 +45,13 @@ export const signin = (formProps, callback) => async dispatch => {
     }
 };
 
-export const signout = () => {
+export const signout = () => dispatch => {
 
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
+
+    dispatch({ type: AUTH_USER, payload: '' });
+
+    dispatch({ type: 'removeUser'});
     
-    return {
-        type: AUTH_USER,
-        payload: ''
-    };
 };

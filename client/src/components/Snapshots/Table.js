@@ -44,7 +44,7 @@ class Table extends Component {
                 'content-type': "application/json"
             },
             method: "POST",
-            body: JSON.stringify({user: this.props.user, snapshotName: this.state.snapshotTitle, coreAssets: this.props.coreAssets, benchmarkTitles: this.props.benchmarkTitles, date: this.state.date, notes: this.state.notes})
+            body: JSON.stringify({user: this.props.user, benchmarkName: this.props.benchmarkName, snapshotName: this.state.snapshotTitle, coreAssets: this.props.coreAssets, benchmarkTitles: this.props.benchmarkTitles, date: this.state.date, notes: this.state.notes})
         })
 
         this.setState({snapshotTitle: "", date: "", notes: ""});
@@ -233,7 +233,8 @@ function mapStateToProps(state){
     return {
         user: state.portfolioReducer.user,
         coreAssets: state.portfolioReducer.coreAssets,
-        benchmarkTitles: state.portfolioReducer.benchmarkTitles
+        benchmarkTitles: state.portfolioReducer.benchmarkTitles,
+        benchmarkName: state.portfolioReducer.benchmarkName
     }
 }
 

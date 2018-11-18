@@ -24,22 +24,22 @@ class Dashboard extends Component {
 
     componentWillMount(){
 
+        console.log(localStorage.getItem('user'));
+
         // Check if Any Snapshots Have Been Entered Previously
         fetch(`/portfolioSnapshots${localStorage.getItem('user')}`)
         .then(result => result.json())
-        .then(dataOne => {
+        .then(dataOne => { 
 
             // If a snapshot has already been entered before
             if (dataOne.data){
-
-                console.log('MADE IT11111!!!');
 
                 // Initialize User and Benchmark
                 fetch(`/getBenchmark${localStorage.getItem('user')}`)
                 .then(result => result.json())
                 .then(data => {
 
-                    this.props.onInitializeUser(localStorage.getItem('user'));
+                    this.props.onInitializeUser(localStorage.getItem('user'), data.benchmark);
 
                 })
                 .catch(error => console.log(error))
@@ -128,7 +128,7 @@ function mapDispatchToProps(dispatch){
     
     return {
         onSetBenchmark: (user, benchmark) => dispatch(setBenchmark(user, benchmark)),
-        onInitializeUser: (user) => dispatch(initializeUser(user))
+        onInitializeUser: (user, benchmarkName) => dispatch(initializeUser(user, benchmarkName))
     }
 }
 

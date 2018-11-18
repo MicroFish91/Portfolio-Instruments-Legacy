@@ -14,7 +14,11 @@ function portfolioReducer(state, action){
 
             return {
                 ...state,
-                user: action.user
+                user: action.user,
+                benchmarkName: action.benchmarkName,
+                benchmarkTitles: action.benchmarkTitles,
+                benchmarkRatios: action.benchmarkRatios,
+                hasSnapshots: true
             }
 
         case 'removeUser':
@@ -25,7 +29,8 @@ function portfolioReducer(state, action){
                 benchmarkName: "", 
                 benchmarkTitles: [], 
                 benchmarkRatios: [], 
-                coreAssets: []
+                coreAssets: [],
+                hasSnapshots: false
             }
 
         case 'setBenchmark':
