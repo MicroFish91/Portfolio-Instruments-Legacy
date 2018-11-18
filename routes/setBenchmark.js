@@ -25,9 +25,10 @@ router.get('/getBenchmark:user', (req, res) => {
     
 });
 
-
 // Dashboard /POST
 router.post('/setBenchmark', (req, res) => {
+
+    console.log(req.body.user);
 
     db.users.find({
         where: {

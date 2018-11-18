@@ -11,6 +11,9 @@ module.exports = {
       title: {
         type: Sequelize.STRING(30)
       },
+      portfolioBenchmark: {
+        type: Sequelize.STRING(30)
+      },
       stockTotal: {
         type: Sequelize.DECIMAL
       },

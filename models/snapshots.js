@@ -2,6 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const snapshots = sequelize.define('snapshots', {
     title: DataTypes.STRING(30),
+    portfolioBenchmark: DataTypes.STRING(30),
     stockTotal: DataTypes.DECIMAL,
     fixedTotal: DataTypes.DECIMAL,
     realTotal: DataTypes.DECIMAL,

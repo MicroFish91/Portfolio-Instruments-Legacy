@@ -11,6 +11,7 @@ app.use(require('./routes/dashboardRowOne'));
 app.use(require('./routes/dashboardLineChart'));
 app.use(require('./routes/dashboardRowThree'));
 app.use(require('./routes/dashboardRowFour'));
+app.use(require('./routes/portfolioSnapshots'));
 app.use(require('./routes/authentication'));
 
 app.listen(3001);

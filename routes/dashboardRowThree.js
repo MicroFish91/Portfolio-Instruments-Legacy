@@ -2,11 +2,7 @@
 let express = require('express');
 let router = express.Router();
 let db = require('../models');
-let bodyParser = require('body-parser');
 
-// Set up Body Parser
-router.use(bodyParser.urlencoded({ extended: false }));
-router.use(bodyParser.json());
 
 // Dashboard /GET
 router.get('/dashboardRowThree:user', (req, res) => {

@@ -30,6 +30,7 @@ router.post('/saveSnapshot', (req, res) => {
         
         db.snapshots.create({
             title: req.body.snapshotName,
+            portfolioBenchmark: req.body.benchmarkName,
             stockTotal: parseFloat(summedValues[0]).toFixed(2),
             fixedTotal: parseFloat(summedValues[1]).toFixed(2),
             realTotal: parseFloat(summedValues[2]).toFixed(2),
