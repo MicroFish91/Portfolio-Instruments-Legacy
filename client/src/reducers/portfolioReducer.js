@@ -73,7 +73,8 @@ function portfolioReducer(state, action){
 
             return {
                 ...state,
-                coreAssets: []
+                coreAssets: [],
+                hasSnapshots: true
             }
 
         default:

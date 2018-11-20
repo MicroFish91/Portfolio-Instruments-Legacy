@@ -24,8 +24,6 @@ class Dashboard extends Component {
 
     componentWillMount(){
 
-        console.log(localStorage.getItem('user'));
-
         // Check if Any Snapshots Have Been Entered Previously
         fetch(`/portfolioSnapshots${localStorage.getItem('user')}`)
         .then(result => result.json())

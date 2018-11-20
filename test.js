@@ -105,19 +105,19 @@ var db = require('./models');
 //   console.log(results[0].dataValues.real_asset.dataValues.commodoties)
 // });
 
-// db.snapshots.findAll({
-//   where: {
-//     id: 1
-//   },
-//   include: { 
-//       association: 'accounts', // <---- First Level
-//       include: [{all: true}],
-//       required: true
-//   }
-// })
-// .then(results =>{
-//   console.log(results[0].dataValues.accounts[0].stock.dataValues.tsm);
-// })
+db.snapshots.findAll({
+  where: {
+    id: 1
+  },
+  include: { 
+      association: 'accounts', // <---- First Level
+      include: [{all: true}],
+      required: true
+  }
+})
+.then(results => {
+  console.log(results[0].dataValues.accounts[0].stock.dataValues.id);
+})
 
 // db.users.findAll({
 //   where: {
@@ -137,20 +137,20 @@ var db = require('./models');
 //   console.log(results[0].dataValues.snapshots[0].dataValues.accounts[0].dataValues.stock.dataValues.tsm);
 // })
 
-function findDateRanges(){
+// function findDateRanges(){
 
-    var endDate = new Date();
-    var middleDate = new Date();
-    var startDate = new Date();
+//     var endDate = new Date();
+//     var middleDate = new Date();
+//     var startDate = new Date();
 
-    // Set Middle Date 2.5 Years from Today
-    middleDate.setMonth(middleDate.getMonth() - 30);
+//     // Set Middle Date 2.5 Years from Today
+//     middleDate.setMonth(middleDate.getMonth() - 30);
 
-    // Set Start Date 5 Years from Today
-    startDate.setMonth(startDate.getMonth() - 60);
+//     // Set Start Date 5 Years from Today
+//     startDate.setMonth(startDate.getMonth() - 60);
 
-    return {endDate: endDate, middleDate: middleDate, startDate: startDate};
+//     return {endDate: endDate, middleDate: middleDate, startDate: startDate};
     
-}
+// }
 
-console.log(findDateRanges());
+// console.log(findDateRanges());
