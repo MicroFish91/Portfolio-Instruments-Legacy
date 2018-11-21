@@ -71,7 +71,6 @@ class Navbar extends Component {
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                         <a class="dropdown-item" href=""><i class="dropdown-icon mdi mdi-account-outline"></i> Profile</a>
-                                        <a class="dropdown-item" href=""><i class="dropdown-icon mdi mdi-settings"></i> Settings</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href=""><i class="dropdown-icon mdi mdi-compass-outline"></i>Getting Started</a>
                                         <a class="dropdown-item" href="login.html" onClick={this.onSignout.bind(this)}><i class="dropdown-icon mdi mdi-logout-variant"></i> Sign out</a>
