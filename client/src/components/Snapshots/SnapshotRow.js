@@ -6,7 +6,7 @@ class SnapshotRow extends Component {
         super(props);
     }
 
-    deleteRow(e){
+    deleteRow(){
 
         // Delete from Database
         fetch("/deleteSnapshot", {
@@ -16,8 +16,10 @@ class SnapshotRow extends Component {
             method: "POST",
             body: JSON.stringify({id: this.props.snapshots.id})
         })
-
-        this.props.onDelete(this.props.snapshots.id, this.props.index);
+        .then(result => {
+            this.props.onDelete();
+        })
+        .catch(error => console.log(error))
 
     }
 

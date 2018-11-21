@@ -61,33 +61,68 @@ class PortfolioSnapshots extends Component {
     }
 
     // If delete button is pressed
-    onDelete(id, index){
+    onDelete(){
 
-        var newInnerArray = this.state.snapshotsArray[index].filter(snapshots => {
+        // Get List of All Snapshots
+        fetch(`/portfolioSnapshots${localStorage.getItem('user')}`)
+        .then(result => result.json())
+        .then(data => {
 
-            return (snapshots.id !== id);
+            console.log('made it');
 
+            var transferArray = [];
+            var finalArray = [];
+
+            if (data.data){
+
+                // Cycle through Snapshots
+                data.data.forEach((snapshot, index) => {
+
+                    // If numbers 1 - 9 of new list
+                    if ((index + 1) % 10 !== 0){
+
+                        transferArray.push(snapshot);
+
+                    // If resetting to new list
+                    } else {
+
+                        transferArray.push(snapshot);
+                        finalArray.push(transferArray);
+                        transferArray = [];
+
+                    }
+
+                    // If on last element of an array, push remaining into finalArray
+                    if ((index === (data.data.length - 1)) && transferArray.length){
+
+                        finalArray.push(transferArray);
+
+                    }
+                })
+
+            console.log('made it');
+
+            this.setState({snapshotsArray: finalArray.slice()});
+
+            }
+            
         })
-
-        var newOuterArray = this.state.snapshotsArray.slice();
-
-        newOuterArray[index] = newInnerArray;
-
-        this.setState({snapshotsArray: newOuterArray});
     
     }
 
     // Increment Table Index
     onNextClick(){
 
-        this.setState({index: this.state.index++})
+        let newIndex = this.state.index + 1
+        this.setState({index: newIndex })
 
     }
 
     // Decrement Table Index
     onPreviousClick(){
 
-        this.setState({index: this.state.index--})
+        let newIndex = this.state.index - 1; 
+        this.setState({index: newIndex })
 
     }
     
@@ -144,7 +179,7 @@ class PortfolioSnapshots extends Component {
                                 </div>
 
                                 {
-                                    ((this.state.index !== (this.state.snapshotsArray - 1)) && this.state.snapshotsArray.length !== 1)
+                                    ((this.state.index !== (this.state.snapshotsArray.length - 1)) && this.state.snapshotsArray.length !== 1)
                                     ? <button type="submit" class="btn btn-primary ml-auto" onClick={() => this.onNextClick()}>Next</button>
                                     : <div></div>
                                 }
