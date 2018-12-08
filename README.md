@@ -150,7 +150,7 @@ This section will be updated when all major features have been successfully adde
 
 ## YouTube Demo
 
-A video of the current features are shown [here](https://youtu.be/TgVjPnqxw18).
+A video of the current features are shown [here](https://www.youtube.com/watch?v=Rda7Eec_YvA&feature=youtu.be).
 
 
 
@@ -187,6 +187,10 @@ Many of these technologies are new to me, and so I am learning best practices, d
 # Technologies
 
 HTML, CSS, Bootstrap, JavaScript, Node.js, Express.js, React.js, Redux.js, ReduxThunk, PostgreSQL, Sequelize.js, Passport.js, Chart.js, Heroku, Surge
+
+# Inspiration
+
+Built off of the portfolios shown on [Portfolio Charts](https://portfoliocharts.com/).
 
 # Author
 * [Matthew Fisher](https://github.com/MicroFish91)
