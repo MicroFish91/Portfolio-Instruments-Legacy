@@ -9,11 +9,11 @@ Portfolio Instruments provides strong benchmark portfolios from which to referen
 
 ## Motivation
 
-For a large part of my early adult life, I spent a great deal of time reading about effective passive investing strategies.  I have been an avid investor since I first began working, and I continue to believe that a solid passive investing strategy can greatly reduce the financial stress in ones life by providing great stability.  
+For a large part of my early adult life, I spent a great deal of time reading about effective passive investing strategies.  I have been an avid investor since I first began working, and I continue to believe that a solid passive investing strategy can greatly reduce the financial stress in ones life by providing greater stability.  
 
 Throughout my adult life, I have found myself repeating certain investing rebalance calculations which have become very tedious.  This website was built to automate and intuitively display much of this information required to analyze your passive portfolio.  
 
-Many newcomers are usually unsure of how to begin investing.  This website also aims to reduce the stress of passive investing for the new investor by breaking down strong benchmark portfolios that have been pre-chosen based on stability and popularity.
+Many newcomers are usually unaware of how to begin investing.  This website also aims to reduce the stress of passive investing for the new investor by breaking down strong benchmark portfolios that have been pre-chosen based on stability and popularity.
 
 
 ## Website Breakdown
@@ -60,7 +60,21 @@ Miscellaneous Assets - Goes into the "other" category and allows the user to tra
 
 <br /><br />
 
+Portfolio Snapshots - Dashboard that display all current snapshots being accounted for in the database. May be removed using the delete button.
+
+<br />
+
+![Portfolio Snapshots](/images/Portfolio_Snapshots.png)
+
+<br /><br />
+
 *  Rebalance Wizard - Takes your latest snapshot and sees if a rebalance event is required to bring your portfolio into proper risk/reward balance as configured in the user's settings.
+
+<br />
+
+![Rebalance Wizard](/images/Wizard_Rebalance.png)
+
+<br /><br />
 
 <br />
 
@@ -124,54 +138,55 @@ other = {asset1, asset2, asset3...... etc.}  // Stores all assets separately tha
 
 ## How to Use
 
-The website is not fully functional yet and is still not ready for normal use.  If hosting is currently available, you can test out the latest features by logging in [here](www.portfolioinstruments.com) using the following credentials - 
+The website is nearly fully functional but has not yet been officially hosted.  If hosting is currently available, you can test out the latest features by logging in [here](www.portfolioinstruments.com) using the following credentials to test - 
 
 Username: Matt ,
 Password: password
+
+... or you can make an account of your own and set up using the YouTube tutorial to get started.
 
 This section will be updated when all major features have been successfully added.
 
 
 ## YouTube Demo
 
-A video of the current features are shown [here](https://www.youtube.com/watch?v=A9sfTssVGz8).
+A video of the current features are shown [here](https://youtu.be/TgVjPnqxw18).
 
 
 
 ## Completed Features
 
 * Secure Login
-* Dashboard minus the Net Worth Graph
+* Dashboard
 * Add Snapshot tables to front-end and database
 * Select from a host of portfolio benchmarks
+* Rebalance Wizard
+* Breakdown of User Snapshots
 
 All features are based on a full-stack, meaning all requirements were fulfilled by using a back-end server and database while maintaining dynamic states on the React front-end.
 
 
 ## In-progress Features
 
-* Customizable user configuration settings
-* Net worth graph
-* Breakdown of all user snapshots
-* Live rebalance analysis
-
+* Custom Portfolio Benchmarks
+* Web Hosting
 
 ## Challenges
 
 I want to open by saying that this is a major coding project for just one person.  This project features the use of many nested tables that are difficult to query.  It features a complicated React front-end which has 25+ components.  It features a complicated segregation and format of assets that must dynamically display on both the front-end and secure itself into the back-end database.
 
-Due to the above, time is a huge constraint, and debugging in the context of such a large codebase can become very difficult. Juggling this project along with other class projects was extremely time consuming and challenging. 
+Due to the above, time was a huge constraint, and debugging in the context of such a large codebase can become very difficult. Juggling this project along with other class projects was extremely time consuming and challenging. 
 
-Managing states with React is also difficult if not properly architected and mapped out ahead of time due to the increasing scale of the project.  Databases and states were built with scalability in mind, which meant additional code to allow for future additions to the project.
+Managing states with React is also difficult if not properly architected and mapped out ahead of time due to the increasing scale of the project.  Databases and states were initially built with scalability in mind, which meant additional code to allow for future additions to the project.
 
-Proper data formatting on both the front and back-end proved especially challenging.
+Proper data formatting on both the front and back-end proved especially challenging at times.
 
 Many of these technologies are new to me, and so I am learning best practices, do's, and don'ts as I go.
 
 
 # Technologies
 
-HTML, CSS ,Bootstrap, JavaScript, Node.js, Express.js, React.js, Redux.js, ReduxThunk, PostgreSQL, Sequelize.js, Passport.js, Chart.js, Heroku, Surge
+HTML, CSS, Bootstrap, JavaScript, Node.js, Express.js, React.js, Redux.js, ReduxThunk, PostgreSQL, Sequelize.js, Passport.js, Chart.js, Heroku, Surge
 
 # Author
 * [Matthew Fisher](https://github.com/MicroFish91)
