@@ -8,6 +8,13 @@
     "type": "git",
     "url": "git+https://github.com/MicroFish91/Portfolio-Instruments.git"
   },
+  "scripts": {
+    "list": "nvm list",
+    "rollback": "nvm use 11.1.0",
+    "rollback_start": "npx nodemon app.js",
+    "sequelize_help": "./node_modules/.bin/sequelize -help",
+    "sequelize_db:migrate": "./node_modules/.bin/sequelize db:migrate"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -22,6 +29,7 @@
     "body-parser": "^1.18.3",
     "bootstrap": "^4.1.3",
     "chart.js": "^2.7.2",
+    "dotenv": "^10.0.0",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "jquery": "^3.3.1",
@@ -43,5 +51,9 @@
     "redux-form": "^7.4.2",
     "redux-thunk": "^2.3.0",
     "sequelize": "^4.39.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.11",
+    "sequelize-cli": "v5.0.0"
   }
 }
