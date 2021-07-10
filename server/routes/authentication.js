@@ -31,19 +31,6 @@ router.post("/signup", (req, res) => {
   let userName = req.body.userName;
   let userPassword = bcrypt.hashSync(req.body.userPassword, 8);
 
-  async function myTest() {
-    console.log("********** DB USERS: ************* ");
-    console.log(
-      await db.users.findAll({
-        where: {
-          userName: req.body.userName,
-        },
-      })
-    );
-  }
-
-  myTest();
-
   // Check to see if
   db.users
     .findAll({

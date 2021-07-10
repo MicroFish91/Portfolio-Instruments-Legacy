@@ -1,7 +1,4 @@
-const dotenv = require("dotenv");
 const env = require("./env");
-
-dotenv.config();
 
 module.exports = {
   development: {
