@@ -6,8 +6,6 @@ var extractJwt = require("passport-jwt").ExtractJwt;
 var bcrypt = require("bcryptjs");
 var LocalStrategy = require("passport-local");
 
-// const passportService = require("./passAuth");
-
 // Points to database userName and userPassword columns
 const localOptions = {
   usernameField: "userName",

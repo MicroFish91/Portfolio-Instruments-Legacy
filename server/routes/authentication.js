@@ -15,12 +15,13 @@ router.use(bodyParser.urlencoded({ extended: false }));
 const requireAuth = passport.authenticate("jwt", { session: false });
 const requireSignIn = passport.authenticate("local", { session: false });
 
-router.get("/protected", requireAuth, (req, res) => {
-  res.send("hello");
-});
+// router.get("/protected", requireAuth, (req, res) => {
+//   res.send("hello");
+// });
 
 // Sign-in
 router.post("/signin", requireSignIn, (req, res) => {
+  console.log("test");
   res.json({ token: tokenForUser(req.body.userName) });
 });
 
