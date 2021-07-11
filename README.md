@@ -180,7 +180,7 @@ Many of these technologies are new to me, and so I am learning best practices, d
 - 'npm install'
 - Make sure to have NVM installed and then...
 - Run: 'npm run rollback' (rolls back to older version of node)
-- Run: 'npm run rollback-start'
+- Run: 'npm run start'
 - Info: Not necessary to run sequelize-cli commands unless in development, but if wanting to use sequelize-cli commands - run using 'npm run sequelize -- ${insert your sequelize command here}'
 
 # Technologies
