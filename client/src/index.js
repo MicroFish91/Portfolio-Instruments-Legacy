@@ -1,13 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
-import {BrowserRouter} from 'react-router-dom';
-import { createStore, applyMiddleware, compose } from 'redux';
-import reduxThunk from 'redux-thunk';
-
-import reducers from './reducers';
-import Main from './components/Main';
-import registerServiceWorker from './registerServiceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import { applyMiddleware, compose, createStore } from "redux";
+import reduxThunk from "redux-thunk";
+import Main from "./components/Main";
+import reducers from "./reducers";
 
 // **** Global Store Variables ****
 // benchmarkName: e.g. "Permanent Portfolio"
@@ -19,14 +17,16 @@ import registerServiceWorker from './registerServiceWorker';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
-    reducers, 
-    {auth: { authenticated: localStorage.getItem('token') }},
-    composeEnhancers(applyMiddleware(reduxThunk))
+  reducers,
+  { auth: { authenticated: localStorage.getItem("token") } },
+  composeEnhancers(applyMiddleware(reduxThunk))
 );
 
-ReactDOM.render(<Provider store={store}>
-<BrowserRouter>
-<Main />
-</BrowserRouter>
-</Provider>, document.getElementById('root'));
-registerServiceWorker();
+ReactDOM.render(
+  <Provider store={store}>
+    <BrowserRouter>
+      <Main />
+    </BrowserRouter>
+  </Provider>,
+  document.getElementById("root")
+);

@@ -10,7 +10,7 @@
   },
   "scripts": {
     "rollback": "nvm use 11.1.0",
-    "rollback_start": "npx nodemon app.js",
+    "start": "npx nodemon app.js",
     "sequelize": "./node_modules/.bin/sequelize"
   },
   "author": "",
