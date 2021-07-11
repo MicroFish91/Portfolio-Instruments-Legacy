@@ -9,11 +9,9 @@
     "url": "git+https://github.com/MicroFish91/Portfolio-Instruments.git"
   },
   "scripts": {
-    "list": "nvm list",
     "rollback": "nvm use 11.1.0",
     "rollback_start": "npx nodemon app.js",
-    "sequelize_help": "./node_modules/.bin/sequelize -help",
-    "sequelize_db:migrate": "./node_modules/.bin/sequelize db:migrate"
+    "sequelize": "./node_modules/.bin/sequelize"
   },
   "author": "",
   "license": "ISC",

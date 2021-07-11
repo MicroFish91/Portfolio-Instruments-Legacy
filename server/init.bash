@@ -30,4 +30,9 @@
 # sequelize model:generate --name Users \
 # --attributes userName:string,userPassword:string,benchmark:string
 
-sequelize migration:create --name userIdToSnapshots
+# sequelize migration:create --name userIdToSnapshots
+
+# sequelize seed:generate --name users
+# sequelize db:seed:all
+
+npm run sequelize -- db:seed:all

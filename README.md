@@ -89,8 +89,6 @@ Portfolio Snapshots - Dashboard that display all current snapshots being account
 ## Code Structure
 
 - Database: PostgreSQL database migrated and queried using Sequelize.js
-- node_modules/.bin/sequelize db:migrate
-- node version 11.1.0
 
 - Server Routes: Set up using Express.js & Node.js
 
@@ -174,6 +172,16 @@ Managing states with React is also difficult if not properly architected and map
 Proper data formatting on both the front and back-end proved especially challenging at times.
 
 Many of these technologies are new to me, and so I am learning best practices, do's, and don'ts as I go.
+
+## Update Notes
+
+- I'm briefly revisiting this project after a few years of inactivity, here is what is required to set up the dev environment properly
+- Server:
+- 'npm install'
+- Make sure to have NVM installed and then...
+- Run: 'npm run rollback' (rolls back to older version of node)
+- Run: 'npm run rollback-start'
+- Info: Not necessary to run sequelize-cli commands unless in development, but if wanting to use sequelize-cli commands - run using 'npm run sequelize -- ${insert your sequelize command here}'
 
 # Technologies
 
