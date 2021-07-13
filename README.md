@@ -173,7 +173,7 @@ Proper data formatting on both the front and back-end proved especially challeng
 
 Many of these technologies are new to me, and so I am learning best practices, do's, and don'ts as I go.
 
-## Update Notes
+## Update Notes (7-12-21)
 
 - I'm briefly revisiting this project after a few years of inactivity, here is what is required to set up the dev environment properly
 - Server:
