@@ -1,4 +1,4 @@
-export const ASSET_TYPES = [
+const ASSET_TYPES = [
   "cash Cash/Money Market",
   "bills Fixed Income: Bills (1 YR or Less)",
   "stb Fixed Income: Short Term Bonds (1 - 3 YRS)",
@@ -27,3 +27,5 @@ export const ASSET_TYPES = [
   "iscg Equities: International Small Cap Growth (ISCG)",
   "iscv Equities: International Small Cap Value (ISCV)",
 ];
+
+export default ASSET_TYPES;

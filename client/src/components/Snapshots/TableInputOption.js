@@ -179,9 +179,7 @@ class TableInputOption extends Component {
 // Map to Global State
 function mapStateToProps(state) {
   return {
-    user: state.portfolioReducer.user,
     benchmarkTitles: state.portfolioReducer.benchmarkTitles,
-    coreAssets: state.portfolioReducer.coreAssets,
   };
 }
 
