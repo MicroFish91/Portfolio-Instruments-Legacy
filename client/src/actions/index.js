@@ -1,57 +1,39 @@
-import {AUTH_USER, AUTH_ERROR} from './types';
-import axios from 'axios';
+import axios from "axios";
+import { AUTH_ERROR, AUTH_USER } from "./types";
 
-export const signup = (formProps, callback) => async dispatch => {
+export const signup = (formProps, callback) => async (dispatch) => {
+  try {
+    const response = await axios.post("/signup", formProps);
 
-    try {
+    dispatch({ type: AUTH_USER, payload: response.data.token });
 
-        const response = await axios.post(
-            '/signup',
-            formProps
-        )
+    localStorage.setItem("token", response.data.token);
 
-        dispatch({ type: AUTH_USER, payload: response.data.token });
-
-        localStorage.setItem('token', response.data.token);
-
-        callback();
-
-    } catch (e) {
-
-        dispatch({ type: AUTH_ERROR, payload: 'Email in use' });
-
-    }
+    callback();
+  } catch (e) {
+    dispatch({ type: AUTH_ERROR, payload: "Email in use" });
+  }
 };
 
-export const signin = (formProps, callback) => async dispatch => {
+export const signin = (formProps, callback) => async (dispatch) => {
+  try {
+    const response = await axios.post("/signin", formProps);
 
-    try {
+    dispatch({ type: AUTH_USER, payload: response.data.token });
 
-        const response = await axios.post(
-            '/signin',
-            formProps
-        );
+    localStorage.setItem("token", response.data.token);
 
-        dispatch({ type: AUTH_USER, payload: response.data.token });
-
-        localStorage.setItem('token', response.data.token);
-
-        callback();
-
-    } catch (e) {
-
-        dispatch({ type: AUTH_ERROR, payload: 'Invalid login credentials.' });
-
-    }
+    callback();
+  } catch (e) {
+    dispatch({ type: AUTH_ERROR, payload: "Invalid login credentials." });
+  }
 };
 
-export const signout = () => dispatch => {
+export const signout = () => (dispatch) => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
 
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+  dispatch({ type: AUTH_USER, payload: "" });
 
-    dispatch({ type: AUTH_USER, payload: '' });
-
-    dispatch({ type: 'removeUser'});
-    
+  dispatch({ type: "removeUser" });
 };

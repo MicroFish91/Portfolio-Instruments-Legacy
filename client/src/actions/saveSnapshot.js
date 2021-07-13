@@ -1,9 +1,7 @@
-function saveSnapshot(){
-
-    return {
-        type: "saveSnapshot"
-    }
-
+function saveSnapshot() {
+  return {
+    type: "saveSnapshot",
+  };
 }
 
 export default saveSnapshot;

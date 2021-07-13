@@ -1,10 +1,8 @@
-function addOtherAsset(other){
-
-    return {
-        type: "addOtherAsset",
-        other: other
-    }
-
+function addOtherAsset(other) {
+  return {
+    type: "addOtherAsset",
+    other: other,
+  };
 }
 
 export default addOtherAsset;

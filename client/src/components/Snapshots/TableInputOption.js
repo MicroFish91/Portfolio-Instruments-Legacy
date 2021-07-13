@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import addOtherAsset from "../../actions/addOtherAssets";
+import { ASSET_TYPES } from "../../constants";
+import { findIndex } from "../../utils/tableFormatUtils";
 
 class TableInputOption extends Component {
   constructor(props) {
@@ -8,89 +10,71 @@ class TableInputOption extends Component {
     this.state = {
       assetPositions: ["", "Taxable", "0.00", ""],
     };
+    this.assetType = this.assetType.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.holdingType = this.holdingType.bind(this);
+    this.trackAmount = this.trackAmount.bind(this);
   }
 
   static defaultProps = {
-    assetTypes: [
-      "cash Cash/Money Market",
-      "bills Fixed Income: Bills (1 YR or Less)",
-      "stb Fixed Income: Short Term Bonds (1 - 3 YRS)",
-      "itb Fixed Income: Intermediate Term Bonds (3 - 15 YRS)",
-      "ltb Fixed Income: Long Term Bonds (15 - 30 YRS)",
-      "commodoties Real Assets: Commodoties",
-      "gold Real Assets: Gold",
-      "reits Real Assets: Real Estate Invesment Trusts (REITs)",
-      "tsm Equities: Total Stock Market (TSM)",
-      "dlcb Equities: Domestic Large Cap Blend (DLCB)",
-      "dlcg Equities: Domestic Large Cap Growth (DLCG)",
-      "dlcv Equities: Domestic Large Cap Value (DLCV)",
-      "dmcb Equities: Domestic Medium Cap Blend (DMCB)",
-      "dmcg Equities: Domestic Medium Cap Growth (DMCG)",
-      "dmcv Equities: Domestic Medium Cap Value (DMCV)",
-      "dscb Equities: Domestic Small Cap Blend (DSCB)",
-      "dscg Equities: Domestic Small Cap Growth (DSCG)",
-      "dscv Equities: Domestic Small Cap Value (DSCV)",
-      "ilcb Equities: International Large Cap Blend (ILCB)",
-      "ilcg Equities: International Large Cap Growth (ILCG)",
-      "ilcv Equities: International Large Cap Value (ILCV)",
-      "imcb Equities: International Medium Cap Blend (IMCB)",
-      "imcg Equities: International Medium Cap Growth (IMCG)",
-      "imcv Equities: International Medium Cap Value (IMCV)",
-      "iscb Equities: International Small Cap Blend (ISCB)",
-      "iscg Equities: International Small Cap Growth (ISCG)",
-      "iscv Equities: International Small Cap Value (ISCV)",
-    ],
+    assetTypes: ASSET_TYPES,
   };
 
-  // Updates the value of each field into the component state in real time
-  trackAmount(event) {
-    // Copy by value to work around immutability
-    let newPositions = this.state.assetPositions.slice();
-
-    newPositions[event.target.id] = event.target.value;
-
-    // Set State
-    this.setState({ assetPositions: newPositions });
-  }
-
-  // Account Holding State Update in Real Time
-  holdingType(event) {
-    // Copy by value to work around immuntability
-    let newPositions = this.state.assetPositions.slice();
-
-    newPositions[1] = event.target.value;
-
-    // Set State
-    this.setState({ assetPositions: newPositions });
-  }
-
   // Account Asset Choice State Update in Real Time
-  assetType(event) {
-    // Copy by value to work around immuntability
-    let newPositions = this.state.assetPositions.slice();
+  assetType(e) {
+    const newPositions = this.state.assetPositions.slice();
+    newPositions[3] = e.target.value;
+    this.setState({ assetPositions: newPositions });
+  }
 
-    newPositions[3] = event.target.value;
+  handleSubmit(e) {
+    e.preventDefault();
 
-    // Set State
+    let newAssets = this.state.assetPositions.slice();
+    newAssets[2] = "0.00";
+
+    let ticker = findIndex(this.props.assetTypes, this.state.assetPositions[3]);
+    ticker = this.props.assetTypes[ticker].split(" ");
+    ticker = ticker[0];
+
+    this.props.onAddOtherAsset({
+      location: this.state.assetPositions[0],
+      type: this.state.assetPositions[1],
+      amount: this.state.assetPositions[2],
+      assetType: ticker,
+    });
+
+    this.setState({ assetPositions: newAssets });
+  }
+
+  // Account Holding State Updates
+  holdingType(e) {
+    const newPositions = this.state.assetPositions.slice();
+    newPositions[1] = e.target.value;
+    this.setState({ assetPositions: newPositions });
+  }
+
+  // Tracks the value of each field
+  trackAmount(e) {
+    const newPositions = this.state.assetPositions.slice();
+    newPositions[e.target.id] = e.target.value;
     this.setState({ assetPositions: newPositions });
   }
 
   render() {
     // Filter out benchmark core assets
-    var assetMap = this.props.assetTypes.filter((asset) => {
-      let valueId = asset.split(" ");
-
+    let assetMap = this.props.assetTypes.filter((asset) => {
+      const valueId = asset.split(" ");
       // See if current asset is a benchmark title, filter if so, else return
       if (this.props.benchmarkTitles.includes(valueId[0])) {
         return false;
       }
-
       return true;
     });
 
     // Reformat select - option syntax to assetMap
     assetMap = assetMap.map((asset, index) => {
-      let valueId = asset.split(" ");
+      const valueId = asset.split(" ");
       let displayValue = asset.split(" ");
 
       displayValue.shift();
@@ -98,10 +82,8 @@ class TableInputOption extends Component {
 
       // Initialize initial asset type if first render after filtering benchmarkTitles
       if (this.state.assetPositions[3] === "" && index === 0) {
-        let newPositions = this.state.assetPositions.slice();
-
+        const newPositions = this.state.assetPositions.slice();
         newPositions[3] = displayValue;
-
         this.setState({ assetPositions: newPositions });
       }
 
@@ -115,7 +97,7 @@ class TableInputOption extends Component {
     return (
       <div class="row">
         <div class="col-lg-12">
-          <form method="post" class="card">
+          <form method="post" class="card" onSubmit={this.handleSubmit}>
             <div class="card-header">
               <h3 class="card-title">Miscellaneous Assets</h3>
             </div>
@@ -132,7 +114,8 @@ class TableInputOption extends Component {
                       placeholder="Ex. Vanguard"
                       id="0"
                       value={this.state.assetPositions[0]}
-                      onChange={this.trackAmount.bind(this)}
+                      onChange={this.trackAmount}
+                      required
                     ></input>
                   </div>
 
@@ -145,43 +128,12 @@ class TableInputOption extends Component {
                       placeholder="Ex. 320.25"
                       id="2"
                       value={this.state.assetPositions[2]}
-                      onChange={this.trackAmount.bind(this)}
+                      onChange={this.trackAmount}
+                      required
                     ></input>
                   </div>
 
-                  <button
-                    type="submit"
-                    class="btn btn-primary ml-auto"
-                    onClick={(event) => {
-                      event.preventDefault();
-
-                      var newAssets = this.state.assetPositions.slice();
-
-                      newAssets[2] = "0.00";
-
-                      // index
-                      var ticker = findIndex(
-                        this.props.assetTypes,
-                        this.state.assetPositions[3]
-                      );
-
-                      // extract ticker
-                      ticker = this.props.assetTypes[ticker].split(" ");
-
-                      ticker = ticker[0];
-
-                      console.log(ticker);
-
-                      this.props.onAddOtherAsset({
-                        location: this.state.assetPositions[0],
-                        type: this.state.assetPositions[1],
-                        amount: this.state.assetPositions[2],
-                        assetType: ticker,
-                      });
-
-                      this.setState({ assetPositions: newAssets });
-                    }}
-                  >
+                  <button type="submit" class="btn btn-primary ml-auto">
                     Add Misc Asset
                   </button>
                 </div>
@@ -194,7 +146,7 @@ class TableInputOption extends Component {
                       name="type"
                       class="form-control custom-select"
                       id="1"
-                      onChange={this.holdingType.bind(this)}
+                      onChange={this.holdingType}
                       value={this.state.assetPositions[1]}
                     >
                       <option value="Taxable">Taxable</option>
@@ -208,7 +160,7 @@ class TableInputOption extends Component {
                     <select
                       name="assets"
                       class="form-control custom-select"
-                      onChange={this.assetType.bind(this)}
+                      onChange={this.assetType}
                       value={this.state.assetPositions[3]}
                     >
                       {assetMap}
@@ -222,31 +174,6 @@ class TableInputOption extends Component {
       </div>
     );
   }
-}
-
-// Find Index of query that matches the searched array
-function findIndex(searchArray, searchQuery) {
-  var indexResult = 0;
-  var searchHold;
-
-  searchArray.forEach((string, index) => {
-    searchHold = string.split(" ");
-    searchHold.shift();
-    searchHold = searchHold.join(" ");
-
-    if (searchHold.trim() === searchQuery.trim()) {
-      indexResult = index;
-    }
-
-    searchHold = string.split(" ");
-    searchHold = searchHold.shift();
-
-    if (searchHold.trim() === searchQuery.trim()) {
-      indexResult = index;
-    }
-  });
-
-  return indexResult;
 }
 
 // Map to Global State
