@@ -10,6 +10,7 @@ class PortfolioSnapshots extends Component {
       index: 0,
       snapshotsArray: [],
     };
+    this.onDelete = this.onDelete.bind(this);
   }
 
   componentWillMount() {
@@ -101,7 +102,7 @@ class PortfolioSnapshots extends Component {
         (snapshots) => {
           return (
             <SnapshotRow
-              onDelete={this.onDelete.bind(this)}
+              onDelete={this.onDelete}
               snapshots={snapshots}
               index={this.state.index}
             />
